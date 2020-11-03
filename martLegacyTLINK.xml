@@ -1,0 +1,1849 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+      <changeSet author="DBA" id="20170811-0">
+            <comment>============================================================================</comment>
+            <comment> Title: MART Legacy TLINK                                                   </comment>
+            <comment>                                                                            </comment>
+            <comment>                                                                            </comment>
+            <comment> Version Control:                                                           </comment>
+            <comment>                                                                            </comment>
+            <comment>   Date     Who Notes                                                       </comment>
+            <comment>   -------- --- ----------------------------------------------------------  </comment>
+            <comment>   19.07.17 NS  First release                                               </comment>
+            <comment>   04.08.17 TW  Revised to reflect current database state,                  </comment>
+            <comment>                i.e. _ORIG or _NEW table naming idea not yet implemented    </comment>
+            <comment>   11.08.17 TW  Correct conflicting changeSet ids, missing schemaName       </comment>
+            <comment>                in createIndex code                                         </comment>
+            <comment>                                                                            </comment>
+            <comment>============================================================================</comment>
+            <empty/>
+      </changeSet>
+   
+    <changeSet author="DBA" id="20170811-1">
+            <comment>============================================================================</comment>
+            <comment> MART Legacy TLINKWH New                                                    </comment>
+            <comment>============================================================================</comment>
+            <empty/>
+    </changeSet>
+
+    <changeSet author="DBA" id="1500542660361-1" >
+      <comment>----------------------------------------------------------------------------</comment>
+      <comment> Branch DIM                                                                 </comment>
+      <comment>----------------------------------------------------------------------------</comment>
+        <createTable schemaName="martLegacyTLINK" tableName="BRANCH_DIM">
+            <column name="SK_BRANCH_ID" type="INT"/>
+            <column name="SHOP_NUM" type="INT"/>
+            <column name="ABTA_NUM" type="VARCHAR(10)"/>
+            <column name="OUTLET_TYPE" type="VARCHAR(2)"/>
+            <column name="SHOP_NAME" type="VARCHAR(35)"/>
+            <column name="SK_REGION_ID" type="INT"/>
+            <column name="ADDRESS_LINE1" type="VARCHAR(50)"/>
+            <column name="ADDRESS_LINE2" type="VARCHAR(50)"/>
+            <column name="ADDRESS_LINE3" type="VARCHAR(50)"/>
+            <column name="ADDRESS_LINE4" type="VARCHAR(50)"/>
+            <column name="ADDRESS_LINE5" type="VARCHAR(50)"/>
+            <column name="POSTCODE" type="VARCHAR(12)"/>
+            <column name="EMAIL" type="VARCHAR(60)"/>
+            <column name="BRANCH_MANAGER_NAME" type="VARCHAR(50)"/>
+            <column name="VALID_FROM" type="DATETIME"/>
+            <column name="VALID_TO" type="DATETIME"/>
+            <column name="AMENDED_DATE" type="DATETIME"/>
+            <column name="AMENDED_BY" type="VARCHAR(30)"/>
+            <column name="HYPER_SHOP_FLAG" type="VARCHAR(1)"/>
+            <column name="HYPER_FRANCHISE_SHOP_FLAG" type="VARCHAR(1)"/>
+            <column name="MANAGER_EMAIL" type="VARCHAR(60)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="DBA" id="1500542660361-2" >
+      <comment>----------------------------------------------------------------------------</comment>
+      <comment> CWS_W_DAGENT                                                               </comment>
+      <comment>----------------------------------------------------------------------------</comment>
+        <createTable schemaName="martLegacyTLINK" tableName="CMS_W_DAGENT">
+            <column name="ROW_DATE" type="DATETIME"/>
+            <column name="ACD" type="INT"/>
+            <column name="SPLIT" type="INT"/>
+            <column name="EXTENSION" type="VARCHAR(7)"/>
+            <column name="LOG_ID" type="VARCHAR(10)"/>
+            <column name="LOC_ID" type="INT"/>
+            <column name="RSV_LEVEL" type="INT"/>
+            <column name="I_STAFF_TIME" type="INT"/>
+            <column name="TI_STAFF_TIME" type="INT"/>
+            <column name="I_AVAIL_TIME" type="INT"/>
+            <column name="TI_AVAIL_TIME" type="INT"/>
+            <column name="I_ACD_TIME" type="INT"/>
+            <column name="I_ACW_TIME" type="INT"/>
+            <column name="I_ACW_OUT_TIME" type="INT"/>
+            <column name="I_ACW_IN_TIME" type="INT"/>
+            <column name="TI_AUX_TIME" type="INT"/>
+            <column name="I_AUX_OUT_TIME" type="INT"/>
+            <column name="I_AUX_IN_TIME" type="INT"/>
+            <column name="I_OTHER_TIME" type="INT"/>
+            <column name="ACW_IN_CALLS" type="INT"/>
+            <column name="ACW_IN_TIME" type="INT"/>
+            <column name="AUX_IN_CALLS" type="INT"/>
+            <column name="AUX_IN_TIME" type="INT"/>
+            <column name="ACW_OUT_CALLS" type="INT"/>
+            <column name="ACW_OUT_TIME" type="INT"/>
+            <column name="ACW_OUT_OFF_CALLS" type="INT"/>
+            <column name="ACW_OUT_OFF_TIME" type="INT"/>
+            <column name="ACW_OUT_ADJ_CALLS" type="INT"/>
+            <column name="AUX_OUT_CALLS" type="INT"/>
+            <column name="AUX_OUT_TIME" type="INT"/>
+            <column name="AUX_OUT_OFF_CALLS" type="INT"/>
+            <column name="AUX_OUT_OFF_TIME" type="INT"/>
+            <column name="AUX_OUT_ADJ_CALLS" type="INT"/>
+            <column name="EVENT_1" type="INT"/>
+            <column name="EVENT_2" type="INT"/>
+            <column name="EVENT_3" type="INT"/>
+            <column name="EVENT_4" type="INT"/>
+            <column name="EVENT_5" type="INT"/>
+            <column name="EVENT_6" type="INT"/>
+            <column name="EVENT_7" type="INT"/>
+            <column name="EVENT_8" type="INT"/>
+            <column name="EVENT_9" type="INT"/>
+            <column name="ASSISTS" type="INT"/>
+            <column name="ACD_CALLS" type="INT"/>
+            <column name="ACD_TIME" type="INT"/>
+            <column name="ACW_TIME" type="INT"/>
+            <column name="O_ACD_CALLS" type="INT"/>
+            <column name="O_ACD_TIME" type="INT"/>
+            <column name="O_ACW_TIME" type="INT"/>
+            <column name="DA_ACD_CALLS" type="INT"/>
+            <column name="DA_ANS_TIME" type="INT"/>
+            <column name="DA_ABN_CALLS" type="INT"/>
+            <column name="DA_ABN_TIME" type="INT"/>
+            <column name="HOLD_CALLS" type="INT"/>
+            <column name="HOLD_TIME" type="INT"/>
+            <column name="HOLD_ABN_CALLS" type="INT"/>
+            <column name="TRANSFERRED" type="INT"/>
+            <column name="CONFERENCE" type="INT"/>
+            <column name="ABNC_ALLS" type="INT"/>
+            <column name="ABN_TIME" type="INT"/>
+            <column name="I_RING_TIME" type="INT"/>
+            <column name="I_DA_ACD_TIME" type="INT"/>
+            <column name="I_DA_ACW_TIME" type="INT"/>
+            <column name="DA_ACD_TIME" type="INT"/>
+            <column name="DA_ACW_TIME" type="INT"/>
+            <column name="DA_OTHER_CALLS" type="INT"/>
+            <column name="DA_OTHER_TIME" type="INT"/>
+            <column name="RING_CALLS" type="INT"/>
+            <column name="RING_TIME" type="INT"/>
+            <column name="ANSRING_TIME" type="INT"/>
+            <column name="TI_OTHER_TIME" type="INT"/>
+            <column name="DA_ACW_IN_CALLS" type="INT"/>
+            <column name="DA_ACW_IN_TIME" type="INT"/>
+            <column name="DA_ACW_O_CALLS" type="INT"/>
+            <column name="DA_ACW_O_TIME" type="INT"/>
+            <column name="DA_ACW_O_ADJ_CALLS" type="INT"/>
+            <column name="DA_ACW_O_OFF_CALLS" type="INT"/>
+            <column name="DA_ACW_O_OFF_TIME" type="INT"/>
+            <column name="NO_ANSRE_DIR" type="INT"/>
+            <column name="INCOMPLETE" type="INT"/>
+            <column name="ACD_AUX_OUT_CALLS" type="INT"/>
+            <column name="I_ACD_AUX_OUT_TIME" type="INT"/>
+            <column name="I_ACD_AUX_IN_TIME" type="INT"/>
+            <column name="I_ACD_OTHER_TIME" type="INT"/>
+            <column name="PHANTOM_ABNS" type="INT"/>
+            <column name="I_AUX_TIME" type="INT"/>
+            <column name="HOLD_ACD_TIME" type="INT"/>
+            <column name="DA_RELEASE" type="INT"/>
+            <column name="ACD_RELEASE" type="INT"/>
+            <column name="TI_AUX_TIME_0" type="INT"/>
+            <column name="TI_AUX_TIME_1" type="INT"/>
+            <column name="TI_AUX_TIME_2" type="INT"/>
+            <column name="TI_AUX_TIME_3" type="INT"/>
+            <column name="TI_AUX_TIME_4" type="INT"/>
+            <column name="TI_AUX_TIME_5" type="INT"/>
+            <column name="TI_AUX_TIME_6" type="INT"/>
+            <column name="TI_AUX_TIME_7" type="INT"/>
+            <column name="TI_AUX_TIME_8" type="INT"/>
+            <column name="TI_AUX_TIME_9" type="INT"/>
+            <column name="ACD_CALLS_R1" type="INT"/>
+            <column name="ACD_CALLS_R2" type="INT"/>
+            <column name="I_OTHERS_TBY_TIME" type="INT"/>
+            <column name="I_AUX_STBY_TIME" type="INT"/>
+            <column name="PROCESS_DATE" type="DATETIME"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="DBA" id="1500542660361-3" >
+      <comment>----------------------------------------------------------------------------</comment>
+      <comment> CMS_W_DSPLIT                                                               </comment>
+      <comment>----------------------------------------------------------------------------</comment>
+        <createTable schemaName="martLegacyTLINK" tableName="CMS_W_DSPLIT">
+            <column name="ROW_DATE" type="DATETIME"/>
+            <column name="ACD" type="INT"/>
+            <column name="SPLIT" type="INT"/>
+            <column name="I_STAFF_TIME" type="INT"/>
+            <column name="I_AVAIL_TIME" type="INT"/>
+            <column name="I_ACD_TIME" type="INT"/>
+            <column name="I_ACW_TIME" type="INT"/>
+            <column name="I_ACW_OUT_TIME" type="INT"/>
+            <column name="I_ACW_IN_TIME" type="INT"/>
+            <column name="I_AUX_TIME" type="INT"/>
+            <column name="I_AUX_OUT_TIME" type="INT"/>
+            <column name="I_AUX_IN_TIME" type="INT"/>
+            <column name="I_OTHER_TIME" type="INT"/>
+            <column name="MAX_STAFFED" type="INT"/>
+            <column name="ACW_IN_CALLS" type="INT"/>
+            <column name="ACW_IN_TIME" type="INT"/>
+            <column name="AUX_IN_CALLS" type="INT"/>
+            <column name="AUX_IN_TIME" type="INT"/>
+            <column name="ACW_OUT_CALLS" type="INT"/>
+            <column name="ACW_OUT_TIME" type="INT"/>
+            <column name="ACW_OUT_OFF_CALLS" type="INT"/>
+            <column name="ACW_OUT_OFF_TIME" type="INT"/>
+            <column name="ACW_OUT_ADJ_CALLS" type="INT"/>
+            <column name="AUX_OUT_CALLS" type="INT"/>
+            <column name="AUX_OUT_TIME" type="INT"/>
+            <column name="AUX_OUT_OFF_CALLS" type="INT"/>
+            <column name="AUX_OUT_OFF_TIME" type="INT"/>
+            <column name="AUX_OUT_ADJ_CALLS" type="INT"/>
+            <column name="EVENT_1" type="INT"/>
+            <column name="EVENT_2" type="INT"/>
+            <column name="EVENT_3" type="INT"/>
+            <column name="EVENT_4" type="INT"/>
+            <column name="EVENT_5" type="INT"/>
+            <column name="EVENT_6" type="INT"/>
+            <column name="EVENT_7" type="INT"/>
+            <column name="EVENT_8" type="INT"/>
+            <column name="EVENT_9" type="INT"/>
+            <column name="ASSISTS" type="INT"/>
+            <column name="INFLOW_CALLS" type="INT"/>
+            <column name="ACD_CALLS" type="INT"/>
+            <column name="ANS_TIME" type="INT"/>
+            <column name="ACD_TIME" type="INT"/>
+            <column name="ACW_TIME" type="INT"/>
+            <column name="O_ACD_CALLS" type="INT"/>
+            <column name="O_ACD_TIME" type="INT"/>
+            <column name="O_ACW_TIME" type="INT"/>
+            <column name="ACD_CALLS1" type="INT"/>
+            <column name="ACD_CALLS2" type="INT"/>
+            <column name="ACD_CALLS3" type="INT"/>
+            <column name="ACD_CALLS4" type="INT"/>
+            <column name="ACD_CALLS5" type="INT"/>
+            <column name="ACD_CALLS6" type="INT"/>
+            <column name="ACD_CALLS7" type="INT"/>
+            <column name="ACD_CALLS8" type="INT"/>
+            <column name="ACD_CALLS9" type="INT"/>
+            <column name="ACD_CALLS10" type="INT"/>
+            <column name="BACK_UP_CALLS" type="INT"/>
+            <column name="HOLD_CALLS" type="INT"/>
+            <column name="HOLD_TIME" type="INT"/>
+            <column name="HOLD_ABN_CALLS" type="INT"/>
+            <column name="TRANSFERRED" type="INT"/>
+            <column name="CONFERENCE" type="INT"/>
+            <column name="ABN_CALLS" type="INT"/>
+            <column name="ABN_TIME" type="INT"/>
+            <column name="ABN_CALLS1" type="INT"/>
+            <column name="ABN_CALLS2" type="INT"/>
+            <column name="ABN_CALLS3" type="INT"/>
+            <column name="ABN_CALLS4" type="INT"/>
+            <column name="ABN_CALLS5" type="INT"/>
+            <column name="ABN_CALLS6" type="INT"/>
+            <column name="ABN_CALLS7" type="INT"/>
+            <column name="ABN_CALLS8" type="INT"/>
+            <column name="ABN_CALLS9" type="INT"/>
+            <column name="ABN_CALLS10" type="INT"/>
+            <column name="DEQUE_CALLS" type="INT"/>
+            <column name="DEQUE_TIME" type="INT"/>
+            <column name="BUSY_CALLS" type="INT"/>
+            <column name="BUSY_TIME" type="INT"/>
+            <column name="DISC_CALLS" type="INT"/>
+            <column name="DISC_TIME" type="INT"/>
+            <column name="OUTFLOW_CALLS" type="INT"/>
+            <column name="OUTFLOW_TIME" type="INT"/>
+            <column name="INTERFLOW_CALLS" type="INT"/>
+            <column name="LOW_CALLS" type="INT"/>
+            <column name="MED_CALLS" type="INT"/>
+            <column name="HIGH_CALLS" type="INT"/>
+            <column name="TOP_CALLS" type="INT"/>
+            <column name="ACCEPTABLE" type="INT"/>
+            <column name="SERVICE_LEVEL" type="INT"/>
+            <column name="PERIOD1" type="INT"/>
+            <column name="PERIOD2" type="INT"/>
+            <column name="PERIOD3" type="INT"/>
+            <column name="PERIOD4" type="INT"/>
+            <column name="PERIOD5" type="INT"/>
+            <column name="PERIOD6" type="INT"/>
+            <column name="PERIOD7" type="INT"/>
+            <column name="PERIOD8" type="INT"/>
+            <column name="PERIOD9" type="INT"/>
+            <column name="MAX_IN_QUEUE" type="INT"/>
+            <column name="MAX_OCW_TIME" type="INT"/>
+            <column name="CALLS_OFFERED" type="INT"/>
+            <column name="PERIOD_CHG" type="INT"/>
+            <column name="SVC_LEVEL_CHG" type="INT"/>
+            <column name="I_RINGTIME" type="INT"/>
+            <column name="RING_TIME" type="INT"/>
+            <column name="RING_CALLS" type="INT"/>
+            <column name="ABN_RING_CALLS" type="INT"/>
+            <column name="O_ABN_CALLS" type="INT"/>
+            <column name="O_OTHER_CALLS" type="INT"/>
+            <column name="DA_ACW_INCALLS" type="INT"/>
+            <column name="DA_ACW_INTIME" type="INT"/>
+            <column name="DA_ACW_OCALLS" type="INT"/>
+            <column name="DA_ACW_OTIME" type="INT"/>
+            <column name="NO_ANSRE_DIR" type="INT"/>
+            <column name="INCOMPLETE" type="INT"/>
+            <column name="ACD_AUXOUT_CALLS" type="INT"/>
+            <column name="I_ACDAUX_OUT_TIME" type="INT"/>
+            <column name="I_ACD_AUX_IN_TIME" type="INT"/>
+            <column name="I_ACD_OTHER_TIME" type="INT"/>
+            <column name="PHANTOM_ABNS" type="INT"/>
+            <column name="OTHER_CALLS" type="INT"/>
+            <column name="OTHER_TIME" type="INT"/>
+            <column name="SLVL_ABNS" type="INT"/>
+            <column name="SLVL_OUTFLOWS" type="INT"/>
+            <column name="I_ARRIVED" type="INT"/>
+            <column name="I_AUX_TIME0" type="INT"/>
+            <column name="I_AUX_TIME1" type="INT"/>
+            <column name="I_AUX_TIME2" type="INT"/>
+            <column name="I_AUX_TIME3" type="INT"/>
+            <column name="I_AUX_TIME4" type="INT"/>
+            <column name="I_AUX_TIME5" type="INT"/>
+            <column name="I_AUX_TIME6" type="INT"/>
+            <column name="I_AUX_TIME7" type="INT"/>
+            <column name="I_AUX_TIME8" type="INT"/>
+            <column name="I_AUX_TIME9" type="INT"/>
+            <column name="I_DA_ACD_TIME" type="INT"/>
+            <column name="I_DA_ACW_TIME" type="INT"/>
+            <column name="I_TAVAIL_TIME" type="INT"/>
+            <column name="I_TAUX_TIME" type="INT"/>
+            <column name="MAX_TOP" type="INT"/>
+            <column name="I_NORM_TIME" type="INT"/>
+            <column name="I_OL1_TIME" type="INT"/>
+            <column name="I_OL2_TIME" type="INT"/>
+            <column name="I_T_OTHER_TIME" type="INT"/>
+            <column name="MAX_TOT_PERCENTS" type="INT"/>
+            <column name="ACD_CALLS_R1" type="INT"/>
+            <column name="ACD_CALLS_R2" type="INT"/>
+            <column name="I_ACD_TIME_R1" type="INT"/>
+            <column name="I_ACD_TIME_R2" type="INT"/>
+            <column name="I_ACW_TIME_R1" type="INT"/>
+            <column name="I_ACW_TIME_R2" type="INT"/>
+            <column name="I_RING_TIME_R1" type="INT"/>
+            <column name="I_RING_TIME_R2" type="INT"/>
+            <column name="I_OTHER_TIME_R1" type="INT"/>
+            <column name="I_OTHER_TIME_R2" type="INT"/>
+            <column name="I_AUX_TIME_R1" type="INT"/>
+            <column name="I_AUX_TIME_R2" type="INT"/>
+            <column name="I_OTHERST_BY_TIME_R1" type="INT"/>
+            <column name="I_OTHERST_BY_TIME_R2" type="INT"/>
+            <column name="I_AUXST_BY_TIME_R1" type="INT"/>
+            <column name="I_AUXST_BY_TIME_R2" type="INT"/>
+            <column name="I_BEHIND_TIME" type="INT"/>
+            <column name="I_AUTO_RESERVE_TIME" type="INT"/>
+            <column name="TARGET_PERCENT" type="INT"/>
+            <column name="TARGET_PCT_CHG" type="INT"/>
+            <column name="TARGET_SECONDS" type="INT"/>
+            <column name="TARGET_SEC_CHG" type="INT"/>
+            <column name="TARGET_ACD_CALLS" type="INT"/>
+            <column name="TARGET_ABNS" type="INT"/>
+            <column name="TARGET_OUT_FLOWS" type="INT"/>
+            <column name="PROCESS_DATE" type="DATETIME"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="DBA" id="1500542660361-4" >
+      <comment>----------------------------------------------------------------------------</comment>
+      <comment> CMS_W_DVDN                                                                 </comment>
+      <comment>----------------------------------------------------------------------------</comment>
+        <createTable schemaName="martLegacyTLINK" tableName="CMS_W_DVDN">
+            <column name="ROW_DATE" type="DATETIME"/>
+            <column name="ACD" type="INT"/>
+            <column name="VDN" type="VARCHAR(7)"/>
+            <column name="VECTOR" type="INT"/>
+            <column name="INFLOW_CALLS" type="INT"/>
+            <column name="ANS_TIME" type="INT"/>
+            <column name="ACD_CALLS" type="INT"/>
+            <column name="ACD_TIME" type="INT"/>
+            <column name="BACKUP_CALLS" type="INT"/>
+            <column name="TRANSFERRED" type="INT"/>
+            <column name="ABN_CALLS" type="INT"/>
+            <column name="ABN_TIME" type="INT"/>
+            <column name="ABN_QUE_CALLS" type="INT"/>
+            <column name="BUSY_CALLS" type="INT"/>
+            <column name="BUSY_TIME" type="INT"/>
+            <column name="DISC_CALLS" type="INT"/>
+            <column name="DISC_TIME" type="INT"/>
+            <column name="OTHER_CALLS" type="INT"/>
+            <column name="OTHER_TIME" type="INT"/>
+            <column name="OUTFLOW_CALLS" type="INT"/>
+            <column name="OUTFLOW_TIME" type="INT"/>
+            <column name="INTERFLOW_CALLS" type="INT"/>
+            <column name="LOOKFLOW_CALLS" type="INT"/>
+            <column name="LOOK_ATTEMPTS" type="INT"/>
+            <column name="ADJ_ROUTED" type="INT"/>
+            <column name="ADJ_ATTEMPTS" type="INT"/>
+            <column name="IN_TIME" type="INT"/>
+            <column name="IN_CALLS" type="INT"/>
+            <column name="CONNECT_CALLS" type="INT"/>
+            <column name="CONNECT_TIME" type="INT"/>
+            <column name="ACCEP_TABLE" type="INT"/>
+            <column name="ACW_TIME" type="INT"/>
+            <column name="ANSCONN_CALLS1" type="INT"/>
+            <column name="ANSCONN_CALLS2" type="INT"/>
+            <column name="ANSCONN_CALLS3" type="INT"/>
+            <column name="ANSCONN_CALLS4" type="INT"/>
+            <column name="ANSCONN_CALLS5" type="INT"/>
+            <column name="ANSCONN_CALLS6" type="INT"/>
+            <column name="ANSCONN_CALLS7" type="INT"/>
+            <column name="ANSCONN_CALLS8" type="INT"/>
+            <column name="ANSCONN_CALLS9" type="INT"/>
+            <column name="ANSCONN_CALLS10" type="INT"/>
+            <column name="ABN_CALLS1" type="INT"/>
+            <column name="ABN_CALLS2" type="INT"/>
+            <column name="ABN_CALLS3" type="INT"/>
+            <column name="ABN_CALLS4" type="INT"/>
+            <column name="ABN_CALLS5" type="INT"/>
+            <column name="ABN_CALLS6" type="INT"/>
+            <column name="ABN_CALLS7" type="INT"/>
+            <column name="ABN_CALLS8" type="INT"/>
+            <column name="ABN_CALLS9" type="INT"/>
+            <column name="ABN_CALLS10" type="INT"/>
+            <column name="PERIOD1" type="INT"/>
+            <column name="PERIOD2" type="INT"/>
+            <column name="PERIOD3" type="INT"/>
+            <column name="PERIOD4" type="INT"/>
+            <column name="PERIOD5" type="INT"/>
+            <column name="PERIOD6" type="INT"/>
+            <column name="PERIOD7" type="INT"/>
+            <column name="PERIOD8" type="INT"/>
+            <column name="PERIOD9" type="INT"/>
+            <column name="SVC_LEVEL_CHG" type="INT"/>
+            <column name="PERIOD_CHG" type="INT"/>
+            <column name="SERVICE_LEVEL" type="INT"/>
+            <column name="ABN_RING_CALLS" type="INT"/>
+            <column name="RING_TIME" type="INT"/>
+            <column name="RING_CALLS" type="INT"/>
+            <column name="HOLD_ABN_CALLS" type="INT"/>
+            <column name="HOLD_CALLS" type="INT"/>
+            <column name="HOLD_TIME" type="INT"/>
+            <column name="MAX_OCW_TIME" type="INT"/>
+            <column name="MAX_WAITING" type="INT"/>
+            <column name="CONN_TALK_TIME" type="INT"/>
+            <column name="NO_ANSRE_DIR" type="INT"/>
+            <column name="SKILL1" type="INT"/>
+            <column name="SKILL2" type="INT"/>
+            <column name="SKILL3" type="INT"/>
+            <column name="SKILL_CALLS1" type="INT"/>
+            <column name="SKILL_CALLS2" type="INT"/>
+            <column name="SKILL_CALLS3" type="INT"/>
+            <column name="SKILL_TIME1" type="INT"/>
+            <column name="SKILL_TIME2" type="INT"/>
+            <column name="SKILL_TIME3" type="INT"/>
+            <column name="SKILL_ACW_TIME1" type="INT"/>
+            <column name="SKILL_ACW_TIME2" type="INT"/>
+            <column name="SKILL_ACW_TIME3" type="INT"/>
+            <column name="INCOMPLETE" type="INT"/>
+            <column name="BH_START_TIME" type="INT"/>
+            <column name="BH_INTERVAL" type="INT"/>
+            <column name="BH_VDN_CALLS" type="INT"/>
+            <column name="BH_ACD_CALLS" type="INT"/>
+            <column name="BH_ACD_TIME" type="INT"/>
+            <column name="BH_ABN_CALLS" type="INT"/>
+            <column name="BH_BUSY_CALLS" type="INT"/>
+            <column name="BH_DISCCALLS" type="INT"/>
+            <column name="BH_OTHER_CALLS" type="INT"/>
+            <column name="HOLD_ACD_CALLS" type="INT"/>
+            <column name="HOLD_ACD_TIME" type="INT"/>
+            <column name="PHANTOM_ABNS" type="INT"/>
+            <column name="RETURN_CALLS" type="INT"/>
+            <column name="VDISC_CALLS" type="INT"/>
+            <column name="SLVL_ABNS" type="INT"/>
+            <column name="SLVL_OUTFLOWS" type="INT"/>
+            <column name="I_ARRIVED" type="INT"/>
+            <column name="BSR_PLAN" type="INT"/>
+            <column name="DEFLECT_CALLS" type="INT"/>
+            <column name="NET_DISCCALLS" type="INT"/>
+            <column name="NET_INCALLS" type="INT"/>
+            <column name="NET_INTIME" type="INT"/>
+            <column name="NET_POLLS" type="INT"/>
+            <column name="ACD_CALLS_R1" type="INT"/>
+            <column name="ACD_CALLS_R2" type="INT"/>
+            <column name="PROCESS_DATE" type="DATETIME"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="DBA" id="1500542660361-5" >
+      <comment>----------------------------------------------------------------------------</comment>
+      <comment> CMS_W_HSPLIT                                                               </comment>
+      <comment>----------------------------------------------------------------------------</comment>
+        <createTable schemaName="martLegacyTLINK" tableName="CMS_W_HSPLIT">
+            <column name="ROW_DATE" type="DATETIME"/>
+            <column name="STARTTIME" type="INT"/>
+            <column name="ROW_DATETIME" type="DATETIME"/>
+            <column name="INTRVL" type="INT"/>
+            <column name="ACD" type="INT"/>
+            <column name="SPLIT" type="INT"/>
+            <column name="I_STAFFTIME" type="INT"/>
+            <column name="I_AVAILTIME" type="INT"/>
+            <column name="I_ACDTIME" type="INT"/>
+            <column name="I_ACWTIME" type="INT"/>
+            <column name="I_ACWOUTTIME" type="INT"/>
+            <column name="I_ACWINTIME" type="INT"/>
+            <column name="I_AUXTIME" type="INT"/>
+            <column name="I_AUXOUTTIME" type="INT"/>
+            <column name="I_AUXINTIME" type="INT"/>
+            <column name="I_OTHERTIME" type="INT"/>
+            <column name="MAXSTAFFED" type="INT"/>
+            <column name="ACWINCALLS" type="INT"/>
+            <column name="ACWINTIME" type="INT"/>
+            <column name="AUXINCALLS" type="INT"/>
+            <column name="AUXINTIME" type="INT"/>
+            <column name="ACWOUTCALLS" type="INT"/>
+            <column name="ACWOUTTIME" type="INT"/>
+            <column name="ACWOUTOFFCALLS" type="INT"/>
+            <column name="ACWOUTOFFTIME" type="INT"/>
+            <column name="ACWOUTADJCALLS" type="INT"/>
+            <column name="AUXOUTCALLS" type="INT"/>
+            <column name="AUXOUTTIME" type="INT"/>
+            <column name="AUXOUTOFFCALLS" type="INT"/>
+            <column name="AUXOUTOFFTIME" type="INT"/>
+            <column name="AUXOUTADJCALLS" type="INT"/>
+            <column name="EVENT1" type="INT"/>
+            <column name="EVENT2" type="INT"/>
+            <column name="EVENT3" type="INT"/>
+            <column name="EVENT4" type="INT"/>
+            <column name="EVENT5" type="INT"/>
+            <column name="EVENT6" type="INT"/>
+            <column name="EVENT7" type="INT"/>
+            <column name="EVENT8" type="INT"/>
+            <column name="EVENT9" type="INT"/>
+            <column name="ASSISTS" type="INT"/>
+            <column name="INFLOWCALLS" type="INT"/>
+            <column name="ACDCALLS" type="INT"/>
+            <column name="ANSTIME" type="INT"/>
+            <column name="ACDTIME" type="INT"/>
+            <column name="ACWTIME" type="INT"/>
+            <column name="O_ACDCALLS" type="INT"/>
+            <column name="O_ACDTIME" type="INT"/>
+            <column name="O_ACWTIME" type="INT"/>
+            <column name="ACDCALLS1" type="INT"/>
+            <column name="ACDCALLS2" type="INT"/>
+            <column name="ACDCALLS3" type="INT"/>
+            <column name="ACDCALLS4" type="INT"/>
+            <column name="ACDCALLS5" type="INT"/>
+            <column name="ACDCALLS6" type="INT"/>
+            <column name="ACDCALLS7" type="INT"/>
+            <column name="ACDCALLS8" type="INT"/>
+            <column name="ACDCALLS9" type="INT"/>
+            <column name="ACDCALLS10" type="INT"/>
+            <column name="BACKUPCALLS" type="INT"/>
+            <column name="HOLDCALLS" type="INT"/>
+            <column name="HOLDTIME" type="INT"/>
+            <column name="HOLDABNCALLS" type="INT"/>
+            <column name="TRANSFERRED" type="INT"/>
+            <column name="CONFERENCE" type="INT"/>
+            <column name="ABNCALLS" type="INT"/>
+            <column name="ABNTIME" type="INT"/>
+            <column name="ABNCALLS1" type="INT"/>
+            <column name="ABNCALLS2" type="INT"/>
+            <column name="ABNCALLS3" type="INT"/>
+            <column name="ABNCALLS4" type="INT"/>
+            <column name="ABNCALLS5" type="INT"/>
+            <column name="ABNCALLS6" type="INT"/>
+            <column name="ABNCALLS7" type="INT"/>
+            <column name="ABNCALLS8" type="INT"/>
+            <column name="ABNCALLS9" type="INT"/>
+            <column name="ABNCALLS10" type="INT"/>
+            <column name="DEQUECALLS" type="INT"/>
+            <column name="DEQUETIME" type="INT"/>
+            <column name="BUSYCALLS" type="INT"/>
+            <column name="BUSYTIME" type="INT"/>
+            <column name="DISCCALLS" type="INT"/>
+            <column name="DISCTIME" type="INT"/>
+            <column name="OUTFLOWCALLS" type="INT"/>
+            <column name="OUTFLOWTIME" type="INT"/>
+            <column name="INTERFLOWCALLS" type="INT"/>
+            <column name="LOWCALLS" type="INT"/>
+            <column name="MEDCALLS" type="INT"/>
+            <column name="HIGHCALLS" type="INT"/>
+            <column name="TOPCALLS" type="INT"/>
+            <column name="ACCEPTABLE" type="INT"/>
+            <column name="SERVICELEVEL" type="INT"/>
+            <column name="PERIOD1" type="INT"/>
+            <column name="PERIOD2" type="INT"/>
+            <column name="PERIOD3" type="INT"/>
+            <column name="PERIOD4" type="INT"/>
+            <column name="PERIOD5" type="INT"/>
+            <column name="PERIOD6" type="INT"/>
+            <column name="PERIOD7" type="INT"/>
+            <column name="PERIOD8" type="INT"/>
+            <column name="PERIOD9" type="INT"/>
+            <column name="MAXINQUEUE" type="INT"/>
+            <column name="MAXOCWTIME" type="INT"/>
+            <column name="CALLSOFFERED" type="INT"/>
+            <column name="PERIODCHG" type="INT"/>
+            <column name="SVCLEVELCHG" type="INT"/>
+            <column name="I_RINGTIME" type="INT"/>
+            <column name="RINGTIME" type="INT"/>
+            <column name="RINGCALLS" type="INT"/>
+            <column name="ABNRINGCALLS" type="INT"/>
+            <column name="O_ABNCALLS" type="INT"/>
+            <column name="O_OTHERCALLS" type="INT"/>
+            <column name="DA_ACWINCALLS" type="INT"/>
+            <column name="DA_ACWINTIME" type="INT"/>
+            <column name="DA_ACWOCALLS" type="INT"/>
+            <column name="DA_ACWOTIME" type="INT"/>
+            <column name="NOANSREDIR" type="INT"/>
+            <column name="INCOMPLETE" type="INT"/>
+            <column name="ACDAUXOUTCALLS" type="INT"/>
+            <column name="I_ACDAUX_OUTTIME" type="INT"/>
+            <column name="I_ACDAUXINTIME" type="INT"/>
+            <column name="I_ACDOTHERTIME" type="INT"/>
+            <column name="PHANTOMABNS" type="INT"/>
+            <column name="OTHERCALLS" type="INT"/>
+            <column name="OTHERTIME" type="INT"/>
+            <column name="SLVLABNS" type="INT"/>
+            <column name="SLVLOUTFLOWS" type="INT"/>
+            <column name="I_ARRIVED" type="INT"/>
+            <column name="I_AUXTIME0" type="INT"/>
+            <column name="I_AUXTIME1" type="INT"/>
+            <column name="I_AUXTIME2" type="INT"/>
+            <column name="I_AUXTIME3" type="INT"/>
+            <column name="I_AUXTIME4" type="INT"/>
+            <column name="I_AUXTIME5" type="INT"/>
+            <column name="I_AUXTIME6" type="INT"/>
+            <column name="I_AUXTIME7" type="INT"/>
+            <column name="I_AUXTIME8" type="INT"/>
+            <column name="I_AUXTIME9" type="INT"/>
+            <column name="I_DA_ACDTIME" type="INT"/>
+            <column name="I_DA_ACWTIME" type="INT"/>
+            <column name="I_TAVAILTIME" type="INT"/>
+            <column name="I_TAUXTIME" type="INT"/>
+            <column name="MAXTOP" type="INT"/>
+            <column name="I_NORMTIME" type="INT"/>
+            <column name="I_OL1TIME" type="INT"/>
+            <column name="I_OL2TIME" type="INT"/>
+            <column name="I_TOTHERTIME" type="INT"/>
+            <column name="MAX_TOT_PERCENTS" type="INT"/>
+            <column name="ACDCALLS_R1" type="INT"/>
+            <column name="ACDCALLS_R2" type="INT"/>
+            <column name="I_ACDTIME_R1" type="INT"/>
+            <column name="I_ACDTIME_R2" type="INT"/>
+            <column name="I_ACWTIME_R1" type="INT"/>
+            <column name="I_ACWTIME_R2" type="INT"/>
+            <column name="I_RINGTIME_R1" type="INT"/>
+            <column name="I_RINGTIME_R2" type="INT"/>
+            <column name="I_OTHERTIME_R1" type="INT"/>
+            <column name="I_OTHERTIME_R2" type="INT"/>
+            <column name="I_AUXTIME_R1" type="INT"/>
+            <column name="I_AUXTIME_R2" type="INT"/>
+            <column name="I_OTHERSTBYTIME_R1" type="INT"/>
+            <column name="I_OTHERSTBYTIME_R2" type="INT"/>
+            <column name="I_AUXSTBYTIME_R1" type="INT"/>
+            <column name="I_AUXSTBYTIME_R2" type="INT"/>
+            <column name="I_BEHINDTIME" type="INT"/>
+            <column name="I_AUTORESERVETIME" type="INT"/>
+            <column name="TARGETPERCENT" type="INT"/>
+            <column name="TARGETPCTCHG" type="INT"/>
+            <column name="TARGETSECONDS" type="INT"/>
+            <column name="TARGETSECCHG" type="INT"/>
+            <column name="TARGETACDCALLS" type="INT"/>
+            <column name="TARGETABNS" type="INT"/>
+            <column name="TARGETOUTFLOWS" type="INT"/>
+            <column name="PROCESS_DATE" type="DATETIME"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="DBA" id="1500542660361-6" >
+      <comment>----------------------------------------------------------------------------</comment>
+      <comment> Country DIM                                                                </comment>
+      <comment>----------------------------------------------------------------------------</comment>
+        <createTable schemaName="martLegacyTLINK" tableName="COUNTRY_DIM">
+            <column name="SK_COUNTRY_ID" type="INT"/>
+            <column name="COUNTRY_ISO_CODE" type="VARCHAR(4)"/>
+            <column name="COUNTRY_NAME" type="VARCHAR(200)"/>
+            <column name="FLIGHT_HAUL_TYPE" type="VARCHAR(2)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="DBA" id="1500542660361-7" >
+      <comment>----------------------------------------------------------------------------</comment>
+      <comment> Differentiated ACCOM                                                       </comment>
+      <comment>----------------------------------------------------------------------------</comment>
+        <createTable schemaName="martLegacyTLINK" tableName="DIFFERENTIATED_ACCOM">
+            <column name="PRIMARY_ACCOMMODATION" type="VARCHAR(150)"/>
+            <column name="CLASSIFICATION" type="VARCHAR(50)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="DBA" id="1500542660361-8" >
+      <comment>----------------------------------------------------------------------------</comment>
+      <comment> DYNAMICS EXTRA TYPE                                                        </comment>
+      <comment>----------------------------------------------------------------------------</comment>
+        <createTable schemaName="martLegacyTLINK" tableName="DYNAMICS_EXTRA_TYPE">
+            <column name="TLINK_EXTRA_TYPE" type="VARCHAR(50)"/>
+            <column name="DYNAMICS_GROUP" type="VARCHAR(10)"/>
+            <column name="TL_EXTRA_GROUP" type="VARCHAR(10)"/>
+            <column name="DYNAMIC_REPORT_TITLE" type="VARCHAR(50)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="DBA" id="1500542660361-9" >
+      <comment>----------------------------------------------------------------------------</comment>
+      <comment> FLIGHT CLASS DIM                                                           </comment>
+      <comment>----------------------------------------------------------------------------</comment>
+        <createTable schemaName="martLegacyTLINK" tableName="FLIGHT_CLASS_DIM">
+            <column name="AIRLINE" type="VARCHAR(50)"/>
+            <column name="FLIGHT_CLASS" type="VARCHAR(50)"/>
+            <column name="FLIGHT_CLASS_DESCRIPTION" type="VARCHAR(50)"/>
+            <column name="VALID_FROM" type="DATETIME"/>
+            <column name="VALID_TO" type="DATETIME"/>
+            <column name="AMENDED_DATE" type="DATETIME"/>
+            <column name="AMENDED_BY" type="VARCHAR(30)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="DBA" id="1500542660361-10" >
+      <comment>----------------------------------------------------------------------------</comment>
+      <comment> GATEWAY DIM                                                                </comment>
+      <comment>----------------------------------------------------------------------------</comment>
+        <createTable schemaName="martLegacyTLINK" tableName="GATEWAY_DIM">
+            <column name="SK_GATEWAY_ID" type="INT"/>
+            <column name="GATEWAY_IATA_CODE" type="VARCHAR(4)"/>
+            <column name="GATEWAY_ICAO_CODE" type="VARCHAR(4)"/>
+            <column name="GATEWAY_NAME" type="VARCHAR(200)"/>
+            <column name="SK_COUNTRY_ID" type="INT"/>
+            <column name="REGION" type="VARCHAR(200)"/>
+            <column name="RESORT" type="VARCHAR(200)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="DBA" id="1500542660361-11" >
+      <comment>----------------------------------------------------------------------------</comment>
+      <comment> PRIMARY COUNTRY DIM                                                        </comment>
+      <comment>----------------------------------------------------------------------------</comment>
+        <createTable schemaName="martLegacyTLINK" tableName="PRIMARY_COUNTRY_DIM">
+            <column name="SK_COUNTRY_ID" type="INT"/>
+            <column name="COUNTRY_ISO_CODE" type="VARCHAR(4)"/>
+            <column name="COUNTRY_NAME" type="VARCHAR(255)"/>
+            <column name="FLIGHT_HAUL_TYPE" type="VARCHAR(2)"/>
+            <column name="PRIMARY_COUNTRY" type="VARCHAR(255)"/>
+            <column name="ALT_PRIMARY_COUNTRY" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="DBA" id="1500542660361-12" >
+      <comment>----------------------------------------------------------------------------</comment>
+      <comment> REGION DIV DIM                                                             </comment>
+      <comment>----------------------------------------------------------------------------</comment>
+        <createTable schemaName="martLegacyTLINK" tableName="REGION_DIV_DIM">
+            <column name="SK_REGION_ID" type="INT"/>
+            <column name="SK_DIV_ID" type="INT"/>
+            <column name="REGION_NAME" type="VARCHAR(50)"/>
+            <column name="DIVISION_NAME" type="VARCHAR(50)"/>
+            <column name="REGIONAL_MANAGER" type="VARCHAR(50)"/>
+            <column name="REGIONAL_EMAIL" type="VARCHAR(50)"/>
+            <column name="DIVISIONAL_NAMAGER" type="VARCHAR(50)"/>
+            <column name="DIVISIONAL_EMAIL" type="VARCHAR(50)"/>
+            <column name="VALID_FROM" type="DATETIME"/>
+            <column name="VALID_TO" type="DATETIME"/>
+            <column name="AMENDED_DATE" type="DATETIME"/>
+            <column name="AMENDED_BY" type="VARCHAR(35)"/>
+            <column name="SHG_DIVISION_NAME" type="VARCHAR(50)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="DBA" id="1500542660361-13" >
+      <comment>----------------------------------------------------------------------------</comment>
+      <comment> RESP_DT_AGENT                                                              </comment>
+      <comment>----------------------------------------------------------------------------</comment>
+        <createTable schemaName="martLegacyTLINK" tableName="RESP_DT_AGENT">
+            <column name="LOCATIONCODE" type="VARCHAR(5)"/>
+            <column name="LOCATION" type="VARCHAR(50)"/>
+            <column name="SEASONCODE" type="VARCHAR(10)"/>
+            <column name="ONSALEDATE" type="DATETIME"/>
+            <column name="STOPSALEDATE" type="DATETIME"/>
+            <column name="TEAMCODE" type="VARCHAR(10)"/>
+            <column name="TEAM" type="VARCHAR(50)"/>
+            <column name="RESSYSTEMLOGIN" type="VARCHAR(50)"/>
+            <column name="ALTRESSYSTEMLOGIN" type="VARCHAR(50)"/>
+            <column name="PAYROLLNUMBER" type="VARCHAR(10)"/>
+            <column name="AGENTNAME" type="VARCHAR(50)"/>
+            <column name="OPERATINGSYSTEMLOGIN" type="VARCHAR(50)"/>
+            <column name="TELEPHONEEXT" type="VARCHAR(12)"/>
+            <column name="AGENTEMAILADDRESS" type="VARCHAR(50)"/>
+            <column name="SUPERVISOR" type="VARCHAR(30)"/>
+            <column name="SUPERVISOREMAIL" type="VARCHAR(50)"/>
+            <column name="SUPERVISORTELEPHONE" type="VARCHAR(15)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="DBA" id="1500542660361-14" >
+      <comment>----------------------------------------------------------------------------</comment>
+      <comment> RESP_DT_CLW                                                              </comment>
+      <comment>----------------------------------------------------------------------------</comment>
+        <createTable schemaName="martLegacyTLINK" tableName="RESP_DT_CLW">
+            <column name="LOCATIONCODE" type="VARCHAR(5)"/>
+            <column name="LOCATION" type="VARCHAR(50)"/>
+            <column name="SEASONCODE" type="VARCHAR(10)"/>
+            <column name="ONSALEDATE" type="DATETIME"/>
+            <column name="STOPSALEDATE" type="DATETIME"/>
+            <column name="TEAMCODE" type="VARCHAR(10)"/>
+            <column name="TEAM" type="VARCHAR(50)"/>
+            <column name="RESSYSTEMLOGIN" type="VARCHAR(50)"/>
+            <column name="ALTRESSYSTEMLOGIN" type="VARCHAR(50)"/>
+            <column name="PAYROLLNUMBER" type="VARCHAR(10)"/>
+            <column name="AGENTNAME" type="VARCHAR(50)"/>
+            <column name="OPERATINGSYSTEMLOGIN" type="VARCHAR(50)"/>
+            <column name="TELEPHONEEXT" type="VARCHAR(12)"/>
+            <column name="AGENTEMAILADDRESS" type="VARCHAR(50)"/>
+            <column name="SUPERVISOR" type="VARCHAR(30)"/>
+            <column name="SUPERVISOREMAIL" type="VARCHAR(50)"/>
+            <column name="SUPERVISORTELEPHONE" type="VARCHAR(15)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="DBA" id="1500542660361-15" >
+      <comment>----------------------------------------------------------------------------</comment>
+      <comment> RESP_DT_SKILL                                                              </comment>
+      <comment>----------------------------------------------------------------------------</comment>
+        <createTable schemaName="martLegacyTLINK" tableName="RESP_DT_SKILL">
+            <column name="SKILL_NUMBER" type="INT"/>
+            <column name="SKILL_CATEGORY" type="VARCHAR(100)"/>
+            <column name="SKILL_GROUP" type="VARCHAR(50)"/>
+            <column name="SKILL_DESCRIPTION" type="VARCHAR(50)"/>
+            <column name="SKILL_TYPE" type="VARCHAR(50)"/>
+            <column name="AGENT_DIRECT" type="VARCHAR(50)"/>
+            <column name="BRAND" type="VARCHAR(50)"/>
+            <column name="TCP_REPORT" type="VARCHAR(50)"/>
+            <column name="SKILL_CAPTION" type="VARCHAR(100)"/>
+            <column name="PCA_SECTION" type="VARCHAR(50)"/>
+            <column name="PCA_REPORTING_DESC" type="VARCHAR(50)"/>
+            <column name="VALID_FROM" type="DATETIME"/>
+            <column name="VALID_TO" type="DATETIME"/>
+            <column name="AMENDMENT_DATE" type="DATETIME"/>
+            <column name="AMENDED_BY" type="VARCHAR(50)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="DBA" id="1500542660361-16" >
+      <comment>----------------------------------------------------------------------------</comment>
+      <comment> REST_DT_SKILLX                                                             </comment>
+      <comment>----------------------------------------------------------------------------</comment>
+        <createTable schemaName="martLegacyTLINK" tableName="RESP_DT_SKILLX">
+            <column name="SKILL_NUMBER" type="INT"/>
+            <column name="SKILL_CATEGORY" type="VARCHAR(100)"/>
+            <column name="SKILL_GROUP" type="VARCHAR(50)"/>
+            <column name="SKILL_DESCRIPTION" type="VARCHAR(50)"/>
+            <column name="SKILL_TYPE" type="VARCHAR(50)"/>
+            <column name="AGENT_DIRECT" type="VARCHAR(50)"/>
+            <column name="BRAND" type="VARCHAR(50)"/>
+            <column name="TCP_REPORT" type="VARCHAR(50)"/>
+            <column name="SKILL_CAPTION" type="VARCHAR(100)"/>
+            <column name="PCA_SECTION" type="VARCHAR(50)"/>
+            <column name="PCA_REPORTING_DESC" type="VARCHAR(50)"/>
+            <column name="VALID_FROM" type="DATETIME"/>
+            <column name="VALID_TO" type="DATETIME"/>
+            <column name="AMENDMENT_DATE" type="DATETIME"/>
+            <column name="AMENDED_BY" type="VARCHAR(50)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="DBA" id="1500542660361-17" >
+      <comment>----------------------------------------------------------------------------</comment>
+      <comment> RESP_DT_VDN                                                                </comment>
+      <comment>----------------------------------------------------------------------------</comment>
+        <createTable schemaName="martLegacyTLINK" tableName="RESP_DT_VDN">
+            <column name="VDN" type="VARCHAR(7)"/>
+            <column name="VECTOR" type="INT"/>
+            <column name="VDN_DESCRIPTION" type="VARCHAR(50)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="DBA" id="1500542660361-18" >
+      <comment>----------------------------------------------------------------------------</comment>
+      <comment> SPECIALIST FORECAST                                                        </comment>
+      <comment>----------------------------------------------------------------------------</comment>
+        <createTable schemaName="martLegacyTLINK" tableName="SPECIALIST_FORECAST">
+            <column name="FORECAST_DATE" type="DATETIME"/>
+            <column name="PRODUCT" type="VARCHAR(255)"/>
+            <column name="CC_PAX_PERC" type="DECIMAL(19, 4)"/>
+            <column name="CC_PAX_FORECAST" type="INT"/>
+            <column name="CC_MGN_FORECAST" type="INT"/>
+            <column name="WEB_PAX_PERC" type="DECIMAL(19, 4)"/>
+            <column name="WEB_PAX_FORECAST" type="INT"/>
+            <column name="WEB_MGN_FORECAST" type="INT"/>
+            <column name="AMENDMENT_DATE" type="DATETIME"/>
+            <column name="AMENDED_BY" type="VARCHAR(50)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="DBA" id="1500542660361-19" >
+      <comment>----------------------------------------------------------------------------</comment>
+      <comment> TLINK DAYDIMENSION                                                         </comment>
+      <comment>----------------------------------------------------------------------------</comment>
+        <createTable schemaName="martLegacyTLINK" tableName="TLINK_DAYDIMENSION">
+            <column name="DAY_DATE" type="DATETIME"/>
+            <column name="DAY_DATE_STRING" type="VARCHAR(10)"/>
+            <column name="START_OF_DAY" type="DATETIME"/>
+            <column name="END_OF_DAY" type="DATETIME"/>
+            <column name="DAY_OF_WEEK_ISO" type="INT"/>
+            <column name="DAY_OF_WEEK_SUN" type="INT"/>
+            <column name="DAY_OF_WEEK_MON" type="INT"/>
+            <column name="DAY_OF_WEEK_SHORT_NAME" type="VARCHAR(3)"/>
+            <column name="DAY_OF_WEEK_LONG_NAME" type="VARCHAR(9)"/>
+            <column name="DAY_OF_YEAR_ISO" type="INT"/>
+            <column name="DAY_OF_YEAR_FC" type="INT"/>
+            <column name="START_OF_FIRST_WEEK_ISO" type="DATETIME"/>
+            <column name="START_OF_FIRST_WEEK_FC" type="DATETIME"/>
+            <column name="WEEK_OF_YEAR_ISO" type="INT"/>
+            <column name="WEEK_OF_YEAR_FC" type="INT"/>
+            <column name="FIRST_DAY_OF_WEEK_SUN" type="DATETIME"/>
+            <column name="FIRST_DAY_OF_WEEK_MON" type="DATETIME"/>
+            <column name="LAST_DAY_OF_WEEK_SUN" type="DATETIME"/>
+            <column name="LAST_DAY_OF_WEEK_MON" type="DATETIME"/>
+            <column name="FIRST_DAY_OF_WEEK_ISO" type="DATETIME"/>
+            <column name="LAST_DAY_OF_WEEK_ISO" type="DATETIME"/>
+            <column name="FIRST_DAY_OF_MONTH_WEEK_SUN" type="DATETIME"/>
+            <column name="FIRST_DAY_OF_MONTH_WEEK_MON" type="DATETIME"/>
+            <column name="MONTH_SHORT_NAME" type="VARCHAR(3)"/>
+            <column name="MONTH_LONG_NAME" type="VARCHAR(9)"/>
+            <column name="MONTH_NUMBER_ISO" type="INT"/>
+            <column name="MONTH_NUMBER_FC" type="INT"/>
+            <column name="QUARTER" type="INT"/>
+            <column name="QUARTER_FC" type="INT"/>
+            <column name="YEAR_ISO" type="INT"/>
+            <column name="YEAR_FC" type="INT"/>
+            <column name="SEASON" type="VARCHAR(1)"/>
+            <column name="SEASON_YEAR" type="VARCHAR(5)"/>
+            <column name="SEASON_YEAR_SHORT" type="VARCHAR(3)"/>
+            <column name="START_OF_YEAR_ISO" type="DATETIME"/>
+            <column name="START_OF_YEAR_FC" type="DATETIME"/>
+            <column name="HALF_SHORT_NAME" type="VARCHAR(20)"/>
+            <column name="HALF_NAME" type="VARCHAR(20)"/>
+            <column name="HALF_LONG_NAME" type="VARCHAR(20)"/>
+            <column name="QTR_SHORT_NAME" type="VARCHAR(20)"/>
+            <column name="QTR_NAME" type="VARCHAR(20)"/>
+            <column name="QTR_LONG_NAME" type="VARCHAR(20)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="DBA" id="1500542660361-20" >
+      <comment>----------------------------------------------------------------------------</comment>
+      <comment> TL W ACCOMROUTE                                                            </comment>
+      <comment>----------------------------------------------------------------------------</comment>
+        <createTable schemaName="martLegacyTLINK" tableName="TL_W_ACCOMROUTE">
+            <column name="BOOKING_REF" type="VARCHAR(50)"/>
+            <column name="AMENDMENT_DATE" type="DATETIME"/>
+            <column name="AMENDMENT_ORDER" type="INT"/>
+            <column name="ACCOMMODATION_ROUTE" type="VARCHAR(2000)"/>
+            <column name="RESORT_ROUTE" type="VARCHAR(2000)"/>
+            <column name="REGION_ROUTE" type="VARCHAR(2000)"/>
+            <column name="COUNTRY_ROUTE" type="VARCHAR(2000)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="DBA" id="1500542660361-21" >
+      <comment>----------------------------------------------------------------------------</comment>
+      <comment> TL W ACCOM UNITS                                                           </comment>
+      <comment>----------------------------------------------------------------------------</comment>
+        <createTable schemaName="martLegacyTLINK" tableName="TL_W_ACCOM_UNITS">
+            <column name="HCODE" type="VARCHAR(50)"/>
+            <column name="HUCODE" type="VARCHAR(50)"/>
+            <column name="LOAD_AVAILABLE" type="INT"/>
+            <column name="LOAD_START_DATE" type="DATETIME"/>
+            <column name="LOAD_END_DATE" type="DATETIME"/>
+            <column name="STD" type="INT"/>
+            <column name="LOADED" type="INT"/>
+            <column name="PRO_RATA" type="VARCHAR(3)"/>
+            <column name="PRICING_TYPE" type="VARCHAR(255)"/>
+            <column name="LOCAL_CURRENCY" type="VARCHAR(255)"/>
+            <column name="ROOM" type="VARCHAR(255)"/>
+            <column name="HOTEL" type="VARCHAR(180)"/>
+            <column name="AMENDMENT_DATE" type="DATETIME"/>
+            <column name="AMENDMENT_ORDER" type="INT"/>
+            <column name="PROCESS_DATE" type="DATETIME"/>
+            <column name="PROCESS_RECORD_ID" type="INT"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="DBA" id="1500542660361-22" >
+      <comment>----------------------------------------------------------------------------</comment>
+      <comment> TL W AGENCY                                                                </comment>
+      <comment>----------------------------------------------------------------------------</comment>
+        <createTable schemaName="martLegacyTLINK" tableName="TL_W_AGENCY">
+            <column name="CLIENT_REF" type="VARCHAR(50)"/>
+            <column name="ABTA" type="VARCHAR(50)"/>
+            <column name="FIRST_NAME" type="VARCHAR(50)"/>
+            <column name="LAST_NAME" type="VARCHAR(255)"/>
+            <column name="TITLE" type="VARCHAR(50)"/>
+            <column name="ADDRESS_1" type="VARCHAR(50)"/>
+            <column name="ADDRESS_2" type="VARCHAR(50)"/>
+            <column name="ADDRESS_3" type="VARCHAR(50)"/>
+            <column name="TOWN_CITY" type="VARCHAR(50)"/>
+            <column name="COUNTY" type="VARCHAR(50)"/>
+            <column name="COUNTRY" type="VARCHAR(50)"/>
+            <column name="POSTCODE" type="VARCHAR(50)"/>
+            <column name="COMMISSION_GROUP" type="VARCHAR(255)"/>
+            <column name="PAYMENT_GROUP" type="VARCHAR(255)"/>
+            <column name="MASTER_GROUP" type="VARCHAR(255)"/>
+            <column name="PASSWORD" type="VARCHAR(50)"/>
+            <column name="AMENDMENT_DATE" type="DATETIME"/>
+            <column name="AMENDMENT_ORDER" type="INT"/>
+            <column name="PROCESS_DATE" type="DATETIME"/>
+            <column name="PROCESS_RECORD_ID" type="INT"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="DBA" id="1500542660361-23" >
+      <comment>----------------------------------------------------------------------------</comment>
+      <comment> TL W AIRLINES                                                              </comment>
+      <comment>----------------------------------------------------------------------------</comment>
+        <createTable schemaName="martLegacyTLINK" tableName="TL_W_AIRLINES">
+            <column name="AIRLINE_NAME" type="VARCHAR(50)"/>
+            <column name="REF_CODE" type="VARCHAR(255)"/>
+            <column name="OP_NAME" type="VARCHAR(255)"/>
+            <column name="INBOUND_RULE" type="INT"/>
+            <column name="COMMENTS" type="VARCHAR(1000)"/>
+            <column name="TICKETING_CODE" type="VARCHAR(125)"/>
+            <column name="AIRLINE_TYPE" type="VARCHAR(50)"/>
+            <column name="IS_FERRY_OPERATOR" type="INT"/>
+            <column name="FERRY_OP_ACCOUNT_NUM" type="VARCHAR(20)"/>
+            <column name="AGENT_COMMISION" type="INT"/>
+            <column name="CHECK_TGDS_PRICING" type="INT"/>
+            <column name="AIRLINE_ID" type="INT"/>
+            <column name="USE_AIRLINE_VENDOR_LOCATOR" type="INT"/>
+            <column name="SUP_MASTER_PRICER_PUB_FARES" type="INT"/>
+            <column name="INCLUDE_IN_LINX" type="INT"/>
+            <column name="IS_E_TICKET" type="INT"/>
+            <column name="AMENDMENT_DATE" type="DATETIME"/>
+            <column name="AMENDMENT_ORDER" type="INT"/>
+            <column name="PROCESS_DATE" type="DATETIME"/>
+            <column name="PROCESS_ID" type="INT"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="DBA" id="1500542660361-24" >
+      <comment>----------------------------------------------------------------------------</comment>
+      <comment> TL W AIRPORTS                                                              </comment>
+      <comment>----------------------------------------------------------------------------</comment>
+        <createTable schemaName="martLegacyTLINK" tableName="TL_W_AIRPORTS">
+            <column name="APCODE" type="VARCHAR(50)"/>
+            <column name="TEMPLT" type="VARCHAR(50)"/>
+            <column name="AIRPORT_NAME" type="VARCHAR(255)"/>
+            <column name="DCODE" type="VARCHAR(50)"/>
+            <column name="ICAO" type="VARCHAR(4)"/>
+            <column name="ADD1" type="VARCHAR(50)"/>
+            <column name="ADD2" type="VARCHAR(50)"/>
+            <column name="ADD3" type="VARCHAR(50)"/>
+            <column name="ADD4" type="VARCHAR(50)"/>
+            <column name="ADD5" type="VARCHAR(50)"/>
+            <column name="ADD6" type="VARCHAR(50)"/>
+            <column name="POST_CODE" type="VARCHAR(50)"/>
+            <column name="TEL_CODE" type="VARCHAR(50)"/>
+            <column name="TEL1" type="VARCHAR(50)"/>
+            <column name="TEL1_DESC" type="VARCHAR(50)"/>
+            <column name="TEL2" type="VARCHAR(50)"/>
+            <column name="TEL2_DESC" type="VARCHAR(50)"/>
+            <column name="TEL3" type="VARCHAR(50)"/>
+            <column name="TEL3_DESC" type="VARCHAR(50)"/>
+            <column name="FAX1" type="VARCHAR(50)"/>
+            <column name="FAX1_DESC" type="VARCHAR(50)"/>
+            <column name="FAX2" type="VARCHAR(50)"/>
+            <column name="FAX2_DESC" type="VARCHAR(50)"/>
+            <column name="FAX3" type="VARCHAR(50)"/>
+            <column name="FAX3_DESC" type="VARCHAR(50)"/>
+            <column name="TLX1" type="VARCHAR(50)"/>
+            <column name="TLX1_DESC" type="VARCHAR(50)"/>
+            <column name="TLX2" type="VARCHAR(50)"/>
+            <column name="TLX2_DESC" type="VARCHAR(50)"/>
+            <column name="TLX3" type="VARCHAR(50)"/>
+            <column name="TLX3_DESC" type="VARCHAR(50)"/>
+            <column name="NOTE" type="VARCHAR(50)"/>
+            <column name="CDATE" type="DATETIME"/>
+            <column name="MDATE" type="DATETIME"/>
+            <column name="DOMESTIC" type="VARCHAR(255)"/>
+            <column name="TAX_VALUE" type="INT"/>
+            <column name="TAX_CODE" type="VARCHAR(50)"/>
+            <column name="GMT_VAR" type="VARCHAR(50)"/>
+            <column name="COMMENTS" type="VARCHAR(4000)"/>
+            <column name="REGION" type="VARCHAR(50)"/>
+            <column name="USE_TOMS" type="INT"/>
+            <column name="SLIP_ACCOM_TIME" type="DATETIME"/>
+            <column name="SHORT_NAME" type="VARCHAR(100)"/>
+            <column name="AIRPORT_ID" type="INT"/>
+            <column name="SLIP_ACCOM_DP_ALWAYS" type="INT"/>
+            <column name="MULTI_TERMINAL" type="INT"/>
+            <column name="CHECK_OUT_TIME" type="DATETIME"/>
+            <column name="SLIP_FLIGHT" type="INT"/>
+            <column name="SLIP_DAYS" type="INT"/>
+            <column name="SLIP_TIME" type="DATETIME"/>
+            <column name="AMENDMENT_DATE" type="DATETIME"/>
+            <column name="AMENDMENT_ORDER" type="INT"/>
+            <column name="PROCESS_DATE" type="DATETIME"/>
+            <column name="PROCESS_ID" type="INT"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="DBA" id="1500542660361-25" >
+      <comment>----------------------------------------------------------------------------</comment>
+      <comment> TL W BOOKEDACCOMMODATION                                                   </comment>
+      <comment>----------------------------------------------------------------------------</comment>
+        <createTable schemaName="martLegacyTLINK" tableName="TL_W_BOOKEDACCOMMODATION">
+            <column name="BOOKING_REF" type="VARCHAR(50)"/>
+            <column name="NAME" type="VARCHAR(100)"/>
+            <column name="ROOM_TYPE" type="VARCHAR(50)"/>
+            <column name="BOOKED_ACCOM_KEY" type="INT"/>
+            <column name="ROOMS" type="INT"/>
+            <column name="START_DATE" type="DATETIME"/>
+            <column name="END_DATE" type="DATETIME"/>
+            <column name="NIGHTS" type="INT"/>
+            <column name="BOOKING_COMMENT" type="VARCHAR(255)"/>
+            <column name="BOARD_BASIS" type="VARCHAR(255)"/>
+            <column name="TYPE" type="VARCHAR(50)"/>
+            <column name="RATING" type="VARCHAR(50)"/>
+            <column name="RESORT" type="VARCHAR(50)"/>
+            <column name="PRODUCT" type="VARCHAR(50)"/>
+            <column name="ACCOM_COMMENT" type="VARCHAR(4000)"/>
+            <column name="GENERIC_TYPE" type="VARCHAR(20)"/>
+            <column name="GENERIC_DESCRIPTION" type="VARCHAR(255)"/>
+            <column name="NUM_ADULTS" type="INT"/>
+            <column name="NUM_CHILDREN" type="INT"/>
+            <column name="NUM_INFANTS" type="INT"/>
+            <column name="SUPPLIER_CODE" type="VARCHAR(50)"/>
+            <column name="SUPPLIER_NAME" type="VARCHAR(50)"/>
+            <column name="CONFIRMATION_REF" type="VARCHAR(255)"/>
+            <column name="HUCODE" type="VARCHAR(50)"/>
+            <column name="HCODE" type="VARCHAR(50)"/>
+            <column name="STATUS" type="VARCHAR(10)"/>
+            <column name="AMENDMENT_DATE" type="DATETIME"/>
+            <column name="AMENDMENT_ORDER" type="INT"/>
+            <column name="PROCESS_DATE" type="DATETIME"/>
+            <column name="PROCESS_RECORD_ID" type="INT"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="DBA" id="1500542660361-26" >
+      <comment>----------------------------------------------------------------------------</comment>
+      <comment> TL W BOOKEDCARHIRE                                                         </comment>
+      <comment>----------------------------------------------------------------------------</comment>
+        <createTable schemaName="martLegacyTLINK" tableName="TL_W_BOOKEDCARHIRE">
+            <column name="BOOKING_REF" type="VARCHAR(50)"/>
+            <column name="START_DATE" type="DATETIME"/>
+            <column name="END_DATE" type="DATETIME"/>
+            <column name="QUANTITY" type="INT"/>
+            <column name="CAR_HIRE" type="VARCHAR(255)"/>
+            <column name="NOTE" type="VARCHAR(4000)"/>
+            <column name="PRICE" type="DECIMAL(19, 4)"/>
+            <column name="PICKUP" type="VARCHAR(255)"/>
+            <column name="DROPOFF" type="VARCHAR(255)"/>
+            <column name="CAR_GROUP" type="VARCHAR(255)"/>
+            <column name="CAR_HIRE_COMMENT" type="VARCHAR(4000)"/>
+            <column name="SUPPLIER_NAME" type="VARCHAR(50)"/>
+            <column name="SUPPLIER_CODE" type="VARCHAR(50)"/>
+            <column name="AMENDMENT_DATE" type="DATETIME"/>
+            <column name="AMENDMENT_ORDER" type="INT"/>
+            <column name="PROCESS_DATE" type="DATETIME"/>
+            <column name="PROCESS_RECORD_ID" type="INT"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="DBA" id="1500542660361-27" >
+      <comment>----------------------------------------------------------------------------</comment>
+      <comment> TL W BOOKEDEXTRAS                                                          </comment>
+      <comment>----------------------------------------------------------------------------</comment>
+        <createTable schemaName="martLegacyTLINK" tableName="TL_W_BOOKEDEXTRAS">
+            <column name="BOOKING_REF" type="VARCHAR(50)"/>
+            <column name="START_DATE" type="DATETIME"/>
+            <column name="END_DATE" type="DATETIME"/>
+            <column name="QUANTITY" type="INT"/>
+            <column name="EXTRA" type="VARCHAR(255)"/>
+            <column name="NOTE" type="VARCHAR(4000)"/>
+            <column name="PRICE" type="DECIMAL(19, 4)"/>
+            <column name="TYPE" type="VARCHAR(50)"/>
+            <column name="DISPLAY_ON_ITINERARY" type="INT"/>
+            <column name="DISPLAY_ON_INVOICE" type="INT"/>
+            <column name="DISPLAY_ON_ROOMING_LIST" type="INT"/>
+            <column name="DISPLAY_ON_FLIGHT_MANIFEST" type="INT"/>
+            <column name="DISPLAY_ON_RESORT_REPORT" type="INT"/>
+            <column name="IS_SUPPLEMENT" type="VARCHAR(3)"/>
+            <column name="SUPPLEMENT_TYPE" type="VARCHAR(6)"/>
+            <column name="SUPPLEMENT_BOOKING_LINK" type="INT"/>
+            <column name="SUPPLEMENT_MASTER_LINK" type="VARCHAR(255)"/>
+            <column name="SUPPLIER_CODE" type="VARCHAR(50)"/>
+            <column name="SUPPLIER_NAME" type="VARCHAR(50)"/>
+            <column name="CONFIRMATION_REF" type="VARCHAR(255)"/>
+            <column name="STATUS" type="VARCHAR(10)"/>
+            <column name="DATE_ADDED" type="DATETIME"/>
+            <column name="AMENDMENT_DATE" type="DATETIME"/>
+            <column name="AMENDMENT_ORDER" type="INT"/>
+            <column name="PROCESS_DATE" type="DATETIME"/>
+            <column name="PROCESS_RECORD_ID" type="INT"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="DBA" id="1500542660361-28" >
+      <comment>----------------------------------------------------------------------------</comment>
+      <comment> TL W BOOKEDFLIGHTS                                                         </comment>
+      <comment>----------------------------------------------------------------------------</comment>
+        <createTable schemaName="martLegacyTLINK" tableName="TL_W_BOOKEDFLIGHTS">
+            <column name="BOOKING_REF" type="VARCHAR(50)"/>
+            <column name="FLIGHT_CODE" type="VARCHAR(50)"/>
+            <column name="SEATS" type="INT"/>
+            <column name="DEPARTURE_DATE" type="DATETIME"/>
+            <column name="DEPARTURE_TIME" type="DATETIME"/>
+            <column name="DEPARTURE_AIRPORT" type="VARCHAR(50)"/>
+            <column name="DEPARTURE_AIRPORT_NAME" type="VARCHAR(255)"/>
+            <column name="ARRIVAL_DATE" type="DATETIME"/>
+            <column name="ARRIVAL_TIME" type="DATETIME"/>
+            <column name="ARRIVAL_AIRPORT" type="VARCHAR(50)"/>
+            <column name="ARRIVAL_AIRPORT_NAME" type="VARCHAR(255)"/>
+            <column name="AIRLINE" type="VARCHAR(50)"/>
+            <column name="FLIGHT_NUMBER" type="VARCHAR(50)"/>
+            <column name="FLIGHT_TYPE" type="VARCHAR(50)"/>
+            <column name="BAGGAGE_ALLOWANCE" type="INT"/>
+            <column name="AIRCRAFT" type="VARCHAR(50)"/>
+            <column name="NOTES" type="VARCHAR(255)"/>
+            <column name="TERMINAL" type="VARCHAR(255)"/>
+            <column name="BOOKED_CONTRACT_KEY" type="INT"/>
+            <column name="CONTRACT_ID" type="INT"/>
+            <column name="AMENDMENT_DATE" type="DATETIME"/>
+            <column name="AMENDMENT_ORDER" type="INT"/>
+            <column name="PROCESS_DATE" type="DATETIME"/>
+            <column name="PROCESS_RECORD_ID" type="INT"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="DBA" id="1500542660361-29" >
+      <comment>----------------------------------------------------------------------------</comment>
+      <comment> TL W BOOKEDTRANSFERS                                                       </comment>
+      <comment>----------------------------------------------------------------------------</comment>
+        <createTable schemaName="martLegacyTLINK" tableName="TL_W_BOOKEDTRANSFERS">
+            <column name="BOOKING_REF" type="VARCHAR(50)"/>
+            <column name="ADULTS" type="INT"/>
+            <column name="CHILDREN" type="INT"/>
+            <column name="DEP_LOCATION" type="VARCHAR(50)"/>
+            <column name="ARR_LOCATION" type="VARCHAR(50)"/>
+            <column name="VEHICLE" type="VARCHAR(255)"/>
+            <column name="SUPPLIER" type="VARCHAR(50)"/>
+            <column name="START_DATE" type="DATETIME"/>
+            <column name="TRANSFER_TIME" type="DATETIME"/>
+            <column name="NOTE" type="VARCHAR(1000)"/>
+            <column name="AMENDMENT_DATE" type="DATETIME"/>
+            <column name="AMENDMENT_ORDER" type="INT"/>
+            <column name="PROCESS_DATE" type="DATETIME"/>
+            <column name="PROCESS_RECORD_ID" type="INT"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="DBA" id="1500542660361-30" >
+      <comment>----------------------------------------------------------------------------</comment>
+      <comment> TL W BOOKEDCOMMENTS                                                        </comment>
+      <comment>----------------------------------------------------------------------------</comment>
+        <createTable schemaName="martLegacyTLINK" tableName="TL_W_BOOKINGCOMMENTS">
+            <column name="COMMENTID" type="BIGINT"/>
+            <column name="RUN_DATE" type="DATETIME"/>
+            <column name="AMENDMENT_DATE" type="DATETIME"/>
+            <column name="AMENDMENT_ORDER" type="INT"/>
+            <column name="BOOKING_REF" type="VARCHAR(50)"/>
+            <column name="BOOKING_DATE" type="DATETIME"/>
+            <column name="COMMENT_TYPE" type="VARCHAR(50)"/>
+            <column name="COMMENT_DATE" type="DATETIME"/>
+            <column name="COMMENT_TEXT" type="VARCHAR(4000)"/>
+            <column name="ADDED_BY" type="VARCHAR(50)"/>
+            <column name="DISPLAY_ON_INVOICE" type="INT"/>
+            <column name="PROCESS_DATE" type="DATETIME"/>
+            <column name="PROCESS_RECORD_ID" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="DBA" id="1500542660361-31" >
+      <comment>----------------------------------------------------------------------------</comment>
+      <comment> TL W BOOKINGCOSTS                                                          </comment>
+      <comment>----------------------------------------------------------------------------</comment>
+        <createTable schemaName="martLegacyTLINK" tableName="TL_W_BOOKINGCOSTS">
+            <column name="BOOKING_REF" type="VARCHAR(50)"/>
+            <column name="BOOKING_TIMESTAMP" type="DATETIME"/>
+            <column name="BOOKING_TYPE" type="VARCHAR(50)"/>
+            <column name="DESCRIPTION" type="VARCHAR(250)"/>
+            <column name="SUPPLIER_COST" type="DECIMAL(19, 4)"/>
+            <column name="SUPPLIER_CURRENCY" type="VARCHAR(255)"/>
+            <column name="BOOKING_COST" type="DECIMAL(19, 4)"/>
+            <column name="CODE" type="VARCHAR(255)"/>
+            <column name="MAN_UPDATE" type="VARCHAR(3)"/>
+            <column name="RECORD_ID" type="INT"/>
+            <column name="DATE_DUE" type="DATETIME"/>
+            <column name="SUPPLIER" type="VARCHAR(50)"/>
+            <column name="INVOICED_AMOUNT" type="DECIMAL(19, 4)"/>
+            <column name="AMENDMENT_DATE" type="DATETIME"/>
+            <column name="AMENDMENT_ORDER" type="INT"/>
+            <column name="PROCESS_DATE" type="DATETIME"/>
+            <column name="PROCESS_RECORD_ID" type="INT"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="DBA" id="1500542660361-32" >
+      <comment>----------------------------------------------------------------------------</comment>
+      <comment> TL W BOOKINGPRICES                                                         </comment>
+      <comment>----------------------------------------------------------------------------</comment>
+        <createTable schemaName="martLegacyTLINK" tableName="TL_W_BOOKINGPRICES">
+            <column name="BOOKING_REF" type="VARCHAR(50)"/>
+            <column name="BOOKING_TYPE" type="VARCHAR(13)"/>
+            <column name="DESCRIPTION" type="VARCHAR(736)"/>
+            <column name="RECORD_ID" type="INT"/>
+            <column name="PRICING_TYPE" type="VARCHAR(255)"/>
+            <column name="CODE" type="VARCHAR(255)"/>
+            <column name="SUPPLIER" type="VARCHAR(50)"/>
+            <column name="NUMBER_OF_ADULTS" type="INT"/>
+            <column name="NUMBER_OF_CHILDREN" type="INT"/>
+            <column name="NUMBER_OF_INFANTS" type="INT"/>
+            <column name="NUMBER_OF_UNITS" type="INT"/>
+            <column name="ADULT_PRICE" type="DECIMAL(19, 4)"/>
+            <column name="CHILD_PRICE" type="DECIMAL(19, 4)"/>
+            <column name="INFANT_PRICE" type="DECIMAL(19, 4)"/>
+            <column name="UNIT_PRICE" type="DECIMAL(19, 4)"/>
+            <column name="TOTAL_PRICE" type="DECIMAL(19, 4)"/>
+            <column name="VAT_RATE_ID" type="INT"/>
+            <column name="AMENDMENT_DATE" type="DATETIME"/>
+            <column name="AMENDMENT_ORDER" type="INT"/>
+            <column name="PROCESS_DATE" type="DATETIME"/>
+            <column name="PROCESS_RECORD_ID" type="INT"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="DBA" id="1500542660361-33" >
+      <comment>----------------------------------------------------------------------------</comment>
+      <comment> TL W BOOKINGS                                                              </comment>
+      <comment>----------------------------------------------------------------------------</comment>
+        <createTable schemaName="martLegacyTLINK" tableName="TL_W_BOOKINGS">
+            <column name="BOOKING_REF" type="VARCHAR(50)"/>
+            <column name="LEAD_NAME" type="VARCHAR(50)"/>
+            <column name="CLIENT_REF" type="VARCHAR(50)"/>
+            <column name="BOOKING_STATUS" type="VARCHAR(9)"/>
+            <column name="OPTION_DATE" type="DATETIME"/>
+            <column name="DEPARTURE_DATE" type="DATETIME"/>
+            <column name="BALANCE_DUE_DATE" type="DATETIME"/>
+            <column name="CURRENCY" type="VARCHAR(255)"/>
+            <column name="TOTAL_REVENUE" type="DECIMAL(19, 4)"/>
+            <column name="COMMISSION" type="DECIMAL(19, 4)"/>
+            <column name="VAT_ON_COMMISSION" type="DECIMAL(19, 4)"/>
+            <column name="TOTAL_RECEIVED" type="DECIMAL(19, 4)"/>
+            <column name="ADJUSTMENT" type="DECIMAL(19, 4)"/>
+            <column name="VAT_ON_SALES" type="DECIMAL(19, 4)"/>
+            <column name="TOTAL_COSTS" type="DECIMAL(19, 4)"/>
+            <column name="BALANCE_DUE" type="DECIMAL(19, 4)"/>
+            <column name="ADULTS" type="INT"/>
+            <column name="CHILDREN" type="INT"/>
+            <column name="INFANTS" type="INT"/>
+            <column name="PRODUCT" type="VARCHAR(255)"/>
+            <column name="PRODUCT_CODE" type="VARCHAR(50)"/>
+            <column name="BOOKED_BY" type="VARCHAR(255)"/>
+            <column name="CONFIRM_DATE" type="DATETIME"/>
+            <column name="DURATION" type="INT"/>
+            <column name="CANCELLATION_DATE" type="DATETIME"/>
+            <column name="BOOKING_SOURCE" type="VARCHAR(255)"/>
+            <column name="AMENDMENT_DATE" type="DATETIME"/>
+            <column name="AMENDMENT_ORDER" type="INT"/>
+            <column name="PROCESS_DATE" type="DATETIME"/>
+            <column name="PROCESS_RECORD_ID" type="INT"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="DBA" id="1500542660361-34" >
+      <comment>----------------------------------------------------------------------------</comment>
+      <comment> TL W BOOKINGS DIM DATA                                                     </comment>
+      <comment>----------------------------------------------------------------------------</comment>
+        <createTable schemaName="martLegacyTLINK" tableName="TL_W_BOOKINGS_DIM_DATA">
+            <column name="BOOKING_REF" type="VARCHAR(50)"/>
+            <column name="BOOKING_VERSION_DATE" type="DATETIME"/>
+            <column name="BOOKING_TYPE" type="VARCHAR(22)"/>
+            <column name="PRIMARY_ACCOMMODATION_HCODE" type="VARCHAR(50)"/>
+            <column name="PRIMARY_ACCOMMODATION_RATING" type="VARCHAR(50)"/>
+            <column name="PRIMARY_ACCOMMODATION_RESORT" type="VARCHAR(50)"/>
+            <column name="PRIMARY_ACCOMMODATION_REGION" type="VARCHAR(50)"/>
+            <column name="PRIMARY_ACCOMMODATION_COUNTRY" type="VARCHAR(255)"/>
+            <column name="TURNAROUND_GATEWAY" type="VARCHAR(3)"/>
+            <column name="TURNAROUND_COUNTRY" type="VARCHAR(200)"/>
+            <column name="HAUL_TYPE" type="VARCHAR(2)"/>
+            <column name="DURATION" type="INT"/>
+            <column name="VERSION_NUMBER" type="INT"/>
+            <column name="BOOKING_DATE_FLAG" type="VARCHAR(1)"/>
+            <column name="MC_FLAG" type="VARCHAR(1)"/>
+            <column name="PRIMARY_AIRLINE" type="VARCHAR(50)"/>
+            <column name="BOOKING_STATUS" type="VARCHAR(9)"/>
+            <column name="PRIMARY_ACCOMMODATION_HOTEL" type="VARCHAR(150)"/>
+            <column name="PRIMARY_FLIGHT_CLASS_CODE" type="VARCHAR(50)"/>
+            <column name="PRIMARY_FLIGHT_CLASS_DESC" type="VARCHAR(50)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="DBA" id="1500542660361-35" >
+      <comment>----------------------------------------------------------------------------</comment>
+      <comment> TL W BOOKINGS TOMS                                                              </comment>
+      <comment>----------------------------------------------------------------------------</comment>  
+        <createTable schemaName="martLegacyTLINK" tableName="TL_W_BOOKINGS_TOMS">
+            <column name="BOOKING_REF" type="VARCHAR(50)"/>
+            <column name="TOTAL_COSTS" type="DECIMAL(19, 4)"/>
+            <column name="TOTAL_REVENUE" type="DECIMAL(19, 4)"/>
+            <column name="COMMISSION" type="DECIMAL(19, 4)"/>
+            <column name="MARGIN" type="DECIMAL(20, 4)"/>
+            <column name="NET_MARGIN" type="DECIMAL(21, 4)"/>
+            <column name="RESORT" type="VARCHAR(50)"/>
+            <column name="SUBREGION" type="VARCHAR(255)"/>
+            <column name="REGION" type="VARCHAR(50)"/>
+            <column name="COUNTRY" type="VARCHAR(255)"/>
+            <column name="CONTINENT" type="VARCHAR(50)"/>
+            <column name="USE_TOMS" type="INT"/>
+            <column name="TOMS_RATE" type="INT"/>
+            <column name="DEPARTURE_AIRPORT" type="VARCHAR(255)"/>
+            <column name="ARRIVAL_AIRPORT" type="VARCHAR(255)"/>
+            <column name="TOMS_VALUE" type="DECIMAL(19, 4)"/>
+            <column name="TOTAL_COST_AFTER_TOMS" type="DECIMAL(19, 4)"/>
+            <column name="GROSS_MARGIN_AFTER_TOM_PCT" type="DECIMAL(19, 4)"/>
+            <column name="NET_MARGIN_AFTER_TOMS_PCT" type="DECIMAL(19, 4)"/>
+            <column name="TOMS_AMOUNT" type="DECIMAL(19, 4)"/>
+            <column name="AMENDMENT_DATE" type="DATETIME"/>
+            <column name="AMENDMENT_ORDER" type="INT"/>
+            <column name="PROCESS_DATE" type="DATETIME"/>
+            <column name="PROCESS_ID" type="INT"/>
+            <column name="OPTION_DATE" type="DATETIME"/>
+            <column name="CONFIRM_DATE" type="DATETIME"/>
+            <column name="CANCELLATION_DATE" type="DATETIME"/>
+            <column name="PRODUCT_CODE" type="VARCHAR(50)"/>
+            <column name="PRODUCT" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="DBA" id="1500542660361-36" >
+      <comment>----------------------------------------------------------------------------</comment>
+      <comment> TL W FLIGHTCONTRACTS                                                       </comment>
+      <comment>----------------------------------------------------------------------------</comment>
+        <createTable schemaName="martLegacyTLINK" tableName="TL_W_FLIGHTCONTRACTS">
+            <column name="FLIGHT_CODE" type="VARCHAR(50)"/>
+            <column name="SUPPLIER_CODE" type="VARCHAR(50)"/>
+            <column name="SEATS_ALLOCATED" type="INT"/>
+            <column name="CONTRACT_TYPE" type="VARCHAR(50)"/>
+            <column name="RELEASE_DATE" type="DATETIME"/>
+            <column name="SEATS_BOOKED" type="INT"/>
+            <column name="SEATS_AVAILABLE" type="INT"/>
+            <column name="CONTRACT_ID" type="INT"/>
+            <column name="ADULT_COST" type="DECIMAL(19, 4)"/>
+            <column name="CHILD_COST" type="DECIMAL(19, 4)"/>
+            <column name="INFANT_COST" type="DECIMAL(19, 4)"/>
+            <column name="ADULT_PRICE" type="DECIMAL(19, 4)"/>
+            <column name="CHILD_PRICE" type="DECIMAL(19, 4)"/>
+            <column name="INFANT_PRICE" type="DECIMAL(19, 4)"/>
+            <column name="LOCAL_CURRENCY" type="VARCHAR(255)"/>
+            <column name="DEFAULT_COST_RECORD" type="INT"/>
+            <column name="IS_GAL" type="INT"/>
+            <column name="AIRLINE_PNR" type="VARCHAR(50)"/>
+            <column name="CRSPNR" type="VARCHAR(50)"/>
+            <column name="RELEASE_DATE2" type="DATETIME"/>
+            <column name="FLIGHT_CLASS" type="VARCHAR(50)"/>
+            <column name="DURATION" type="INT"/>
+            <column name="TICKETED_DEADLINE_DATE" type="DATETIME"/>
+            <column name="IS_TICKETED" type="INT"/>
+            <column name="TICKETED_DATE" type="DATETIME"/>
+            <column name="AMENDMENT_DATE" type="DATETIME"/>
+            <column name="AMENDMENT_ORDER" type="INT"/>
+            <column name="PROCESS_DATE" type="DATETIME"/>
+            <column name="PROCESS_RECORD_ID" type="INT"/>
+            <column name="GDS_SOURCE" type="VARCHAR(3)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="DBA" id="1500542660361-37" >
+      <comment>----------------------------------------------------------------------------</comment>
+      <comment> TL W HOLDBACKS NEW                                                         </comment>
+      <comment>----------------------------------------------------------------------------</comment>
+        <createTable schemaName="martLegacyTLINK" tableName="TL_W_HOLDBACKS_NEW">
+            <column name="PRODUCT" type="VARCHAR(255)"/>
+            <column name="PRODUCT_CODE" type="VARCHAR(50)"/>
+            <column name="BOOKING_DATE_FROM" type="DATETIME"/>
+            <column name="BOOKING_DATE_TO" type="DATETIME"/>
+            <column name="DEPARTURE_MONTH" type="VARCHAR(10)"/>
+            <column name="DEPARTURE_YEAR" type="INT"/>
+            <column name="DEPARTURE_START_DATE" type="DATETIME"/>
+            <column name="DEPARTURE_END_DATE" type="DATETIME"/>
+            <column name="HOLD_BACK_AMOUNT" type="DECIMAL(19, 4)"/>
+            <column name="CURRENCY" type="VARCHAR(15)"/>
+            <column name="VALID_FROM" type="DATETIME"/>
+            <column name="VALID_TO" type="DATETIME"/>
+            <column name="ADDED_BY" type="VARCHAR(20)"/>
+            <column name="ADDED_DATE" type="DATETIME"/>
+            <column name="AMENDED_BY" type="VARCHAR(20)"/>
+            <column name="AMENDED_DATE" type="DATETIME"/>
+            <column name="CANX_RATE" type="DECIMAL(19, 4)"/>
+            <column name="PKGE_RATE" type="DECIMAL(19, 4)"/>
+            <column name="FO_RATE" type="DECIMAL(19, 4)"/>
+            <column name="AO_RATE" type="DECIMAL(19, 4)"/>
+            <column name="EXTRA_RATE" type="DECIMAL(19, 4)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="DBA" id="1500542660361-38" >
+      <comment>----------------------------------------------------------------------------</comment>
+      <comment> TL W PASSENGERS                                                            </comment>
+      <comment>----------------------------------------------------------------------------</comment>
+        <createTable schemaName="martLegacyTLINK" tableName="TL_W_PASSENGERS">
+            <column name="PASSENGER_ID" type="INT"/>
+            <column name="BOOKING_REF" type="VARCHAR(50)"/>
+            <column name="TITLE" type="VARCHAR(50)"/>
+            <column name="INITIAL_NAME" type="VARCHAR(50)"/>
+            <column name="NAME" type="VARCHAR(50)"/>
+            <column name="AGE" type="INT"/>
+            <column name="LEAD" type="INT"/>
+            <column name="PRICE" type="DECIMAL(19, 4)"/>
+            <column name="NOTE" type="VARCHAR(4000)"/>
+            <column name="CLIENT_REF" type="VARCHAR(50)"/>
+            <column name="PASSENGER_TYPE" type="VARCHAR(6)"/>
+            <column name="GENDER_TYPE" type="VARCHAR(6)"/>
+            <column name="EXECUTIVE_NO" type="VARCHAR(50)"/>
+            <column name="AMENDMENT_DATE" type="DATETIME"/>
+            <column name="AMENDMENT_ORDER" type="INT"/>
+            <column name="PROCESS_DATE" type="DATETIME"/>
+            <column name="PROCESS_RECORD_ID" type="INT"/>
+            <column name="DOB" type="DATETIME"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="DBA" id="1500542660361-39" >
+      <comment>----------------------------------------------------------------------------</comment>
+      <comment> TL W RESORTREGIONCOUNTRYVIEW                                               </comment>
+      <comment>----------------------------------------------------------------------------</comment>
+        <createTable schemaName="martLegacyTLINK" tableName="TL_W_RESORTREGIONCOUNTRYVIEW">
+            <column name="RESORT" type="VARCHAR(50)"/>
+            <column name="SUBREGION" type="VARCHAR(255)"/>
+            <column name="REGION" type="VARCHAR(50)"/>
+            <column name="COUNTRY" type="VARCHAR(255)"/>
+            <column name="CONTINENT" type="VARCHAR(50)"/>
+            <column name="AMENDMENT_DATE" type="DATETIME"/>
+            <column name="AMENDMENT_ORDER" type="INT"/>
+            <column name="PROCESS_DATE" type="DATETIME"/>
+            <column name="PROCESS_RECORD_ID" type="INT"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="DBA" id="1500542660361-40" >
+      <comment>----------------------------------------------------------------------------</comment>
+      <comment> T TL W AGENCY                                                              </comment>
+      <comment>----------------------------------------------------------------------------</comment>
+        <createTable schemaName="martLegacyTLINK" tableName="T_TL_W_AGENCY">
+            <column name="HYPER_FRANCHISE_SHOP_FLAG" type="VARCHAR(1)"/>
+            <column name="HYPER_SHOP_FLAG" type="VARCHAR(1)"/>
+            <column name="CLIENT_REF" type="VARCHAR(50)"/>
+            <column name="ABTA" type="VARCHAR(50)"/>
+            <column name="FIRST_NAME" type="VARCHAR(50)"/>
+            <column name="LAST_NAME" type="VARCHAR(255)"/>
+            <column name="TITLE" type="VARCHAR(50)"/>
+            <column name="ADDRESS_1" type="VARCHAR(50)"/>
+            <column name="ADDRESS_2" type="VARCHAR(50)"/>
+            <column name="ADDRESS_3" type="VARCHAR(50)"/>
+            <column name="TOWN_CITY" type="VARCHAR(50)"/>
+            <column name="COUNTY" type="VARCHAR(50)"/>
+            <column name="COUNTRY" type="VARCHAR(50)"/>
+            <column name="POSTCODE" type="VARCHAR(50)"/>
+            <column name="COMMISSION_GROUP" type="VARCHAR(255)"/>
+            <column name="PAYMENT_GROUP" type="VARCHAR(255)"/>
+            <column name="MASTER_GROUP" type="VARCHAR(255)"/>
+            <column name="PASSWORD" type="VARCHAR(50)"/>
+            <column name="AMENDMENT_DATE" type="DATETIME"/>
+            <column name="AMENDMENT_ORDER" type="INT"/>
+            <column name="PROCESS_DATE" type="DATETIME"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="DBA" id="1501851962754-41" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+      <comment>----------------------------------------------------------------------------</comment>
+      <comment> BOOKING REF INDEX TL_W_ACCOMROUTE                                          </comment>
+      <comment>----------------------------------------------------------------------------</comment>    
+        <createIndex schemaName="martLegacyTLINK" indexName="BOOKING_REF_INDEX" tableName="TL_W_ACCOMROUTE">
+            <column name="BOOKING_REF"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="DBA" id="1501851962754-42" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+      <comment>----------------------------------------------------------------------------</comment>
+      <comment> BOOKING REF INDEX TL_W_BOOKEDACCOMMODATION                                 </comment>
+      <comment>----------------------------------------------------------------------------</comment>    
+        <createIndex schemaName="martLegacyTLINK" indexName="BOOKING_REF_INDEX" tableName="TL_W_BOOKEDACCOMMODATION">
+            <column name="BOOKING_REF"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="DBA" id="1501851962754-43" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+      <comment>----------------------------------------------------------------------------</comment>
+      <comment> BOOKING REF INDEX TL_W_BOOKEDCARHIRE                                       </comment>
+      <comment>----------------------------------------------------------------------------</comment>    
+        <createIndex schemaName="martLegacyTLINK" indexName="BOOKING_REF_INDEX" tableName="TL_W_BOOKEDCARHIRE">
+            <column name="BOOKING_REF"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="DBA" id="1501851962754-44" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+      <comment>----------------------------------------------------------------------------</comment>
+      <comment> BOOKING REF INDEX TL_W_BOOKEDEXTRAS                                        </comment>
+      <comment>----------------------------------------------------------------------------</comment>        
+        <createIndex schemaName="martLegacyTLINK" indexName="BOOKING_REF_INDEX" tableName="TL_W_BOOKEDEXTRAS">
+            <column name="BOOKING_REF"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="DBA" id="1501851962754-45" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+      <comment>----------------------------------------------------------------------------</comment>
+      <comment> BOOKING REF INDEX TL_W_BOOKEDFLIGHTS                                       </comment>
+      <comment>----------------------------------------------------------------------------</comment>    
+        <createIndex schemaName="martLegacyTLINK" indexName="BOOKING_REF_INDEX" tableName="TL_W_BOOKEDFLIGHTS">
+            <column name="BOOKING_REF"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="DBA" id="1501851962754-46" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+      <comment>----------------------------------------------------------------------------</comment>
+      <comment> BOOKING REF INDEX TL_W_BOOKEDTRANSFERS                                     </comment>
+      <comment>----------------------------------------------------------------------------</comment>    
+        <createIndex schemaName="martLegacyTLINK" indexName="BOOKING_REF_INDEX" tableName="TL_W_BOOKEDTRANSFERS">
+            <column name="BOOKING_REF"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="DBA" id="1501851962754-47" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+      <comment>----------------------------------------------------------------------------</comment>
+      <comment> BOOKING REF INDEX TL_W_BOOKINGCOMMENTS                                     </comment>
+      <comment>----------------------------------------------------------------------------</comment>    
+        <createIndex schemaName="martLegacyTLINK" indexName="BOOKING_REF_INDEX" tableName="TL_W_BOOKINGCOMMENTS">
+            <column name="BOOKING_REF"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="DBA" id="1501851962754-48" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+      <comment>----------------------------------------------------------------------------</comment>
+      <comment>BOOKING REF INDEX TL_W_BOOKINGCOSTS                                         </comment>
+      <comment>----------------------------------------------------------------------------</comment>    
+        <createIndex schemaName="martLegacyTLINK" indexName="BOOKING_REF_INDEX" tableName="TL_W_BOOKINGCOSTS">
+            <column name="BOOKING_REF"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="DBA" id="1501851962754-49" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+      <comment>----------------------------------------------------------------------------</comment>
+      <comment> BOOKING REF INDEX TL_W_BOOKINGPRICES                                       </comment>
+      <comment>----------------------------------------------------------------------------</comment>    
+        <createIndex schemaName="martLegacyTLINK" indexName="BOOKING_REF_INDEX" tableName="TL_W_BOOKINGPRICES">
+            <column name="BOOKING_REF"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="DBA" id="1501851962754-50" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+      <comment>----------------------------------------------------------------------------</comment>
+      <comment> BOOKING REF INDEX TL_W_BOOKINGS                                            </comment>
+      <comment>----------------------------------------------------------------------------</comment>    
+        <createIndex schemaName="martLegacyTLINK" indexName="BOOKING_REF_INDEX" tableName="TL_W_BOOKINGS">
+            <column name="BOOKING_REF"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="DBA" id="1501851962754-51" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+      <comment>----------------------------------------------------------------------------</comment>
+      <comment> BOOKING REF INDEX TL_W_BOOKINGS_DIM_DATA                                   </comment>
+      <comment>----------------------------------------------------------------------------</comment>    
+        <createIndex schemaName="martLegacyTLINK" indexName="BOOKING_REF_INDEX" tableName="TL_W_BOOKINGS_DIM_DATA">
+            <column name="BOOKING_REF"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="DBA" id="1501851962754-52" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+      <comment>----------------------------------------------------------------------------</comment>
+      <comment> BOOKING REF INDEX TL_W_BOOKINGS_TOURS                                      </comment>
+      <comment>----------------------------------------------------------------------------</comment>    
+        <createIndex schemaName="martLegacyTLINK" indexName="BOOKING_REF_INDEX" tableName="TL_W_BOOKINGS_TOMS">
+            <column name="BOOKING_REF"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="DBA" id="1501851962754-53" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+      <comment>----------------------------------------------------------------------------</comment>
+      <comment> BOOKING REF INDEX TL_W_PASSENGERS                                          </comment>
+      <comment>----------------------------------------------------------------------------</comment>    
+        <createIndex schemaName="martLegacyTLINK" indexName="BOOKING_REF_INDEX" tableName="TL_W_PASSENGERS">
+            <column name="BOOKING_REF"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="DBA" id="1501851962754-54" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+      <comment>----------------------------------------------------------------------------</comment>
+      <comment> FLIGHT AND SUPPLIER CODE INDEX TL_W_FLIGHTCONTRACTS                        </comment>
+      <comment>----------------------------------------------------------------------------</comment>    
+        <createIndex schemaName="martLegacyTLINK" indexName="FLIGHT_SUPPLIER_CODE_INDEX" tableName="TL_W_FLIGHTCONTRACTS">
+            <column name="FLIGHT_CODE"/>
+            <column name="SUPPLIER_CODE"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="DBA" id="1501851962754-55" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+      <comment>----------------------------------------------------------------------------</comment>
+      <comment> PROCESS DATE INDEX CMS_W_DAGENT                                            </comment>
+      <comment>----------------------------------------------------------------------------</comment>    
+        <createIndex schemaName="martLegacyTLINK" indexName="PROCESS_DATE_INDEX" tableName="CMS_W_DAGENT">
+            <column name="PROCESS_DATE"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="DBA" id="1501851962754-56" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+      <comment>----------------------------------------------------------------------------</comment>
+      <comment> PROCESS DATE INDEX CMS_W_HSPLIT                                            </comment>
+      <comment>----------------------------------------------------------------------------</comment>    
+        <createIndex schemaName="martLegacyTLINK" indexName="PROCESS_DATE_INDEX" tableName="CMS_W_HSPLIT">
+            <column name="PROCESS_DATE"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet author="DBA" id="1500542660361-99" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+
+      <comment>============================================================================</comment>
+      <comment> MART Legacy TLINKWH Views                                                  </comment>
+      <comment>============================================================================</comment>
+
+      <createView schemaName="martLegacyTLINK" replaceIfExists="true" viewName="BRANCH_DIM_view" >
+        select * from martLegacyTLINK.BRANCH_DIM
+      </createView>
+
+      <createView schemaName="martLegacyTLINK" replaceIfExists="true" viewName="CMS_W_DAGENT_view" >
+        select * from martLegacyTLINK.CMS_W_DAGENT
+      </createView>
+
+      <createView schemaName="martLegacyTLINK" replaceIfExists="true" viewName="CMS_W_DSPLIT_view" >
+        select * from martLegacyTLINK.CMS_W_DSPLIT
+      </createView>
+
+      <createView schemaName="martLegacyTLINK" replaceIfExists="true" viewName="CMS_W_DVDN_view" >
+        select * from martLegacyTLINK.CMS_W_DVDN
+      </createView>
+
+      <createView schemaName="martLegacyTLINK" replaceIfExists="true" viewName="CMS_W_HSPLIT_view" >
+        select * from martLegacyTLINK.CMS_W_HSPLIT
+      </createView>
+
+      <createView schemaName="martLegacyTLINK" replaceIfExists="true" viewName="COUNTRY_DIM_view" >
+        select * from martLegacyTLINK.COUNTRY_DIM
+      </createView>
+
+      <createView schemaName="martLegacyTLINK" replaceIfExists="true" viewName="DIFFERENTIATED_ACCOM_view" >
+        select * from martLegacyTLINK.DIFFERENTIATED_ACCOM
+      </createView>
+
+      <createView schemaName="martLegacyTLINK" replaceIfExists="true" viewName="DYNAMICS_EXTRA_TYPE_view" >
+        select * from martLegacyTLINK.DYNAMICS_EXTRA_TYPE
+      </createView>
+
+      <createView schemaName="martLegacyTLINK" replaceIfExists="true" viewName="FLIGHT_CLASS_DIM_view" >
+        select * from martLegacyTLINK.FLIGHT_CLASS_DIM
+      </createView>
+
+      <createView schemaName="martLegacyTLINK" replaceIfExists="true" viewName="GATEWAY_DIM_view" >
+        select * from martLegacyTLINK.GATEWAY_DIM
+      </createView>
+
+      <createView schemaName="martLegacyTLINK" replaceIfExists="true" viewName="PRIMARY_COUNTRY_DIM_view" >
+        select * from martLegacyTLINK.PRIMARY_COUNTRY_DIM
+      </createView>
+
+      <createView schemaName="martLegacyTLINK" replaceIfExists="true" viewName="REGION_DIV_DIM_view" >
+        select * from martLegacyTLINK.REGION_DIV_DIM
+      </createView>
+
+      <createView schemaName="martLegacyTLINK" replaceIfExists="true" viewName="RESP_DT_AGENT_view" >
+        select * from martLegacyTLINK.RESP_DT_AGENT
+      </createView>
+
+      <createView schemaName="martLegacyTLINK" replaceIfExists="true" viewName="RESP_DT_CLW_view" >
+        select * from martLegacyTLINK.RESP_DT_CLW
+      </createView>
+
+      <createView schemaName="martLegacyTLINK" replaceIfExists="true" viewName="RESP_DT_SKILL_view" >
+        select * from martLegacyTLINK.RESP_DT_SKILL
+      </createView>
+
+      <createView schemaName="martLegacyTLINK" replaceIfExists="true" viewName="RESP_DT_SKILLX_view" >
+        select * from martLegacyTLINK.RESP_DT_SKILLX
+      </createView>
+
+      <createView schemaName="martLegacyTLINK" replaceIfExists="true" viewName="RESP_DT_VDN_view" >
+        select * from martLegacyTLINK.RESP_DT_VDN
+      </createView>
+
+      <createView schemaName="martLegacyTLINK" replaceIfExists="true" viewName="SPECIALIST_FORECAST_view" >
+        select * from martLegacyTLINK.SPECIALIST_FORECAST
+      </createView>
+
+      <createView schemaName="martLegacyTLINK" replaceIfExists="true" viewName="TLINK_DAYDIMENSION_view" >
+        select * from martLegacyTLINK.TLINK_DAYDIMENSION
+      </createView>
+
+      <createView schemaName="martLegacyTLINK" replaceIfExists="true" viewName="TL_W_ACCOMROUTE_view" >
+        select * from martLegacyTLINK.TL_W_ACCOMROUTE
+      </createView>
+
+      <createView schemaName="martLegacyTLINK" replaceIfExists="true" viewName="TL_W_ACCOM_UNITS_view" >
+        select * from martLegacyTLINK.TL_W_ACCOM_UNITS
+      </createView>
+
+      <createView schemaName="martLegacyTLINK" replaceIfExists="true" viewName="TL_W_AGENCY_view" >
+        select * from martLegacyTLINK.TL_W_AGENCY
+      </createView>
+
+      <createView schemaName="martLegacyTLINK" replaceIfExists="true" viewName="TL_W_AIRLINES_view" >
+        select * from martLegacyTLINK.TL_W_AIRLINES
+      </createView>
+
+      <createView schemaName="martLegacyTLINK" replaceIfExists="true" viewName="TL_W_AIRPORTS_view" >
+        select * from martLegacyTLINK.TL_W_AIRPORTS
+      </createView>
+
+      <createView schemaName="martLegacyTLINK" replaceIfExists="true" viewName="TL_W_BOOKEDACCOMMODATION_view" >
+        select * from martLegacyTLINK.TL_W_BOOKEDACCOMMODATION
+      </createView>
+
+      <createView schemaName="martLegacyTLINK" replaceIfExists="true" viewName="TL_W_BOOKEDCARHIRE_view" >
+        select * from martLegacyTLINK.TL_W_BOOKEDCARHIRE
+      </createView>
+
+      <createView schemaName="martLegacyTLINK" replaceIfExists="true" viewName="TL_W_BOOKEDEXTRAS_view" >
+        select * from martLegacyTLINK.TL_W_BOOKEDEXTRAS
+      </createView>
+
+      <createView schemaName="martLegacyTLINK" replaceIfExists="true" viewName="TL_W_BOOKEDFLIGHTS_view" >
+        select * from martLegacyTLINK.TL_W_BOOKEDFLIGHTS
+      </createView>
+
+      <createView schemaName="martLegacyTLINK" replaceIfExists="true" viewName="TL_W_BOOKEDTRANSFERS_view" >
+        select * from martLegacyTLINK.TL_W_BOOKEDTRANSFERS
+      </createView>
+
+      <createView schemaName="martLegacyTLINK" replaceIfExists="true" viewName="TL_W_BOOKINGCOMMENTS_view" >
+        select * from martLegacyTLINK.TL_W_BOOKINGCOMMENTS
+      </createView>
+
+      <createView schemaName="martLegacyTLINK" replaceIfExists="true" viewName="TL_W_BOOKINGCOSTS_view" >
+        select * from martLegacyTLINK.TL_W_BOOKINGCOSTS
+      </createView>
+
+      <createView schemaName="martLegacyTLINK" replaceIfExists="true" viewName="TL_W_BOOKINGPRICES_view" >
+        select * from martLegacyTLINK.TL_W_BOOKINGPRICES
+      </createView>
+
+      <createView schemaName="martLegacyTLINK" replaceIfExists="true" viewName="TL_W_BOOKINGS_view" >
+        select * from martLegacyTLINK.TL_W_BOOKINGS
+      </createView>
+
+      <createView schemaName="martLegacyTLINK" replaceIfExists="true" viewName="TL_W_BOOKINGS_DIM_DATA_view" >
+        select * from martLegacyTLINK.TL_W_BOOKINGS_DIM_DATA
+      </createView>
+
+      <createView schemaName="martLegacyTLINK" replaceIfExists="true" viewName="TL_W_BOOKINGS_TOMS_view" >
+        select * from martLegacyTLINK.TL_W_BOOKINGS_TOMS
+      </createView>
+
+      <createView schemaName="martLegacyTLINK" replaceIfExists="true" viewName="TL_W_FLIGHTCONTRACTS_view" >
+        select * from martLegacyTLINK.TL_W_FLIGHTCONTRACTS
+      </createView>
+
+      <createView schemaName="martLegacyTLINK" replaceIfExists="true" viewName="TL_W_HOLDBACKS_NEW_view" >
+        select * from martLegacyTLINK.TL_W_HOLDBACKS_NEW
+      </createView>
+
+      <createView schemaName="martLegacyTLINK" replaceIfExists="true" viewName="TL_W_PASSENGERS_view" >
+        select * from martLegacyTLINK.TL_W_PASSENGERS
+      </createView>
+
+      <createView schemaName="martLegacyTLINK" replaceIfExists="true" viewName="TL_W_RESORTREGIONCOUNTRYVIEW_view" >
+        select * from martLegacyTLINK.TL_W_RESORTREGIONCOUNTRYVIEW
+      </createView>
+
+      <createView schemaName="martLegacyTLINK" replaceIfExists="true" viewName="T_TL_W_AGENCY_view" >
+        select * from martLegacyTLINK.T_TL_W_AGENCY
+      </createView>
+
+    </changeSet>
+
+</databaseChangeLog>

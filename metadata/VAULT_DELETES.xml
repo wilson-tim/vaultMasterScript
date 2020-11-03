@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+xmlns:html="http://www.w3.org/TR/REC-html40">
+<Worksheet ss:Name="Table1">
+	<Table>
+		<Column ss:Index="1" ss:AutoFitWidth="0" ss:Width="110"/>
+		<Column ss:Index="2" ss:AutoFitWidth="0" ss:Width="110"/>
+		<Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="110"/>
+		<Column ss:Index="5" ss:AutoFitWidth="0" ss:Width="110"/>
+		<Column ss:Index="6" ss:AutoFitWidth="0" ss:Width="110"/>
+		<Column ss:Index="7" ss:AutoFitWidth="0" ss:Width="110"/>
+		<Column ss:Index="8" ss:AutoFitWidth="0" ss:Width="110"/>
+		<Row>
+			<Cell><Data ss:Type="String">SYSTEM_NAME</Data></Cell>
+			<Cell><Data ss:Type="String">TABLE_NAME</Data></Cell>
+			<Cell><Data ss:Type="String">DEL_RUN_SEQUENCE</Data></Cell>
+			<Cell><Data ss:Type="String">STG_TABLE_NAME</Data></Cell>
+			<Cell><Data ss:Type="String">SRC_COLUMN_FOR_END_DATE</Data></Cell>
+			<Cell><Data ss:Type="String">TGT_SATELLITE</Data></Cell>
+			<Cell><Data ss:Type="String">SRC_PK</Data></Cell>
+			<Cell><Data ss:Type="String">TGT_PK</Data></Cell>
+		</Row>
+
+		<Row>
+			<Cell><Data ss:Type="String">TLINK</Data></Cell>
+			<Cell><Data ss:Type="String">ACCOM_DET</Data></Cell>
+			<Cell><Data ss:Type="Number">1</Data></Cell>
+			<Cell><Data ss:Type="String">STG_ACCOM_DET</Data></Cell>
+			<Cell><Data ss:Type="String">LOAD_DATETIME</Data></Cell>
+			<Cell><Data ss:Type="String">SAT_TLINK_ACCOM_DET_ITINERARY_ITEM_DETAILS</Data></Cell>
+			<Cell><Data ss:Type="String">ITINERARY_ITEM_HASH</Data></Cell>
+			<Cell><Data ss:Type="String">ITINERARY_ITEM_HASH</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">TLINK</Data></Cell>
+			<Cell><Data ss:Type="String">AGENCY</Data></Cell>
+			<Cell><Data ss:Type="Number">1</Data></Cell>
+			<Cell><Data ss:Type="String">STG_AGENCY</Data></Cell>
+			<Cell><Data ss:Type="String">LOAD_DATETIME</Data></Cell>
+			<Cell><Data ss:Type="String">SAT_TLINK_AGENCY_PARTY_DETAILS</Data></Cell>
+			<Cell><Data ss:Type="String">PARTY_HASH</Data></Cell>
+			<Cell><Data ss:Type="String">PARTY_HASH</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">TLINK</Data></Cell>
+			<Cell><Data ss:Type="String">AGENCY</Data></Cell>
+			<Cell><Data ss:Type="Number">2</Data></Cell>
+			<Cell><Data ss:Type="String">STG_AGENCY</Data></Cell>
+			<Cell><Data ss:Type="String">LOAD_DATETIME</Data></Cell>
+			<Cell><Data ss:Type="String">SAT_TLINK_AGENCY_PARTY_CONTACT</Data></Cell>
+			<Cell><Data ss:Type="String">PARTY_CONTACT_POSTAL_ADDRESS_HASH</Data></Cell>
+			<Cell><Data ss:Type="String">PARTY_CONTACT_HASH</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">TLINK</Data></Cell>
+			<Cell><Data ss:Type="String">AGENCY</Data></Cell>
+			<Cell><Data ss:Type="Number">3</Data></Cell>
+			<Cell><Data ss:Type="String">STG_AGENCY</Data></Cell>
+			<Cell><Data ss:Type="String">LOAD_DATETIME</Data></Cell>
+			<Cell><Data ss:Type="String">SAT_TLINK_AGENCY_PARTY_CONTACT</Data></Cell>
+			<Cell><Data ss:Type="String">PARTY_CONTACT_TELEPHONE_HASH</Data></Cell>
+			<Cell><Data ss:Type="String">PARTY_CONTACT_HASH</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">TLINK</Data></Cell>
+			<Cell><Data ss:Type="String">AGENCY</Data></Cell>
+			<Cell><Data ss:Type="Number">4</Data></Cell>
+			<Cell><Data ss:Type="String">STG_AGENCY</Data></Cell>
+			<Cell><Data ss:Type="String">LOAD_DATETIME</Data></Cell>
+			<Cell><Data ss:Type="String">SAT_TLINK_AGENCY_PARTY_CONTACT</Data></Cell>
+			<Cell><Data ss:Type="String">PARTY_CONTACT_FAX_HASH</Data></Cell>
+			<Cell><Data ss:Type="String">PARTY_CONTACT_HASH</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">TLINK</Data></Cell>
+			<Cell><Data ss:Type="String">AGENCY_GROUP</Data></Cell>
+			<Cell><Data ss:Type="Number">1</Data></Cell>
+			<Cell><Data ss:Type="String">STG_AGENCY_GROUP</Data></Cell>
+			<Cell><Data ss:Type="String">LOAD_DATETIME</Data></Cell>
+			<Cell><Data ss:Type="String">SAT_TLINK_AGENCY_GROUP</Data></Cell>
+			<Cell><Data ss:Type="String">AGENCY_GROUP_HASH</Data></Cell>
+			<Cell><Data ss:Type="String">AGENCY_GROUP_HASH</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">TLINK</Data></Cell>
+			<Cell><Data ss:Type="String">BOOKINGS</Data></Cell>
+			<Cell><Data ss:Type="Number">1</Data></Cell>
+			<Cell><Data ss:Type="String">STG_BOOKINGS</Data></Cell>
+			<Cell><Data ss:Type="String">LOAD_DATETIME</Data></Cell>
+			<Cell><Data ss:Type="String">SAT_TLINK_BOOKING_DETAILS</Data></Cell>
+			<Cell><Data ss:Type="String">SERIES_BOOKING_HASH</Data></Cell>
+			<Cell><Data ss:Type="String">BOOKING_HASH</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">TLINK</Data></Cell>
+			<Cell><Data ss:Type="String">BOOKINGS</Data></Cell>
+			<Cell><Data ss:Type="Number">2</Data></Cell>
+			<Cell><Data ss:Type="String">STG_BOOKINGS</Data></Cell>
+			<Cell><Data ss:Type="String">LOAD_DATETIME</Data></Cell>
+			<Cell><Data ss:Type="String">SAT_TLINK_BOOKING_FINANCIALS</Data></Cell>
+			<Cell><Data ss:Type="String">SERIES_BOOKING_HASH</Data></Cell>
+			<Cell><Data ss:Type="String">BOOKING_HASH</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">TLINK</Data></Cell>
+			<Cell><Data ss:Type="String">BOOKINGS</Data></Cell>
+			<Cell><Data ss:Type="Number">3</Data></Cell>
+			<Cell><Data ss:Type="String">STG_BOOKINGS</Data></Cell>
+			<Cell><Data ss:Type="String">LOAD_DATETIME</Data></Cell>
+			<Cell><Data ss:Type="String">SAT_BUS_HOLDBACK</Data></Cell>
+			<Cell><Data ss:Type="String">SERIES_BOOKING_HASH</Data></Cell>
+			<Cell><Data ss:Type="String">BOOKING_HASH</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">TLINK</Data></Cell>
+			<Cell><Data ss:Type="String">BOOKING_CAR_PRICES</Data></Cell>
+			<Cell><Data ss:Type="Number">1</Data></Cell>
+			<Cell><Data ss:Type="String">STG_BOOKING_CAR_PRICES</Data></Cell>
+			<Cell><Data ss:Type="String">LOAD_DATETIME</Data></Cell>
+			<Cell><Data ss:Type="String">SAT_TLINK_BOOKING_PRICES</Data></Cell>
+			<Cell><Data ss:Type="String">ITINERARY_ITEM_HASH</Data></Cell>
+			<Cell><Data ss:Type="String">ITINERARY_ITEM_HASH</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">TLINK</Data></Cell>
+			<Cell><Data ss:Type="String">BOOKING_EXTRA_PRICES</Data></Cell>
+			<Cell><Data ss:Type="Number">1</Data></Cell>
+			<Cell><Data ss:Type="String">STG_BOOKING_EXTRA_PRICES</Data></Cell>
+			<Cell><Data ss:Type="String">LOAD_DATETIME</Data></Cell>
+			<Cell><Data ss:Type="String">SAT_TLINK_BOOKING_PRICES</Data></Cell>
+			<Cell><Data ss:Type="String">ITINERARY_ITEM_HASH</Data></Cell>
+			<Cell><Data ss:Type="String">ITINERARY_ITEM_HASH</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">TLINK</Data></Cell>
+			<Cell><Data ss:Type="String">BOOKING_FLIGHT_PRICES</Data></Cell>
+			<Cell><Data ss:Type="Number">1</Data></Cell>
+			<Cell><Data ss:Type="String">STG_BOOKING_FLIGHT_PRICES</Data></Cell>
+			<Cell><Data ss:Type="String">LOAD_DATETIME</Data></Cell>
+			<Cell><Data ss:Type="String">SAT_TLINK_BOOKING_PRICES</Data></Cell>
+			<Cell><Data ss:Type="String">ITINERARY_ITEM_HASH</Data></Cell>
+			<Cell><Data ss:Type="String">ITINERARY_ITEM_HASH</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">TLINK</Data></Cell>
+			<Cell><Data ss:Type="String">BOOKING_GROUP_PRICES</Data></Cell>
+			<Cell><Data ss:Type="Number">1</Data></Cell>
+			<Cell><Data ss:Type="String">STG_BOOKING_GROUP_PRICES</Data></Cell>
+			<Cell><Data ss:Type="String">LOAD_DATETIME</Data></Cell>
+			<Cell><Data ss:Type="String">SAT_TLINK_BOOKING_PRICES</Data></Cell>
+			<Cell><Data ss:Type="String">BOOKING_HASH</Data></Cell>
+			<Cell><Data ss:Type="String">BOOKING_HASH</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">TLINK</Data></Cell>
+			<Cell><Data ss:Type="String">BOOKING_ROOM_PRICES</Data></Cell>
+			<Cell><Data ss:Type="Number">1</Data></Cell>
+			<Cell><Data ss:Type="String">STG_BOOKING_ROOM_PRICES</Data></Cell>
+			<Cell><Data ss:Type="String">LOAD_DATETIME</Data></Cell>
+			<Cell><Data ss:Type="String">SAT_TLINK_BOOKING_PRICES</Data></Cell>
+			<Cell><Data ss:Type="String">ITINERARY_ITEM_HASH</Data></Cell>
+			<Cell><Data ss:Type="String">ITINERARY_ITEM_HASH</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">TLINK</Data></Cell>
+			<Cell><Data ss:Type="String">BOOKING_TOUR_PRICES</Data></Cell>
+			<Cell><Data ss:Type="Number">1</Data></Cell>
+			<Cell><Data ss:Type="String">STG_BOOKING_TOUR_PRICES</Data></Cell>
+			<Cell><Data ss:Type="String">LOAD_DATETIME</Data></Cell>
+			<Cell><Data ss:Type="String">SAT_TLINK_BOOKING_PRICES</Data></Cell>
+			<Cell><Data ss:Type="String">ITINERARY_ITEM_HASH</Data></Cell>
+			<Cell><Data ss:Type="String">ITINERARY_ITEM_HASH</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">TLINK</Data></Cell>
+			<Cell><Data ss:Type="String">BOOKING_TRANSFER_PRICES</Data></Cell>
+			<Cell><Data ss:Type="Number">1</Data></Cell>
+			<Cell><Data ss:Type="String">STG_BOOKING_TRANSFER_PRICES</Data></Cell>
+			<Cell><Data ss:Type="String">LOAD_DATETIME</Data></Cell>
+			<Cell><Data ss:Type="String">SAT_TLINK_BOOKING_PRICES</Data></Cell>
+			<Cell><Data ss:Type="String">ITINERARY_ITEM_HASH</Data></Cell>
+			<Cell><Data ss:Type="String">ITINERARY_ITEM_HASH</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">TLINK</Data></Cell>
+			<Cell><Data ss:Type="String">COUNTRY</Data></Cell>
+			<Cell><Data ss:Type="Number">1</Data></Cell>
+			<Cell><Data ss:Type="String">STG_COUNTRIES</Data></Cell>
+			<Cell><Data ss:Type="String">LOAD_DATETIME</Data></Cell>
+			<Cell><Data ss:Type="String">SAT_TLINK_COUNTRY</Data></Cell>
+			<Cell><Data ss:Type="String">GEOGRAPHIC_AREA_HASH</Data></Cell>
+			<Cell><Data ss:Type="String">GEOGRAPHIC_AREA_HASH</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">TLINK</Data></Cell>
+			<Cell><Data ss:Type="String">FLIGHT</Data></Cell>
+			<Cell><Data ss:Type="Number">1</Data></Cell>
+			<Cell><Data ss:Type="String">STG_FLIGHTS</Data></Cell>
+			<Cell><Data ss:Type="String">LOAD_DATETIME</Data></Cell>
+			<Cell><Data ss:Type="String">SAT_TLINK_FLIGHT_OFFER</Data></Cell>
+			<Cell><Data ss:Type="String">FLIGHT_HASH</Data></Cell>
+			<Cell><Data ss:Type="String">FLIGHT_HASH</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">TLINK</Data></Cell>
+			<Cell><Data ss:Type="String">FLIGHT</Data></Cell>
+			<Cell><Data ss:Type="Number">2</Data></Cell>
+			<Cell><Data ss:Type="String">STG_FLIGHTS</Data></Cell>
+			<Cell><Data ss:Type="String">LOAD_DATETIME</Data></Cell>
+			<Cell><Data ss:Type="String">SAT_TLINK_FLIGHT_ALLOCATION</Data></Cell>
+			<Cell><Data ss:Type="String">FLIGHT_HASH</Data></Cell>
+			<Cell><Data ss:Type="String">FLIGHT_HASH</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">TLINK</Data></Cell>
+			<Cell><Data ss:Type="String">FLIGHT_DET</Data></Cell>
+			<Cell><Data ss:Type="Number">1</Data></Cell>
+			<Cell><Data ss:Type="String">STG_FLIGHT_DET</Data></Cell>
+			<Cell><Data ss:Type="String">LOAD_DATETIME</Data></Cell>
+			<Cell><Data ss:Type="String">SAT_TLINK_FLIGHT_DET_ITINERARY_ITEM_DETAILS</Data></Cell>
+			<Cell><Data ss:Type="String">ITINERARY_ITEM_HASH</Data></Cell>
+			<Cell><Data ss:Type="String">ITINERARY_ITEM_HASH</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">TLINK</Data></Cell>
+			<Cell><Data ss:Type="String">HOLIDAY_MASTER_RECORD</Data></Cell>
+			<Cell><Data ss:Type="Number">1</Data></Cell>
+			<Cell><Data ss:Type="String">STG_HOLIDAY_MASTER_RECORD</Data></Cell>
+			<Cell><Data ss:Type="String">LOAD_DATETIME</Data></Cell>
+			<Cell><Data ss:Type="String">SAT_TLINK_HOLMASTREC_ACCOMMODATION_DETAILS</Data></Cell>
+			<Cell><Data ss:Type="String">ACCOMMODATION_HASH</Data></Cell>
+			<Cell><Data ss:Type="String">ACCOMMODATION_HASH</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">TLINK</Data></Cell>
+			<Cell><Data ss:Type="String">HOLIDAY_UNIT_RECORD</Data></Cell>
+			<Cell><Data ss:Type="Number">1</Data></Cell>
+			<Cell><Data ss:Type="String">STG_HOLIDAYUNITRECORD</Data></Cell>
+			<Cell><Data ss:Type="String">LOAD_DATETIME</Data></Cell>
+			<Cell><Data ss:Type="String">SAT_TLINK_HOLUNIT_REC_ROOM_DETAILS</Data></Cell>
+			<Cell><Data ss:Type="String">ROOM_HASH</Data></Cell>
+			<Cell><Data ss:Type="String">ROOM_HASH</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">TLINK</Data></Cell>
+			<Cell><Data ss:Type="String">LINK_PAX_FLIGHT</Data></Cell>
+			<Cell><Data ss:Type="Number">1</Data></Cell>
+			<Cell><Data ss:Type="String">STG_LINK_PAX_FLIGHT</Data></Cell>
+			<Cell><Data ss:Type="String">LOAD_DATETIME</Data></Cell>
+			<Cell><Data ss:Type="String">SAT_TLINK_LINK_PAX_FLIGHT</Data></Cell>
+			<Cell><Data ss:Type="String">ITINERARY_ITEM_ROLE_HASH</Data></Cell>
+			<Cell><Data ss:Type="String">ITINERARY_ITEM_PARTY_ROLE_HASH</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">TLINK</Data></Cell>
+			<Cell><Data ss:Type="String">LINK_PAX_ROOMS</Data></Cell>
+			<Cell><Data ss:Type="Number">1</Data></Cell>
+			<Cell><Data ss:Type="String">STG_LINK_PAX_ROOMS</Data></Cell>
+			<Cell><Data ss:Type="String">LOAD_DATETIME</Data></Cell>
+			<Cell><Data ss:Type="String">SAT_TLINK_LINK_PAX_ROOMS</Data></Cell>
+			<Cell><Data ss:Type="String">ITINERARY_ITEM_ROLE_HASH</Data></Cell>
+			<Cell><Data ss:Type="String">ITINERARY_ITEM_PARTY_ROLE_HASH</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">TLINK</Data></Cell>
+			<Cell><Data ss:Type="String">MI_TOMS</Data></Cell>
+			<Cell><Data ss:Type="Number">1</Data></Cell>
+			<Cell><Data ss:Type="String">STG_MI_TOMS</Data></Cell>
+			<Cell><Data ss:Type="String">LOAD_DATETIME</Data></Cell>
+			<Cell><Data ss:Type="String">SAT_TLINK_MI_TOMS_BOOKING_TOMS</Data></Cell>
+			<Cell><Data ss:Type="String">SERIES_BOOKING_HASH</Data></Cell>
+			<Cell><Data ss:Type="String">BOOKING_HASH</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">TLINK</Data></Cell>
+			<Cell><Data ss:Type="String">PASSENGERS</Data></Cell>
+			<Cell><Data ss:Type="Number">1</Data></Cell>
+			<Cell><Data ss:Type="String">STG_PASSENGERS</Data></Cell>
+			<Cell><Data ss:Type="String">LOAD_DATETIME</Data></Cell>
+			<Cell><Data ss:Type="String">SAT_TLINK_PASSENGER_PARTY_DETAILS</Data></Cell>
+			<Cell><Data ss:Type="String">PARTY_HASH</Data></Cell>
+			<Cell><Data ss:Type="String">PARTY_HASH</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">TLINK</Data></Cell>
+			<Cell><Data ss:Type="String">PROJECTS</Data></Cell>
+			<Cell><Data ss:Type="Number">1</Data></Cell>
+			<Cell><Data ss:Type="String">STG_PROJECTS</Data></Cell>
+			<Cell><Data ss:Type="String">LOAD_DATETIME</Data></Cell>
+			<Cell><Data ss:Type="String">SAT_TLINK_PROJECT_PARTY_DETAILS</Data></Cell>
+			<Cell><Data ss:Type="String">PROJECT_HASH</Data></Cell>
+			<Cell><Data ss:Type="String">PARTY_HASH</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">TLINK</Data></Cell>
+			<Cell><Data ss:Type="String">RESORT</Data></Cell>
+			<Cell><Data ss:Type="Number">1</Data></Cell>
+			<Cell><Data ss:Type="String">STG_RESORT</Data></Cell>
+			<Cell><Data ss:Type="String">LOAD_DATETIME</Data></Cell>
+			<Cell><Data ss:Type="String">SAT_TLINK_RESORT</Data></Cell>
+			<Cell><Data ss:Type="String">GEOGRAPHIC_AREA_HASH</Data></Cell>
+			<Cell><Data ss:Type="String">GEOGRAPHIC_AREA_HASH</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">TLINK</Data></Cell>
+			<Cell><Data ss:Type="String">SUBREGIONS</Data></Cell>
+			<Cell><Data ss:Type="Number">1</Data></Cell>
+			<Cell><Data ss:Type="String">STG_SUBREGIONS</Data></Cell>
+			<Cell><Data ss:Type="String">LOAD_DATETIME</Data></Cell>
+			<Cell><Data ss:Type="String">SAT_TLINK_SUBREGION</Data></Cell>
+			<Cell><Data ss:Type="String">GEOGRAPHIC_AREA_HASH</Data></Cell>
+			<Cell><Data ss:Type="String">GEOGRAPHIC_AREA_HASH</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">TLINK</Data></Cell>
+			<Cell><Data ss:Type="String">SUPPLIER</Data></Cell>
+			<Cell><Data ss:Type="Number">1</Data></Cell>
+			<Cell><Data ss:Type="String">STG_SUPPLIERS</Data></Cell>
+			<Cell><Data ss:Type="String">LOAD_DATETIME</Data></Cell>
+			<Cell><Data ss:Type="String">SAT_TLINK_PARTY_SUPPLIER_DETAILS</Data></Cell>
+			<Cell><Data ss:Type="String">SUPPLIER_PK_HASH</Data></Cell>
+			<Cell><Data ss:Type="String">PARTY_HASH</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">VAULT</Data></Cell>
+			<Cell><Data ss:Type="String">PAX</Data></Cell>
+			<Cell><Data ss:Type="Number">1</Data></Cell>
+			<Cell><Data ss:Type="String">STG_PAX</Data></Cell>
+			<Cell><Data ss:Type="String">LOAD_DATETIME</Data></Cell>
+			<Cell><Data ss:Type="String">SAT_BUS_PAX_KPI</Data></Cell>
+			<Cell><Data ss:Type="String">BOOKING_PARTY_ROLE_HASH</Data></Cell>
+			<Cell><Data ss:Type="String">BOOKING_PARTY_ROLE_HASH</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">VAULT</Data></Cell>
+			<Cell><Data ss:Type="String">STG_BUS_HOLDBACK</Data></Cell>
+			<Cell><Data ss:Type="Number">1</Data></Cell>
+			<Cell><Data ss:Type="String">STG_BUS_HOLDBACK</Data></Cell>
+			<Cell><Data ss:Type="String">LOAD_DATETIME</Data></Cell>
+			<Cell><Data ss:Type="String">SAT_BUS_HOLDBACK</Data></Cell>
+			<Cell><Data ss:Type="String">BOOKING_HASH</Data></Cell>
+			<Cell><Data ss:Type="String">BOOKING_HASH</Data></Cell>
+		</Row>	</Table>
+</Worksheet>
+</Workbook>

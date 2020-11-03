@@ -1,0 +1,154 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+
+<changeSet author="DBA" id="20170601-1">
+    <comment>============================================================================</comment>
+    <comment> Title: LOCATOR DATA AREA                                                   </comment>
+    <comment>                                                                            </comment>
+    <comment> Purpose:                                                                   </comment>
+    <comment>      Create a schema to hold LOCATOR related data in the DATA VAULT.       </comment>
+    <comment>                                                                            </comment>
+    <comment> Notes:                                                                     </comment>
+    <comment>   This is a Liquibase XML file. It contains a build up, step by step, of   </comment>
+    <comment>   the LOCATOR related data schema. This one file contains the full history </comment>
+    <comment>   of changes made to the LOCATOR data area.                                </comment>
+    <comment>                                                                            </comment>
+    <comment>   The file is structured as follows:                                       </comment>
+    <comment>                                                                            </comment>
+    <comment>     - vault tables   - locator related vault tables, hubs, links,          </comment>
+    <comment>                        satellites, effectivity satellites, etc. One        </comment>
+    <comment>                        change set per main table, and this block contains  </comment>
+    <comment>                        all migrations applied to the schema - drop tables, </comment>
+    <comment>                        adding columns, changing data types, etc.           </comment>
+    <comment>                                                                            </comment>
+    <comment> Version Control:                                                           </comment>
+    <comment>                                                                            </comment>
+    <comment>   Date     Who Notes                                                       </comment>
+    <comment>   -------- --- ----------------------------------------------------------  </comment>
+    <comment>   07.04.17 NS  First release                                               </comment>
+    <comment>   18.08.17 NS  Added AGENCY table related data. Tidied up tabs.            </comment>
+    <comment>                                                                            </comment>
+    <comment>============================================================================</comment>
+    <empty/>
+</changeSet>
+      
+<changeSet author="DBA" id="20170410-3">
+    <comment>----------------------------------------------------------------------------</comment>
+    <comment> Vault Tables - for release VERSION-01-002                                  </comment>
+    <comment>----------------------------------------------------------------------------</comment>
+    <createTable tableName="HUB_LOCATOR" schemaName="dv">
+        <column name="LOAD_DATETIME" type="DATETIME"/>
+        <column name="LOCATOR_HASH" type="CHAR(32)"/>
+        <column name="CONCATENATED_LOCATOR" type="VARCHAR(1000)"/>
+        <column name="LOCATOR_TYPE" type="VARCHAR(50)"/>
+        <column name="SOURCE_SYSTEM" type="INT"/>
+    </createTable> 
+
+    <addPrimaryKey
+        schemaName="dv"
+        columnNames="LOCATOR_HASH"
+        constraintName="PRIMARY"
+        tableName="HUB_LOCATOR"/>
+
+    <createTable tableName="SAT_TLINK_AGENCY_TELEPHONE" schemaName="dv">
+        <column type="char(32)" name="LOCATOR_HASH"/>
+        <column type="integer" name="SOURCE_SYSTEM"/>
+        <column type="datetime" name="LOAD_DATETIME"/>
+        <column type="char(32)" name="CDC_HASH"/>
+        <column type="datetime" name="EFFECTIVE_FROM"/>
+        <column type="datetime" name="EFFECTIVE_TO"/>
+        <column type="varchar(50)" name="TELEPHONE"/>
+        <column type="varchar(50)" name="DEVICE_TYPE"/>
+    </createTable>
+
+    <addPrimaryKey 
+        schemaName="dv"
+        tableName="SAT_TLINK_AGENCY_TELEPHONE"
+        constraintName="SAT_TLINK_AGENCY_TELEPHONE_PK"
+        columnNames="LOCATOR_HASH, LOAD_DATETIME"/>
+
+    <createTable tableName="SAT_TLINK_AGENCY_POSTAL_ADDRESS" schemaName="dv">
+        <column type="varchar(50)" name="ADDRESS_LINE_1"/>
+        <column type="varchar(50)" name="ADDRESS_LINE_2"/>
+        <column type="varchar(50)" name="ADDRESS_LINE_3"/>
+        <column type="char(32)" name="CDC_HASH"/>
+        <column type="varchar(50)" name="COUNTRY"/>
+        <column type="varchar(50)" name="COUNTY"/>
+        <column type="datetime" name="EFFECTIVE_FROM"/>
+        <column type="datetime" name="EFFECTIVE_TO"/>
+        <column type="datetime" name="LOAD_DATETIME"/>
+        <column type="char(32)" name="LOCATOR_HASH"/>
+        <column type="varchar(50)" name="POST_CODE"/>
+        <column type="integer" name="SOURCE_SYSTEM"/>
+        <column type="varchar(50)" name="TOWN_CITY"/>
+    </createTable>
+
+    <addPrimaryKey
+        columnNames="LOCATOR_HASH, LOAD_DATETIME"
+        constraintName="SAT_TLINK_AGENCY_POSTAL_ADDRESS_PK"
+        schemaName="dv" 
+        tableName="SAT_TLINK_AGENCY_POSTAL_ADDRESS"/>
+
+    <createTable tableName="SAT_TLINK_AGENCY_LOCATOR_EFFECTIVITY" schemaName="dv">
+        <column name="LOCATOR_HASH" type="CHAR(32)"/>
+        <column name="EFFECTIVE_FROM" type="DATETIME"/>
+        <column name="EFFECTIVE_TO" type="DATETIME"/>
+        <column name="LOAD_DATETIME" type="DATETIME"/>
+        <column name="STATUS" type="VARCHAR(50)"/>
+        <column name="SOURCE_SYSTEM" type="INT"/>
+        <column name="CDC_HASH" type="CHAR(32)"/>
+    </createTable>
+
+    <addPrimaryKey 
+        columnNames="LOCATOR_HASH, LOAD_DATETIME" 
+        constraintName="PRIMARY" 
+        tableName="SAT_TLINK_AGENCY_LOCATOR_EFFECTIVITY"/>
+
+    <createTable tableName="LINK_PARTY_CONTACT" schemaName="dv">
+        <column name="PARTY_CONTACT_HASH" type="CHAR(32)"/>
+        <column name="PARTY_HASH" type="CHAR(32)"/>
+        <column name="LOCATOR_HASH" type="CHAR(32)"/>
+        <column name="LOAD_DATETIME" type="DATETIME"/>
+        <column name="SOURCE_SYSTEM" type="INT"/>
+    </createTable>
+
+    <addPrimaryKey
+        columnNames="PARTY_CONTACT_HASH, LOAD_DATETIME"
+        constraintName="PRIMARY"
+        tableName="LINK_PARTY_CONTACT"/>
+
+    <createTable tableName="SAT_TLINK_AGENCY_PARTY_CONTACT" schemaName="dv">
+        <column name="PARTY_CONTACT_HASH" type="CHAR(32)"/>
+        <column name="EFFECTIVE_FROM" type="DATETIME"/>
+        <column name="EFFECTIVE_TO" type="DATETIME"/>
+        <column name="LOAD_DATETIME" type="DATETIME"/>
+        <column name="SOURCE_SYSTEM" type="INT"/>
+        <column name="CDC_HASH" type="CHAR(32)"/>
+        <column name="CANCEL_FROM_MAILING" type="INT"/>
+        <column name="SUSPEND_FROM_MAILING" type="INT" />
+    </createTable>
+
+    <addPrimaryKey
+        columnNames="PARTY_CONTACT_HASH, LOAD_DATETIME"
+        constraintName="PRIMARY"
+        tableName="SAT_TLINK_AGENCY_PARTY_CONTACT"/>
+
+    <createTable tableName="SAT_TLINK_AGENCY_PARTY_CONTACT_EFFECTIVITY" schemaName="dv">
+        <column name="PARTY_CONTACT_HASH" type="CHAR(32)"/>
+        <column name="EFFECTIVE_FROM" type="DATETIME"/>
+        <column name="EFFECTIVE_TO" type="DATETIME"/>
+        <column name="LOAD_DATETIME" type="DATETIME"/>
+        <column name="STATUS" type="VARCHAR(50)"/>
+        <column name="SOURCE_SYSTEM" type="INT"/>
+        <column name="CDC_HASH" type="CHAR(32)"/>
+    </createTable>
+
+    <addPrimaryKey
+        columnNames="PARTY_CONTACT_HASH, LOAD_DATETIME"
+        constraintName="PRIMARY"
+        tableName="SAT_TLINK_AGENCY_PARTY_CONTACT_EFFECTIVITY"/>
+
+</changeSet>
+
+</databaseChangeLog>

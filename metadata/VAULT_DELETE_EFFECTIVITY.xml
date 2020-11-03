@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+xmlns:html="http://www.w3.org/TR/REC-html40">
+<Worksheet ss:Name="Table1">
+	<Table>
+		<Column ss:Index="1" ss:AutoFitWidth="0" ss:Width="110"/>
+		<Column ss:Index="2" ss:AutoFitWidth="0" ss:Width="110"/>
+		<Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="110"/>
+		<Column ss:Index="5" ss:AutoFitWidth="0" ss:Width="110"/>
+		<Column ss:Index="6" ss:AutoFitWidth="0" ss:Width="110"/>
+		<Column ss:Index="7" ss:AutoFitWidth="0" ss:Width="110"/>
+		<Column ss:Index="8" ss:AutoFitWidth="0" ss:Width="110"/>
+		<Column ss:Index="9" ss:AutoFitWidth="0" ss:Width="110"/>
+		<Column ss:Index="10" ss:AutoFitWidth="0" ss:Width="110"/>
+		<Column ss:Index="11" ss:AutoFitWidth="0" ss:Width="110"/>
+		<Column ss:Index="12" ss:AutoFitWidth="0" ss:Width="110"/>
+		<Column ss:Index="13" ss:AutoFitWidth="0" ss:Width="110"/>
+		<Column ss:Index="14" ss:AutoFitWidth="0" ss:Width="110"/>
+		<Column ss:Index="15" ss:AutoFitWidth="0" ss:Width="110"/>
+		<Column ss:Index="16" ss:AutoFitWidth="0" ss:Width="110"/>
+		<Row>
+			<Cell><Data ss:Type="String">SRC_SYSTEM_NAME</Data></Cell>
+			<Cell><Data ss:Type="String">SRC_TABLE_NAME</Data></Cell>
+			<Cell><Data ss:Type="String">EFF_DEL_RUN_SEQUENCE</Data></Cell>
+			<Cell><Data ss:Type="String">SRC_SAT_TABLE_NAME</Data></Cell>
+			<Cell><Data ss:Type="String">TGT_SAT_TABLE_NAME</Data></Cell>
+			<Cell><Data ss:Type="String">SRC_PK</Data></Cell>
+			<Cell><Data ss:Type="String">TGT_PK</Data></Cell>
+			<Cell><Data ss:Type="String">PK</Data></Cell>
+			<Cell><Data ss:Type="String">SRC_CDC_HASH</Data></Cell>
+			<Cell><Data ss:Type="String">TGT_CDC_HASH</Data></Cell>
+			<Cell><Data ss:Type="String">CDC_HASH</Data></Cell>
+			<Cell><Data ss:Type="String">SRC_PAYLOAD</Data></Cell>
+			<Cell><Data ss:Type="String">TGT_PAYLOAD</Data></Cell>
+			<Cell><Data ss:Type="String">PAYLOAD</Data></Cell>
+			<Cell><Data ss:Type="String">IL_EFFECTIVE_FROM</Data></Cell>
+			<Cell><Data ss:Type="String">DIFF_EFFECTIVE_FROM</Data></Cell>
+		</Row>
+
+		<Row>
+			<Cell><Data ss:Type="String">TLINK</Data></Cell>
+			<Cell><Data ss:Type="String">BOOKINGS</Data></Cell>
+			<Cell><Data ss:Type="Number">1</Data></Cell>
+			<Cell><Data ss:Type="String">STG_BOOKINGS</Data></Cell>
+			<Cell><Data ss:Type="String">SAT_EFFECTIVITY_BOOKING</Data></Cell>
+			<Cell><Data ss:Type="String">A.SERIES_BOOKING_HASH</Data></Cell>
+			<Cell><Data ss:Type="String">B.BOOKING_HASH</Data></Cell>
+			<Cell><Data ss:Type="String">BOOKING_HASH</Data></Cell>
+			<Cell><Data ss:Type="String">md5(&#39;DELETED&#39;)</Data></Cell>
+			<Cell><Data ss:Type="String">B.CDC_HASH_EFFECTIVITY</Data></Cell>
+			<Cell><Data ss:Type="String">CDC_HASH_EFFECTIVITY</Data></Cell>
+			<Cell><Data ss:Type="String"> &#39;DELETED&#39; </Data></Cell>
+			<Cell><Data ss:Type="String">B.STATUS</Data></Cell>
+			<Cell><Data ss:Type="String">STATUS</Data></Cell>
+			<Cell><Data ss:Type="String">A.LOAD_DATETIME</Data></Cell>
+			<Cell><Data ss:Type="String">A.LOAD_DATETIME</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">TLINK</Data></Cell>
+			<Cell><Data ss:Type="String">BOOKINGS</Data></Cell>
+			<Cell><Data ss:Type="Number">2</Data></Cell>
+			<Cell><Data ss:Type="String">STG_BOOKINGS</Data></Cell>
+			<Cell><Data ss:Type="String">SAT_EFFECTIVITY_PARTY</Data></Cell>
+			<Cell><Data ss:Type="String">A.PARTY_HASH</Data></Cell>
+			<Cell><Data ss:Type="String">B.PARTY_HASH</Data></Cell>
+			<Cell><Data ss:Type="String">PARTY_HASH</Data></Cell>
+			<Cell><Data ss:Type="String">md5(&#39;DELETED&#39;)</Data></Cell>
+			<Cell><Data ss:Type="String">B.CDC_HASH_EFFECTIVITY</Data></Cell>
+			<Cell><Data ss:Type="String">CDC_HASH_EFFECTIVITY</Data></Cell>
+			<Cell><Data ss:Type="String"> &#39;DELETED&#39; </Data></Cell>
+			<Cell><Data ss:Type="String">B.STATUS</Data></Cell>
+			<Cell><Data ss:Type="String">STATUS</Data></Cell>
+			<Cell><Data ss:Type="String">A.LOAD_DATETIME</Data></Cell>
+			<Cell><Data ss:Type="String">A.LOAD_DATETIME</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">TLINK</Data></Cell>
+			<Cell><Data ss:Type="String">BOOKINGS</Data></Cell>
+			<Cell><Data ss:Type="Number">3</Data></Cell>
+			<Cell><Data ss:Type="String">STG_BOOKINGS</Data></Cell>
+			<Cell><Data ss:Type="String">SAT_EFFECTIVITY_PARTY</Data></Cell>
+			<Cell><Data ss:Type="String">A.PRODUCT_HASH</Data></Cell>
+			<Cell><Data ss:Type="String">B.PARTY_HASH</Data></Cell>
+			<Cell><Data ss:Type="String">PARTY_HASH</Data></Cell>
+			<Cell><Data ss:Type="String">md5(&#39;DELETED&#39;)</Data></Cell>
+			<Cell><Data ss:Type="String">B.CDC_HASH_EFFECTIVITY</Data></Cell>
+			<Cell><Data ss:Type="String">CDC_HASH_EFFECTIVITY</Data></Cell>
+			<Cell><Data ss:Type="String"> &#39;DELETED&#39; </Data></Cell>
+			<Cell><Data ss:Type="String">B.STATUS</Data></Cell>
+			<Cell><Data ss:Type="String">STATUS</Data></Cell>
+			<Cell><Data ss:Type="String">A.LOAD_DATETIME</Data></Cell>
+			<Cell><Data ss:Type="String">A.LOAD_DATETIME</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">TLINK</Data></Cell>
+			<Cell><Data ss:Type="String">BOOKINGS</Data></Cell>
+			<Cell><Data ss:Type="Number">4</Data></Cell>
+			<Cell><Data ss:Type="String">STG_BOOKINGS</Data></Cell>
+			<Cell><Data ss:Type="String">SAT_EFFECTIVITY_BOOKING_PARTY_ROLE</Data></Cell>
+			<Cell><Data ss:Type="String">A.BOOKING_PARTY_ROLE_HASH</Data></Cell>
+			<Cell><Data ss:Type="String">B.BOOKING_PARTY_ROLE_HASH</Data></Cell>
+			<Cell><Data ss:Type="String">BOOKING_PARTY_ROLE_HASH</Data></Cell>
+			<Cell><Data ss:Type="String">md5(&#39;DELETED&#39;)</Data></Cell>
+			<Cell><Data ss:Type="String">B.CDC_HASH_EFFECTIVITY</Data></Cell>
+			<Cell><Data ss:Type="String">CDC_HASH_EFFECTIVITY</Data></Cell>
+			<Cell><Data ss:Type="String"> &#39;DELETED&#39; </Data></Cell>
+			<Cell><Data ss:Type="String">B.STATUS</Data></Cell>
+			<Cell><Data ss:Type="String">STATUS</Data></Cell>
+			<Cell><Data ss:Type="String">A.LOAD_DATETIME</Data></Cell>
+			<Cell><Data ss:Type="String">A.LOAD_DATETIME</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">TLINK</Data></Cell>
+			<Cell><Data ss:Type="String">BOOKINGS</Data></Cell>
+			<Cell><Data ss:Type="Number">5</Data></Cell>
+			<Cell><Data ss:Type="String">STG_BOOKINGS</Data></Cell>
+			<Cell><Data ss:Type="String">SAT_EFFECTIVITY_BOOKING_PARTY_ROLE</Data></Cell>
+			<Cell><Data ss:Type="String">A.BOOKING_PRODUCT_ROLE_HASH</Data></Cell>
+			<Cell><Data ss:Type="String">B.BOOKING_PARTY_ROLE_HASH</Data></Cell>
+			<Cell><Data ss:Type="String">BOOKING_PARTY_ROLE_HASH</Data></Cell>
+			<Cell><Data ss:Type="String">md5(&#39;DELETED&#39;)</Data></Cell>
+			<Cell><Data ss:Type="String">B.CDC_HASH_EFFECTIVITY</Data></Cell>
+			<Cell><Data ss:Type="String">CDC_HASH_EFFECTIVITY</Data></Cell>
+			<Cell><Data ss:Type="String"> &#39;DELETED&#39; </Data></Cell>
+			<Cell><Data ss:Type="String">B.STATUS</Data></Cell>
+			<Cell><Data ss:Type="String">STATUS</Data></Cell>
+			<Cell><Data ss:Type="String">A.LOAD_DATETIME</Data></Cell>
+			<Cell><Data ss:Type="String">A.LOAD_DATETIME</Data></Cell>
+		</Row>	</Table>
+</Worksheet>
+</Workbook>

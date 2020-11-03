@@ -1,0 +1,49 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+<changeSet author="DBA" id="20170526-0">
+      <comment>============================================================================</comment>
+      <comment> Title: MART RECONCILE DATA AREA                                            </comment>
+      <comment>                                                                            </comment>
+      <comment> Version Control:                                                           </comment>
+      <comment>                                                                            </comment>
+      <comment>   Date     Who Notes                                                       </comment>
+      <comment>   -------- --- ----------------------------------------------------------  </comment>
+      <comment>   26.05.17 NS  First release                                               </comment>
+      <comment>   14.06.17 TW  Amended id of this changeSet from 20170526-1 to 20170526-0  </comment>
+      <comment>                as it was conflicting with the changeSet id below           </comment>
+      <comment>                                                                            </comment>
+      <comment>============================================================================</comment>
+      <empty/>
+</changeSet>
+   
+<changeSet author="DBA" id="20170526-1">
+      <comment>----------------------------------------------------------------------------</comment>
+      <comment> martReconcile view                                                         </comment>
+      <comment>----------------------------------------------------------------------------</comment>
+
+      <createView replaceIfExists="true" schemaName="martReconcile" viewName="RECONCILE_RESULTS">
+          select
+              A.RUN_SEQUENCE as TEST_ID,
+              B.SQL_RESULT as RESULT,
+              A.TEST_GROUP, 
+              A.TEST_NAME, 
+              A.SOURCE_A_NAME, 
+              A.SOURCE_A_TABLE, 
+              A.SQL_A as TEST_SCRIPT_A, 
+              A.SOURCE_B_NAME, 
+              A.SOURCE_B_TABLE, 
+              A.SQL_B as TEST_SCRIPT_B, 
+              A.TAGS, 
+              B.TEST_DATETIME, 
+              B.SQL_A as SCRIPT_A_RESULT,
+              B.SQL_B as SCRIPT_B_RESULT,
+              B.SESSION_ID
+          from logs.RECON_TEST_RULES as A
+          inner join logs.RECON_TEST_RESULTS as B on A.RUN_SEQUENCE = B.RUN_SEQUENCE
+          where A.ACTIVE = 'Y'
+      </createView>
+	  
+</changeSet>
+
+</databaseChangeLog>

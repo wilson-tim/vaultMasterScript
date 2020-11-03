@@ -1,0 +1,137 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+
+<changeSet author="DBA" id="20170410-1">
+    <comment>============================================================================</comment>
+    <comment> Title: PARTY DATA AREA                                                     </comment>
+    <comment>                                                                            </comment>
+    <comment> Purpose:                                                                   </comment>
+    <comment>      Create a schema to hold PARTY related data in the DATA VAULT.         </comment>
+    <comment>                                                                            </comment>
+    <comment> Notes:                                                                     </comment>
+    <comment>   This is a Liquibase XML file. It contains a build up, step by step, of   </comment>
+    <comment>   the PARTY related data schema. This one file contains the full history   </comment>
+    <comment>   of changes made to the PARTY data area.                                  </comment>
+    <comment>                                                                            </comment>
+    <comment>   The file is structured as follows:                                       </comment>
+    <comment>                                                                            </comment>
+    <comment>     - staging tables - used to bring in party related source tables        </comment>
+    <comment>                        the section contains a sequence of change sets,     </comment> 
+    <comment>                        one per source table, and additional change sets    </comment>
+    <comment>                        if a staging table is changed in any way            </comment>
+    <comment>                                                                            </comment>
+    <comment>     - vault tables   - party related vault tables, hubs, links,            </comment>
+    <comment>                        satellites, effectivity satellites, etc. One        </comment>
+    <comment>                        change set per main table, and this block contains  </comment>
+    <comment>                        all migrations applied to the schema - drop tables, </comment>
+    <comment>                        adding columns, changing data types, etc.           </comment>
+    <comment>                                                                            </comment>
+    <comment> Version Control:                                                           </comment>
+    <comment>                                                                            </comment>
+    <comment>   Date     Who Notes                                                       </comment>
+    <comment>   -------- --- ----------------------------------------------------------  </comment>
+    <comment>   07.04.17 NS  First release                                               </comment>
+    <comment>   20.07.17 NS  Sat_eff._party dropped                                      </comment>
+    <comment>   29.07.17 NS  Amended column to identifier_set                            </comment>
+    <comment>   30.07.17 NS  Added effectivity sat.                                      </comment>
+    <comment>  18.08.17  NS  Added satellites to party for R1.002, Agency                </comment>
+    <comment>                                                                            </comment>
+    <comment>============================================================================</comment>
+    <empty/>
+</changeSet>
+
+<changeSet author="DBA" id="20170410-3">
+    <comment>----------------------------------------------------------------------------</comment>
+    <comment> Vault Tables - for release VERSION-01-001                                  </comment>
+    <comment>----------------------------------------------------------------------------</comment>
+    <createTable tableName="HUB_PARTY" schemaName="dv">
+        <column name="LOAD_DATETIME" type="DATETIME"/>
+        <column name="PARTY_HASH" type="CHAR(32)"/>
+        <column name="IDENTIFIER_SET" type="VARCHAR(50)"/>
+        <column name="PARTY_IDENTIFIER" type="VARCHAR(50)"/>
+        <column name="SOURCE_SYSTEM" type="INT"/>
+    </createTable> 
+
+    <addPrimaryKey columnNames="PARTY_HASH" constraintName="PRIMARY" tableName="HUB_PARTY"/>
+
+    <createTable tableName="SAT_TLINK_BOOKING_PARTY_EFFECTIVITY" schemaName="dv">
+        <column name="PARTY_HASH" type="CHAR(32)" />
+        <column name="EFFECTIVE_FROM" type="DATETIME"/>
+        <column name="EFFECTIVE_TO" type="DATETIME"/>
+        <column name="LOAD_DATETIME" type="DATETIME"/>
+        <column name="STATUS" type="INT"/>
+        <column name="SOURCE_SYSTEM" type="INT"/>
+        <column name="CDC_HASH" type="CHAR(32)"/>
+    </createTable>
+
+    <addPrimaryKey 
+        columnNames="PARTY_HASH, LOAD_DATETIME" 
+        constraintName="PRIMARY" 
+        tableName="SAT_TLINK_BOOKING_PARTY_EFFECTIVITY"
+        schemaName="dv"/>
+    </changeSet>
+
+<changeSet author="DBA" id="20170818-3">
+    <comment>----------------------------------------------------------------------------</comment>
+    <comment> Vault Tables - for release VERSION-01-002                                  </comment>
+    <comment>----------------------------------------------------------------------------</comment>
+    <createTable tableName="SAT_TLINK_AGENCY_PARTY_EFFECTIVITY" schemaName="dv">
+        <column name="PARTY_HASH" type="CHAR(32)" />
+        <column name="EFFECTIVE_FROM" type="DATETIME"/>
+        <column name="EFFECTIVE_TO" type="DATETIME"/>
+        <column name="LOAD_DATETIME" type="DATETIME"/>
+        <column name="STATUS" type="INT"/>
+        <column name="SOURCE_SYSTEM" type="INT"/>
+        <column name="CDC_HASH" type="CHAR(32)"/>
+    </createTable>
+
+    <addPrimaryKey 
+        columnNames="PARTY_HASH, LOAD_DATETIME" 
+        constraintName="PRIMARY" 
+        tableName="SAT_TLINK_AGENCY_PARTY_EFFECTIVITY"
+        schemaName="dv"/>
+    </changeSet>
+
+    <createTable tableName="SAT_TLINK_AGENCY_PARTY_DETAILS" schemaName="dv">
+        <column name="PARTY_HASH" type="CHAR(32)" />
+        <column name="SOURCE_SYSTEM" type="INT" />
+        <column name="LOAD_DATE" type="DATETIME" />
+        <column name="EFFECTIVE_FROM" type="DATETIME" />
+        <column name="EFFECTIVE_TO" type="DATETIME" />
+        <column name="CDC_HASH" type="CHAR(32)" />
+        <column name="STATUS" type="VARCHAR(50)" />
+        <column name="GIVEN_NAME" type="VARCHAR(50)" />
+        <column name="FAMILY_NAME" type="VARCHAR(255)" />
+        <column name="TITLE" type="VARCHAR(50)" />
+        <column name="CONCATENATED_NAME" type="VARCHAR(255)" />
+        <column name="COMMISION_TYPE" type="DECIMAL(5,2)" />
+        <column name="COMMENTS" type="TEXT" />
+        <column name="DATE_CREATED" type="DATETIME" />
+        <column name="VAT_NUMBER" type="VARCHAR(50)" />
+        <column name="SALUTATION" type="VARCHAR(50)" />
+        <column name="BILLING_TYPE" type="VARCHAR(255)" />
+        <column name="DATE_OF_BIRTH" type="DATETIME" />
+        <column name="AGENCY_ABTA" type="VARCHAR(50)" />
+        <column name="AGENT_CEASED" type="INT" />
+        <column name="ATOL" type="INT" />
+        <column name="CREDIT_LIMIT" type="DECIMAL(19,4)" />
+        <column name="STOP_SALE" type="INT" />
+        <column name="GENDER" type="CHAR(1)" />
+        <column name="ATOL_NUMBER" type="INT" />
+    </createTable>
+
+    <addPrimaryKey 
+        columnNames="PARTY_HASH, LOAD_DATETIME" 
+        constraintName="PRIMARY" 
+        tableName="SAT_TLINK_AGENCY_PARTY_DETAILS"
+        schemaName="dv"/>
+    </changeSet>
+
+</databaseChangeLog>
+
+
+
+
+
+

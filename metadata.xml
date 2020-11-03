@@ -1,0 +1,553 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd" >
+
+<changeSet author="DBA" id="20170410-0">
+    <comment>============================================================================</comment>
+    <comment> Title: META DATA AREA                                                      </comment>
+    <comment>                                                                            </comment>
+    <comment> Purpose:                                                                   </comment>
+    <comment>      Create a schema to hold META data in the DATA VAULT.                  </comment>
+    <comment>                                                                            </comment>
+    <comment> Notes:                                                                     </comment>
+    <comment>   This is a Liquibase XML file. It contains a build up, step by step, of   </comment>
+    <comment>   the META data schema. This one file contains the full history of changes </comment>
+    <comment>   of changes made to the META data area.                                   </comment>
+    <comment>                                                                            </comment>
+    <comment>   The file is structured as follows:                                       </comment>
+    <comment>                                                                            </comment>
+    <comment>     - staging tables - used to bring in booking related source tables      </comment>
+    <comment>                the section contains a sequence of change sets,             </comment>
+    <comment>                                                                            </comment>
+    <comment> Version Control:                                                           </comment>
+    <comment>                                                                            </comment>
+    <comment>   Date     Who Notes                                                       </comment>
+    <comment>   -------- --- ----------------------------------------------------------  </comment>
+    <comment>   07.04.17 NS  First release                                               </comment>
+    <comment>   28.04.17 NS  Added TALEND_JOBS table.                                    </comment>
+    <comment>   04.05.17 NS  Added RECON_TEST_RULES table.                               </comment>
+    <comment>   05.05.17 NS  Added further test tables, talend log tables, amended       </comment>
+    <comment>            reconciler tables to bring in line with current development     </comment>
+    <comment>            added LAKE cntrl table.                                         </comment>
+    <comment>   02.07.17 NS  Amended RECON RULES to make run sequence autoincrement      </comment>
+    <comment>            also made group + test name unique so we can look at time       </comment>
+    <comment>            sequences of test results.                                      </comment>
+    <comment>   02.07.17 NS  Added tolerance to the RECON_RULES table.                   </comment>
+    <comment>   11.08.17 TW  Correct typo in createTable CONSTRAINED_LISTS               </comment>
+    <comment>                Correct typos in createView EFFECTIVITY_STATUS              </comment>
+    <comment>                                                                            </comment>
+    <comment>============================================================================</comment>
+    <empty/>
+</changeSet>
+
+<changeSet author="DBA" id="20170410-1">
+    <comment>----------------------------------------------------------------------------</comment>
+    <comment> CONTROL Tables:                                                            </comment>
+    <comment> - LAKE ETL LOOKUP, provides a code for source systems                      </comment>
+    <comment> - INSTANCE DATA, metadata about the installed instance.                    </comment>
+    <comment> - ETL LOAD CNTRL, water level data for each source table in the vault      </comment>
+    <comment> - VAULT LOAD LOG, a log table to store data written to log by ETL          </comment>
+    <comment>----------------------------------------------------------------------------</comment>
+
+    <createTable tableName="LAKE_LOAD_CNTRL" schemaName="ctrl">
+        <column name="SRC_SYSTEM_NAME" type="varchar(50)" />
+        <column name="TABLE_NAME" type="varchar(50)" />
+        <column name="LOADTIME" type="bigint" />
+        <column name="LOADTYPE" type="varchar(50)" />
+        <column name="STATUS" type="varchar(50)" />
+    </createTable>
+
+    <createTable tableName="LAKE_ETL_LOOKUP" schemaName="ctrl">
+        <column name="SOURCE_SYSTEM_ID" type="int" />
+        <column name="SOURCE_SYSTEM_NAME" type="varchar(50)" />
+        <column name="SOURCE_TABLE" type="varchar(50)" />
+    </createTable>
+
+    <addPrimaryKey
+        columnNames = "SOURCE_SYSTEM_ID"
+        constraintName = "LAKE_ETL_LOOKUP_PK"
+        tableName = "LAKE_ETL_LOOKUP" 
+        schemaName="ctrl" />
+</changeSet>
+
+<changeSet author="DBA" id="20170410-2">
+    <createTable tableName="INSTANCE_DATA" schemaName="ctrl">
+        <column name="INSTANCE_STATUS" type="varchar(50)" />
+        <column name="ENVIRONMENT" type="varchar(50)" />
+        <column name="INSTANCE_VERSION" type="varchar(50)" />
+        <column name="TAG" type="varchar(50)" />
+        <column name="CONSTRUCTED_DATE" type="datetime" />
+        <column name="UPDATED_DATE" type="datetime" />
+    </createTable>
+</changeSet>
+
+<changeSet author="DBA" id="20170410-3">
+    <createTable tableName="ETL_LOAD_CNTRL" schemaName="ctrl">
+        <column name="TABLE_NAME" type="varchar(50)" />
+        <column name="SRC_SYSTEM_NAME" type="varchar(50)" />
+        <column name="LOAD_TYPE" type="varchar(20)" />
+        <column name="TABLE_TYPE" type="varchar(20)" />
+        <column name="LAST_LOAD_DATE" type="varchar(20)" />
+        <column name="ETL_RUN_DATE" type="datetime" />
+        <column name="SESSION_ID" type="int" />
+    </createTable>
+
+    <addPrimaryKey
+        columnNames = "SRC_SYSTEM_NAME, TABLE_NAME, TABLE_TYPE, LAST_LOAD_DATE"
+        constraintName = "ETL_LOAD_CNTRL_PK"
+        tableName = "ETL_LOAD_CNTRL" 
+        schemaName="ctrl" />
+</changeSet>
+
+<changeSet author="DBA" id="20170410-4">
+    <createTable tableName="VAULT_LOAD_LOG" schemaName="logs">
+        <column name="ID" type="int" />
+        <column name="SRC_SYS_ID" type="int" />
+        <column name="SRC_SYSTEM_NAME" type="varchar(50)" />
+        <column name="TABLE_NAME" type="varchar(50)" />
+        <column name="LOAD_TYPE" type="varchar(50)" />
+        <column name="TABLE_TYPE" type="varchar(50)" />
+        <column name="STATUS" type="varchar(255)" />
+        <column name="VAULT_RUN_DATE" type="datetime" />
+        <column name="SESSION_ID" type="int" />
+    </createTable>
+
+    <addPrimaryKey
+        columnNames = "ID"
+        constraintName = "VAULT_LOAD_LOG_PK"
+        tableName = "VAULT_LOAD_LOG" 
+        schemaName="logs" />
+
+    <addAutoIncrement
+        columnDataType="int"
+        columnName="ID"
+        incrementBy="1"
+        startWith="1"
+        tableName="VAULT_LOAD_LOG"
+        schemaName="logs" />
+</changeSet>
+
+<changeSet author="DBA" id="20170410-5">
+    <comment>----------------------------------------------------------------------------</comment>
+    <comment> Loader metadata tables:                                                    </comment>
+    <comment> - VAULT_LOAD_HASHES, columns used for hashing.                             </comment>
+    <comment> - VAULT_LOAD_HUBS, columns used to populate hubs.                          </comment>
+    <comment> - VAULT_LOAD_LINKS, columns used to populate links.                        </comment>
+    <comment> - VAULT_LOAD_SATS, columns used to populate satellites.                    </comment>
+    <comment> - VAULT_DELETES, satellite updates needed if a row is deleted.             </comment>
+    <comment> - VAULT_DELETE_EFFECTIVITY - effectivity updates needed if a row is deleted</comment>
+    <comment> - VAULT_DELETE_FK_LINK_EFFECTIVITY - effectivity updates if a fk entry     </comment>
+    <comment>   is deleted                                                               </comment>
+    <comment>----------------------------------------------------------------------------</comment>
+
+    <createTable tableName="VAULT_LOAD_HASHES" schemaName="ctrl">
+        <column name="SRC_SYSTEM_NAME" type="varchar(50)" />
+        <column name="SRC_TABLE_NAME" type="varchar(50)" />
+        <column name="HASH_RUN_SEQUENCE" type="int" />
+        <column name="TGT_TABLE_NAME" type="varchar(50)" />
+        <column name="COLUMNS_USED_FOR_HASH" type="varchar(1000)" />
+        <column name="TGT_HASH_COLUMN" type="varchar(50)" />
+    </createTable>
+
+    <addPrimaryKey
+        columnNames = "SRC_SYSTEM_NAME, SRC_TABLE_NAME, HASH_RUN_SEQUENCE"
+        constraintName = "VAULT_LOAD_HASHES_PK"
+        tableName = "VAULT_LOAD_HASHES" 
+        schemaName="ctrl" />
+
+    <createTable tableName="VAULT_LOAD_HUBS" schemaName="ctrl">
+        <column name="SRC_SYSTEM_NAME" type="varchar(50)" />
+        <column name="SRC_TABLE_NAME" type="varchar(50)" />
+        <column name="HUB_RUN_SEQUENCE" type="int" />
+        <column name="SRC_HUB_TABLE_NAME" type="varchar(50)" />
+        <column name="TGT_HUB_TABLE_NAME" type="varchar(50)" />
+        <column name="SRC_PK" type="varchar(50)" />
+        <column name="TGT_PK" type="varchar(50)" />
+        <column name="SRC_NK" type="varchar(255)" />
+        <column name="TGT_NK" type="varchar(255)" />
+    </createTable>
+
+    <addPrimaryKey
+        columnNames = "SRC_SYSTEM_NAME, SRC_TABLE_NAME, HUB_RUN_SEQUENCE"
+        constraintName = "VAULT_LOAD_HUBS_PK"
+        tableName = "VAULT_LOAD_HUBS" 
+        schemaName="ctrl" />
+
+    <createTable tableName="VAULT_LOAD_LINKS" schemaName="ctrl">
+        <column name="SRC_SYSTEM_NAME" type="varchar(50)" />
+        <column name="SRC_TABLE_NAME" type="varchar(50)" />
+        <column name="LINK_RUN_SEQUENCE" type="int" />
+        <column name="SRC_LINK_TABLE_NAME" type="varchar(50)" />
+        <column name="TGT_LINK_TABLE_NAME" type="varchar(50)" />
+        <column name="SRC_PK" type="varchar(50)" />
+        <column name="TGT_PK" type="varchar(50)" />
+        <column name="SRC_FK" type="varchar(255)" />
+        <column name="TGT_FK" type="varchar(255)" />
+    </createTable>
+
+    <addPrimaryKey
+        columnNames = "SRC_SYSTEM_NAME, SRC_TABLE_NAME, LINK_RUN_SEQUENCE"
+        constraintName = "VAULT_LOAD_LINKS_PK"
+        tableName = "VAULT_LOAD_LINKS" 
+        schemaName="ctrl" />
+
+    <createTable tableName="VAULT_LOAD_SATS" schemaName="ctrl">
+        <column name="SRC_SYSTEM_NAME" type="varchar(50)" />
+        <column name="SRC_TABLE_NAME" type="varchar(50)" />
+        <column name="SAT_RUN_SEQUENCE" type="int" />
+        <column name="SRC_SAT_TABLE_NAME" type="varchar(50)" />
+        <column name="TGT_SAT_TABLE_NAME" type="varchar(50)" />
+        <column name="SRC_PK" type="varchar(50)" />
+        <column name="TGT_PK" type="varchar(50)" />
+        <column name="PK" type="varchar(50)" />
+        <column name="SRC_CDC_HASH" type="varchar(50)" />
+        <column name="TGT_CDC_HASH" type="varchar(50)" />
+        <column name="CDC_HASH" type="varchar(50)" />
+        <column name="SRC_PAYLOAD" type="varchar(1000)" />
+        <column name="TGT_PAYLOAD" type="varchar(1000)" />
+        <column name="PAYLOAD" type="varchar(1000)" />
+        <column name="IL_EFFECTIVE_FROM" type="varchar(50)" />
+        <column name="DIFF_EFFECTIVE_FROM" type="varchar(50)" />
+    </createTable>
+
+    <addPrimaryKey
+        columnNames = "SRC_SYSTEM_NAME, SRC_TABLE_NAME, SAT_RUN_SEQUENCE"
+        constraintName = "VAULT_LOAD_SATS_PK"
+        tableName = "VAULT_LOAD_SATS" 
+        schemaName="ctrl" />
+
+    <createTable tableName="VAULT_DELETES" schemaName="ctrl">
+        <column name="SYSTEM_NAME" type="varchar(50)" />
+        <column name="TABLE_NAME" type="varchar(50)" />
+        <column name="DEL_RUN_SEQUENCE" type="int" />
+        <column name="STG_TABLE_NAME" type="varchar(50)" />
+        <column name="SRC_COLUMN_FOR_END_DATE" type="varchar(50)" />
+        <column name="TGT_SATELLITE" type="varchar(50)" />
+        <column name="SRC_PK" type="varchar(50)" />
+        <column name="TGT_PK" type="varchar(50)" />
+    </createTable>
+
+    <addPrimaryKey
+        columnNames = "SYSTEM_NAME, TABLE_NAME, DEL_RUN_SEQUENCE"
+        constraintName = "VAULT_DELETES_PK"
+        tableName = "VAULT_DELETES" 
+        schemaName="ctrl" />
+
+    <createTable tableName="VAULT_DELETE_EFFECTIVITY" schemaName="ctrl">
+        <column name="SRC_SYSTEM_NAME" type="varchar(50)" />
+        <column name="SRC_TABLE_NAME" type="varchar(50)" />
+        <column name="EFF_DEL_RUN_SEQUENCE" type="int" />
+        <column name="SRC_SAT_TABLE_NAME" type="varchar(50)" />
+        <column name="TGT_SAT_TABLE_NAME" type="varchar(50)" />
+        <column name="SRC_PK" type="varchar(50)" />
+        <column name="TGT_PK" type="varchar(50)" />
+        <column name="PK" type="varchar(50)" />
+        <column name="SRC_CDC_HASH" type="varchar(50)" />
+        <column name="TGT_CDC_HASH" type="varchar(50)" />
+        <column name="CDC_HASH" type="varchar(50)" />
+        <column name="SRC_PAYLOAD" type="varchar(1000)" />
+        <column name="TGT_PAYLOAD" type="varchar(1000)" />
+        <column name="PAYLOAD" type="varchar(1000)" />
+        <column name="IL_EFFECTIVE_FROM" type="varchar(50)" />
+        <column name="DIFF_EFFECTIVE_FROM" type="varchar(50)" />
+    </createTable>
+
+    <addPrimaryKey
+        columnNames = "SRC_SYSTEM_NAME, SRC_TABLE_NAME, EFF_DEL_RUN_SEQUENCE"
+        constraintName = "VAULT_DELETE_EFFECTIVITY_PK"
+        tableName = "VAULT_DELETE_EFFECTIVITY" 
+        schemaName="ctrl" />
+
+    <createTable tableName="VAULT_DELETE_FK_LINK_EFFECTIVITY" schemaName="ctrl">
+        <column name="SRC_SYSTEM_NAME" type="varchar(50)" />
+        <column name="SRC_TABLE_NAME" type="varchar(50)" />
+        <column name="FK_EFF_DEL_RUN_SEQUENCE" type="int" />
+        <column name="SRC_SAT_TABLE_NAME" type="varchar(50)" />
+        <column name="TGT_SAT_TABLE_NAME" type="varchar(50)" />
+        <column name="SRC_PK" type="varchar(50)" />
+        <column name="TGT_PK" type="varchar(50)" />
+        <column name="PK" type="varchar(50)" />
+        <column name="SRC_CDC_HASH" type="varchar(50)" />
+        <column name="TGT_CDC_HASH" type="varchar(50)" />
+        <column name="CDC_HASH" type="varchar(50)" />
+        <column name="SRC_PAYLOAD" type="varchar(1000)" />
+        <column name="TGT_PAYLOAD" type="varchar(1000)" />
+        <column name="PAYLOAD" type="varchar(1000)" />
+        <column name="IL_EFFECTIVE_FROM" type="varchar(50)" />
+        <column name="DIFF_EFFECTIVE_FROM" type="varchar(50)" />
+        <column name="PARENT_HASH" type="varchar(50)" />
+        <column name="SRC_LINK_TABLE_NAME" type="varchar(50)" />
+        <column name="DRIVING_JOIN_CONDITION" type="varchar(500)" />
+        <column name="SECONDARY_JOIN_CONDITION" type="varchar(500)" />
+    </createTable>
+
+    <addPrimaryKey
+        columnNames = "SRC_SYSTEM_NAME, SRC_TABLE_NAME, FK_EFF_DEL_RUN_SEQUENCE"
+        constraintName = "VAULT_DELETE_FK_LINK_EFFECTIVITY_PK"
+        tableName = "VAULT_DELETE_FK_LINK_EFFECTIVITY" 
+        schemaName="ctrl" />
+
+</changeSet>
+
+<changeSet author="DBA" id="20170410-6">
+    <comment>----------------------------------------------------------------------------</comment>
+    <comment> Data Lake last loaded date watermark for source tables.                </comment>
+    <comment>----------------------------------------------------------------------------</comment>
+
+    <createTable tableName="LAKE_LOAD_STATUS" schemaName="ctrl">
+        <column name="TABLE_NAME" type="varchar(50)" />
+        <column name="LOADTIME" type="bigint" />
+        <column name="STATUS" type="varchar(50)" />
+    </createTable>
+
+    <addPrimaryKey
+        columnNames = "TABLE_NAME,LOADTIME"
+        constraintName = "LAKE_LOAD_STATUS_PK"
+        tableName = "LAKE_LOAD_STATUS" 
+        schemaName="ctrl" />
+
+</changeSet>
+
+<changeSet author="DBA" id="20170410-7">
+    <comment>----------------------------------------------------------------------------</comment>
+    <comment> Talend log catcher, stat catcher and job status tracker tables.        </comment>
+    <comment>----------------------------------------------------------------------------</comment>
+    <createTable tableName="TALEND_LOG_CATCHER" schemaName="logs">
+        <column name="moment" type="datetime" />
+        <column name="pid" type="varchar(20)" />
+        <column name="root_pid" type="varchar(20)" />
+        <column name="father_pid" type="varchar(20)" />
+        <column name="project" type="varchar(50)" />
+        <column name="job" type="varchar(255)" />
+        <column name="context" type="varchar(50)" />
+        <column name="priority" type="int(11)" />
+        <column name="type" type="varchar(255)" />
+        <column name="origin" type="varchar(255)" />
+        <column name="message" type="varchar(255)" />
+        <column name="code" type="int(11)" />
+    </createTable>
+
+    <createTable tableName="TALEND_STAT_CATCHER" schemaName="logs">
+        <column name="moment" type="datetime" />
+        <column name="pid" type="varchar(20)" />
+        <column name="root_pid" type="varchar(20)" />
+        <column name="father_pid" type="varchar(20)" />
+        <column name="system_pid" type="bigint" />
+        <column name="project" type="varchar(50)" />
+        <column name="job" type="varchar(255)" />
+        <column name="job_repository_id" type="varchar(255)" />
+        <column name="job_version" type="varchar(255)" />
+        <column name="context" type="varchar(50)" />
+        <column name="message_type" type="varchar(255)" />
+        <column name="origin" type="varchar(255)" />
+        <column name="message" type="varchar(255)" />
+        <column name="duration" type="bigint" />
+    </createTable>
+
+    <createTable tableName="TALEND_SESSIONS" schemaName="logs">
+        <column name="SESSION_ID" type="int" />
+        <column name="SESSION_START" type="datetime" />
+        <column name="SESSION_END" type="datetime" />
+        <column name="JOB" type="varchar(255)" />
+        <column name="PID" type="varchar(20)" />
+    </createTable>
+
+    <addPrimaryKey
+        columnNames = "SESSION_ID"
+        constraintName = "TALEND_SESSIONS_PK"
+        tableName = "TALEND_SESSIONS" 
+        schemaName="logs" />
+
+    <addAutoIncrement 
+        columnDataType="int"
+        columnName="SESSION_ID"
+        incrementBy="1"
+        schemaName="logs"
+        tableName="TALEND_SESSIONS"
+        startWith="1" 
+        />
+
+    <createTable tableName="TALEND_JOBS" schemaName="ctrl">
+        <column name="JOB_ID" type="int(11)" />
+        <column name="JOB_NAME" type="varchar(50)" />
+        <column name="JOB_DESC" type="varchar(250)" />
+        <column name="ACTIVE" type="boolean" />
+        <column name="SRC_TABLE_NAME" type="varchar(50)" />
+        <column name="LOAD_TYPE" type="varchar(50)" />
+        <column name="TABLE_TYPE" type="varchar(50)" />
+        <column name="SOURCE_SYSTEM_NAME" type="varchar(50)" />
+        <column name="SOURCE_TABLE_NAME" type="varchar(50)" />
+        <column name="LIMIT_CLAUSE" type="varchar(50)" />
+        <column name="HIVE_TABLE" type="varchar(50)" />
+        <column name="TALEND_JOB_NAME" type="varchar(50)" />
+        </createTable>
+
+    <addPrimaryKey
+        columnNames = "JOB_ID"
+        constraintName = "TALEND_JOBS_PK"
+        tableName = "TALEND_JOBS" 
+        schemaName="ctrl" />
+
+    <addAutoIncrement
+        columnDataType="int"
+        columnName="JOB_ID"
+        incrementBy="1"
+        startWith="1"
+        tableName="TALEND_JOBS"
+        schemaName="ctrl" />
+
+    <addUniqueConstraint
+        columnNames="JOB_NAME"
+        constraintName="TALEND_JOBS_UK"
+        schemaName="ctrl"
+        tableName="TALEND_JOBS" />
+
+</changeSet>
+
+<changeSet author="DBA" id="20170410-8">
+    <comment>----------------------------------------------------------------------------</comment>
+    <comment> Test rules.                                                                </comment>
+    <comment>----------------------------------------------------------------------------</comment>
+    <createTable tableName="RECON_TEST_RULES" schemaName="logs">
+        <column name="RUN_SEQUENCE" type="int" />
+        <column name="ACTIVE" type="char(1)" />
+        <column name="PRODUCTION" type="char(1)" />
+        <column name="TEST_NAME" type="varchar(255)" />
+        <column name="TEST_GROUP" type="varchar(255)" />
+        <column name="SOURCE_A_NAME" type="varchar(50)" />
+        <column name="SOURCE_A_TABLE" type="varchar(50)" />
+        <column name="SOURCE_B_NAME" type="varchar(50)" />
+        <column name="SOURCE_B_TABLE" type="varchar(50)" />
+        <column name="SQL_A" type="varchar(1000)" />
+        <column name="SQL_B" type="varchar(1000)" />
+        <column name="TOLERANCE" type="decimal(5,3)" />
+        <column name="TAGS" type="varchar(1000)" />
+    </createTable>
+
+    <addDefaultValue
+        tableName="RECON_TEST_RULES"
+        schemaName="logs"
+        columnName="TOLERANCE"
+        defaultValueNumeric="0.0" />
+
+    <addPrimaryKey
+        columnNames = "RUN_SEQUENCE"
+        constraintName = "RECON_TEST_RULES_PK"
+        tableName = "RECON_TEST_RULES"
+        schemaName="logs" />
+
+    <addAutoIncrement 
+        tableName = "RECON_TEST_RULES" 
+        schemaName = "logs"
+        columnName = "RUN_SEQUENCE"
+        columnDataType = "int"
+        startWith = "1"
+        incrementBy = "1" />
+
+    <addUniqueConstraint
+        columnNames = "RUN_SEQUENCE, TEST_NAME"
+        constraintName = "RECON_TEST_RULES_UK"
+        tableName = "RECON_TEST_RULES"
+        schemaName="logs" />
+
+    <addUniqueConstraint
+        columnNames = "TEST_GROUP, TEST_NAME"
+        constraintName = "TEST_RULES_NAME_UK"
+        tableName = "RECON_TEST_RULES"
+        schemaName="logs" />
+
+    <createTable tableName="RECON_TEST_RESULTS" schemaName="logs">
+        <column name="RESULT_ID" type="int" />
+        <column name="RUN_SEQUENCE" type="int" />
+        <column name="TEST_DATETIME" type="datetime" />
+        <column name="PRODUCTION" type="char(1)" />
+        <column name="SQL_A" type="decimal(19,4)" />
+        <column name="SQL_B" type="decimal(19,4)" />
+        <column name="SQL_RESULT" type="varchar(20)" />
+        <column name="SESSION_ID" type="int" />
+    </createTable>
+
+    <addPrimaryKey
+        columnNames = "RESULT_ID"
+        constraintName = "RECON_TEST_RESULTS_PK"
+        tableName = "RECON_TEST_RESULTS"
+        schemaName="logs" />
+
+    <addAutoIncrement
+        columnDataType="int"
+        columnName="RESULT_ID"
+        incrementBy="1"
+        startWith="1"
+        tableName="RECON_TEST_RESULTS"
+        schemaName="logs" />
+
+    <createTable tableName="RECON_TEST_SOURCES" schemaName="logs" >
+        <column name="SOURCE_NAME" type="varchar(100)" />
+        <column name="SOURCE_TYPE" type="varchar(10)" />
+        <column name="HOST" type="varchar(100)" />
+        <column name="DBSCHEMA" type="varchar(100)" />
+        <column name="DBNAME" type="varchar(100)" />
+        <column name="PORT" type="varchar(100)" />
+        <column name="USERNAME" type="varchar(100)" />
+        <column name="PASSWORD" type="varchar(200)" />
+        <column name="ADDITIONAL_JDBC" type="varchar(100)" />
+        <column name="RESOURCE_MANAGER" type="varchar(100)" />
+        <column name="NAMENODE_URI" type="varchar(100)" />
+        <column name="RESOURCE_MANAGER_SCHEDULER_ADDRESS" type="varchar(100)" />
+        <column name="JOB_HISTORY_ADDRESS" type="varchar(100)" />
+    </createTable>
+
+    <addPrimaryKey
+        columnNames = "SOURCE_NAME"
+        constraintName = "RECON_TEST_SOURCES_PK"
+        tableName = "RECON_TEST_SOURCES"
+        schemaName="logs" />
+
+    <createTable tableName="RECON_TEST_LOG" schemaName="logs">
+        <column name="LOG_ID" type="int" />
+        <column name="LOG_TIME" type="datetime" />
+        <column name="RUN_SEQUENCE" type="int" />
+        <column name="LOG_MESSAGE" type="varchar(1000)" />
+        <column name="LOG_SQL" type="varchar(1000)" />
+        <column name="SESSION_ID" type="int" />
+    </createTable>
+
+    <addPrimaryKey
+        columnNames = "LOG_ID"
+        constraintName = "RECON_TEST_LOG_PK"
+        tableName = "RECON_TEST_LOG"
+        schemaName="logs" />
+
+    <addAutoIncrement
+        columnDataType="int"
+        columnName="LOG_ID"
+        incrementBy="1"
+        startWith="1"
+        tableName="RECON_TEST_LOG"
+        schemaName="logs" />
+
+</changeSet>
+
+<changeSet author="DBA" id="20170410-9">
+    <comment>----------------------------------------------------------------------------</comment>
+    <comment> Constrained lists.                                                         </comment>
+    <comment>----------------------------------------------------------------------------</comment>
+    <createTable tableName="CONSTRAINED_LISTS" schemaName = "ctrl" >
+        <column name="LIST_NAME" type="VARCHAR(50)" />
+        <column name="CODE" type="INT" />
+        <column name="DESCRIPTION" type="VARCHAR(50)" />
+        <column name="IS_ACTIVE" type="INT" />
+    </createTable>
+
+    <createView
+        replaceIfExists = "true"
+        schemaName="ctrl"
+        viewName="EFFECTIVITY_STATUS">
+        select CODE, DESCRIPTION from ctrl.CONSTRAINED_LISTS where IS_ACTIVE = 1 and LIST_NAME = 'EFFECTIVITY_STATUS'
+    </createView>
+
+</changeSet>
+
+</databaseChangeLog>

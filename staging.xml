@@ -1,0 +1,226 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+<changeSet author="DBA" id="20170410-0">
+    <comment>============================================================================</comment>
+    <comment> Title: STAGING TABLES                                                      </comment>
+    <comment>                                                                            </comment>
+    <comment> Purpose:                                                                   </comment>
+    <comment>      Create a schema to hold staging table schemas.                        </comment>
+    <comment>                                                                            </comment>
+    <comment> Notes:                                                                     </comment>
+    <comment>   This is a Liquibase XML file. It contains all staging tables in          </comment>
+    <comment>   alphabetic order.                                                        </comment>
+    <comment>                                                                            </comment>
+    <comment> Version Control:                                                           </comment>
+    <comment>                                                                            </comment>
+    <comment>   Date     Who Notes                                                       </comment>
+    <comment>   -------- --- ----------------------------------------------------------  </comment>
+    <comment>   04.05.17 NS  First release, booking                                      </comment>
+    <comment>   23.05.17 NS  Amended stg_booking to reduce ROLE fields to varchar 50     </comment>
+    <comment>                instead of a hash value; these are lookups.                 </comment>
+    <comment>   02.07.17 NS  Added LEAD and QUOTE_NUMBER, LEAD_HASH, QUOTE_HASH,         </comment>
+    <comment>                BOOKING_PARTY_LEAD_HASH.                                    </comment>
+    <comment>   07.07.17 NS  Deleted BOOKING_HASH row as not longer used or loaded.      </comment>
+    <comment>   29.07.17 NS  Major rework of hash columns, made naming more consistent   </comment>
+    <comment>   11.08.17 TW  Change name of unique constraint to avoid conflict with     </comment>
+    <comment>                STG_BOOKINGS_PK_INDEX                                       </comment>
+    <comment>   16.08.17 TW  Restored SOURCE_SYSTEM column                               </comment>
+    <comment>   17.08.17 NS  Added feed of AGENCY table.                                 </comment>
+    <comment>   21.08.17 TW  Added column BOOKING_PARTY_PASSENGER_PAYLOAD_HASH           </comment>
+    <comment>                                                                            </comment>
+    <comment>============================================================================</comment>
+    <empty/>
+</changeSet>
+   
+<changeSet author="DBA" id="20170504-1">
+
+    <createTable tableName="STG_BOOKINGS" schemaName="stg">
+        <column name="SRC_ACTION" type="CHAR(3)"/>
+        <column name="LOAD_DATETIME" type="DATETIME"/>
+        <column name="SOURCE_SYSTEM" type="INT"/>
+
+        <column name="ADJ" type="DECIMAL(19, 4)"/>
+        <column name="ADULTS" type="FLOAT(12)"/>
+        <column name="AGENCY" type="VARCHAR(50)"/>
+        <column name="BALANCEDATE" type="DATETIME"/>
+        <column name="BCODE" type="VARCHAR(50)"/>
+        <column name="BDATE" type="DATETIME"/>
+        <column name="BOOKEDBY" type="VARCHAR(255)"/>
+        <column name="CANXDATE" type="DATETIME"/>
+        <column name="CDATE" type="DATETIME"/>
+        <column name="CHILDREN" type="FLOAT(12)"/>
+        <column name="COM" type="DECIMAL(19, 4)"/>
+        <column name="CONFIRMDATE" type="DATETIME"/>
+        <column name="DEP" type="DECIMAL(19, 4)"/>
+        <column name="DEPARTUREDATE" type="DATETIME"/>
+        <column name="DUE" type="DECIMAL(19, 4)"/>
+        <column name="DURATION" type="INT"/>
+        <column name="INFANTS" type="FLOAT(12)"/>
+        <column name="LEAD" type="VARCHAR(50)"/>
+        <column name="LOCAL_CURRENCY" type="VARCHAR(255)"/>
+        <column name="MARGIN" type="DECIMAL(19, 4)"/>
+        <column name="MDATE" type="DATETIME"/>
+        <column name="PAXNUM" type="INT"/>
+        <column name="PAY" type="DECIMAL(19, 4)"/>
+        <column name="PRODUCT" type="VARCHAR(255)"/>
+        <column name="QUOTE_NUMBER" type="VARCHAR(50)"/>
+        <column name="SEATS" type="FLOAT(12)"/>
+        <column name="STATUS" type="VARCHAR(50)"/>
+        <column name="TOMSRATE" type="DECIMAL(19, 4)"/>
+        <column name="TOT" type="DECIMAL(19, 4)"/>
+        <column name="TOTALCOSTS" type="DECIMAL(19, 4)"/>
+        <column name="VAT" type="DECIMAL(19, 4)"/>
+
+        <column name="SUPPLIER_HASH" type="CHAR(32)"/>
+        <column name="CUSTOMER_HASH" type="CHAR(32)"/>
+        <column name="PASSENGER_HASH" type="CHAR(32)"/>
+        <column name="BOOKING_HASH" type="CHAR(32)"/>
+        <column name="QUOTE_HASH" type="CHAR(32)"/>
+        <column name="BOOKING_CONVERTS_HASH" type="CHAR(32)"/>
+        <column name="BPR_SUPPLIER_HASH" type="CHAR(32)"/>
+        <column name="BPR_CUSTOMER_HASH" type="CHAR(32)"/>
+        <column name="BPR_PASSENGER_HASH" type="CHAR(32)"/>
+        <column name="BOOKING_DETAILS_PAYLOAD_HASH" type="CHAR(32)"/>
+        <column name="BOOKING_PAX_PAYLOAD_HASH" type="CHAR(32)"/>
+        <column name="BOOKING_FINANCIALS_PAYLOAD_HASH" type="CHAR(32)"/>
+        <column name="BOOKING_PARTY_PASSENGER_PAYLOAD_HASH" type="CHAR(32)"/>
+
+        <column name="BOOKING_TLINK_BOOKING_EFFECTIVITY_PAYLOAD_HASH" type="CHAR(32)"/>
+        <column name="BPR_TLINK_BOOKING_SUPPLIER_EFFECTIVITY_PAYLOAD_HASH" type="CHAR(32)"/>
+        <column name="BPR_TLINK_BOOKING_CUSTOMER_EFFECTIVITY_PAYLOAD_HASH" type="CHAR(32)"/>
+        <column name="BPR_TLINK_BOOKING_PAX_EFFECTIVITY_PAYLOAD_HASH" type="CHAR(32)"/>
+        <column name="PARTY_TLINK_BOOKING_SUPPLIER_EFFECTIVITY_PAYLOAD_HASH" type="CHAR(32)"/>
+        <column name="PARTY_TLINK_BOOKING_CUSTOMER_EFFECTIVITY_PAYLOAD_HASH" type="CHAR(32)"/>
+        <column name="PARTY_TLINK_BOOKING_PASSENGER_EFFECTIVITY_PAYLOAD_HASH" type="CHAR(32)"/>
+
+    </createTable>
+
+    <addUniqueConstraint 
+        columnNames="BCODE, LOAD_DATETIME, SRC_ACTION"
+        constraintName="STG_BOOKINGS_UK"
+        tableName="STG_BOOKINGS"
+        schemaName="stg"/>
+
+    <createIndex
+        indexName = "STG_BOOKINGS_PK_INDEX"
+        tableName = "STG_BOOKINGS"
+        schemaName = "stg"
+        unique="true">
+            <column name="BCODE" />
+            <column name="LOAD_DATETIME" />
+    </createIndex>
+
+    <createIndex
+        indexName = "STG_BOOKINGS_ACTION_INDEX"
+        tableName = "STG_BOOKINGS"
+        schemaName = "stg"
+        unique="false">
+            <column name="SRC_ACTION" />
+    </createIndex>
+
+</changeSet>
+
+<changeSet author="DBA" id="20170817-1">
+
+    <createTable tableName="STG_AGENCY" schemaName="stg">
+        <column name="SRC_ACTION" type="CHAR(3)"/>
+        <column name="LOAD_DATETIME" type="DATETIME"/>
+        <column name="SOURCE_SYSTEM" type="INT"/>
+
+        <column name="ABTA" type="varchar(50)" />
+        <column name="STATUS" type="varchar(50)" />
+        <column name="FIRSTNAME" type="varchar(50)" />
+        <column name="LASTNAME" type="varchar(255)" />
+        <column name="TITLE" type="varchar(50)" />
+        <column name="CONCATENATDNAME" type="varchar(255)" />
+        <column name="ADD1" type="varchar(50)" />
+        <column name="ADD2" type="varchar(50)" />
+        <column name="ADD3" type="varchar(50)" />
+        <column name="TOWN_CITY" type="varchar(50)" />
+        <column name="COUNTY" type="varchar(50)" />
+        <column name="COUNTRY" type="varchar(50)" />
+        <column name="POSTCODE" type="varchar(50)" />
+        <column name="COMMTYPE" type="decimal(5,2)"/>
+        <column name="TELEPHONE" type="varchar(50)" />
+        <column name="FAX" type="varchar(50)" />
+        <column name="COMMENTS" type="TEXT" />
+        <column name="DATECREATED" type="datetime" />
+        <column name="VATNUMBER" type="varchar(50)" />
+        <column name="SALUTATION" type="varchar(50)" />
+        <column name="BILLINGTYPE" type="varchar(50)" />
+        <column name="CANCELFROMMAILING" type="smallint(6)" />
+        <column name="CANCELFROMEMAIL" type="boolean" />
+        <column name="DOB" type="datetime" />
+        <column name="AGENCYABTA" type="varchar(50)" />
+        <column name="AGENCYCEASED" type="bit" />
+        <column name="AGID" type="int" />
+        <column name="CREDITLIMIT" type="decimal(19,4)" />
+        <column name="STOPSALE" type="bit" />
+        <column name="AGIDPAYMENT" type="int" />
+        <column name="AGENCY_REGION" type="int" />
+        <column name="SUSPENDFROMMAILING" type="int" />
+        <column name="ATOLNUMBER" type="varchar(50)" />
+        <column name="AGENCYID" type="int(11)" />
+        <column name="GENDER" type="varchar(1)" />
+        <column name="LASTUPDATED" type="datetime" />
+        <column name="ATOL" type="int" />
+
+        <column name="AGENCY_HASH" type="char(32)" />
+        <column name="LOCATOR_TELEPHONE_HASH" type="char(32)" />
+        <column name="LOCATOR_FAX_HASH" type="char(32)" />
+        <column name="LOCATOR_POSTAL_ADDRESS_HASH" type="char(32)" />
+        <column name="PARTY_CONTACT_TELEPHONE_HASH" type="char(32)" />
+        <column name="PARTY_CONTACT_FAX_HASH" type="char(32)" />
+        <column name="PARTY_CONTACT_POSTAL_ADDRESS_HASH" type="char(32)" />
+        <column name="REGION_HASH" type="char(32)" />
+        <column name="PARTY_REGION_HASH" type="char(32)" />
+        <column name="AGENCY_PAYLOAD_HASH" type="char(32)" />
+        <column name="LOCATOR_TELEPHONE_PAYLOAD_HASH" type="char(32)" />
+        <column name="LOCATOR_FAX_PAYLOAD_HASH" type="char(32)" />
+        <column name="LOCATOR_POSTAL_ADDRESS_PAYLOAD_HASH" type="char(32)" />
+        <column name="PARTY_CONTACT_TELEPHONE_PAYLOAD_HASH" type="char(32)" />
+        <column name="PAYMENT_GROUP_HASH" type="char(32)" />
+        <column name="AGENCY_PAYMENT_GROUP_HASH" type="char(32)" />
+
+    </createTable>
+
+    <addUniqueConstraint 
+        columnNames="AGENCY_HASH, LOAD_DATETIME, SRC_ACTION" 
+        constraintName="STG_AGENCY_PK_INDEX" 
+        tableName="STG_AGENCY"
+            schemaName="stg"/>
+
+    <createIndex
+        indexName = "STG_AGENCY_PK_INDEX"
+        tableName = "STG_AGENCY" 
+        schemaName = "stg"
+        unique="true">
+            <column name="AGENCY_HASH" />
+            <column name="LOAD_DATETIME" />
+    </createIndex>
+
+    <createIndex
+        indexName = "STG_AGENCY_ACTION_INDEX"
+        tableName = "STG_AGENCY" 
+        schemaName = "stg"
+        unique="false">
+            <column name="SRC_ACTION" />
+    </createIndex>
+
+    <createIndex
+        indexName = "STG_AGENCY_CDC_INDEX"
+        tableName = "STG_AGENCY" 
+        schemaName = "stg"
+        unique="false">
+            <column name="AGENCY_PAYLOAD_HASH" />
+    </createIndex>
+
+    <createView schemaName="raw" replaceIfExists="true" viewName="STG_AGENCY_AGENCY" >
+        select * from raw.STG_AGENCY where STATUS=2 and AGID != 0
+    </createView>
+
+</changeSet>
+
+
+</databaseChangeLog>

@@ -1,0 +1,1593 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="tim (generated)" id="1498124714374-1" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="BRANCH_DIM">
+            <column name="SK_BRANCH_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SHOP_NUM" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ABTA_NUM" type="VARCHAR(10)"/>
+            <column name="OUTLET_TYPE" type="VARCHAR(2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SHOP_NAME" type="VARCHAR(35)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SK_REGION_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ADDRESS_LINE1" type="VARCHAR(50)"/>
+            <column name="ADDRESS_LINE2" type="VARCHAR(50)"/>
+            <column name="ADDRESS_LINE3" type="VARCHAR(50)"/>
+            <column name="ADDRESS_LINE4" type="VARCHAR(50)"/>
+            <column name="ADDRESS_LINE5" type="VARCHAR(50)"/>
+            <column name="POSTCODE" type="VARCHAR(12)"/>
+            <column name="EMAIL" type="VARCHAR(60)"/>
+            <column name="BRANCH_MANAGER_NAME" type="VARCHAR(50)"/>
+            <column name="VALID_FROM" type="date"/>
+            <column name="VALID_TO" type="date"/>
+            <column name="AMENDED_DATE" type="date"/>
+            <column name="AMENDED_BY" type="VARCHAR(30)"/>
+            <column name="HYPER_SHOP_FLAG" type="VARCHAR(1)"/>
+            <column name="HYPER_FRANCHISE_SHOP_FLAG" type="VARCHAR(1)"/>
+            <column name="MANAGER_EMAIL" type="VARCHAR(60)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="tim (generated)" id="1498124714374-2" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="CMS_W_DAGENT">
+            <column name="ROW_DATE" type="date"/>
+            <column name="ACD" type="INT"/>
+            <column name="SPLIT" type="INT"/>
+            <column name="EXTENSION" type="VARCHAR(7)"/>
+            <column name="LOG_ID" type="VARCHAR(10)"/>
+            <column name="LOC_ID" type="INT"/>
+            <column name="RSV_LEVEL" type="INT"/>
+            <column name="I_STAFF_TIME" type="INT"/>
+            <column name="TI_STAFF_TIME" type="INT"/>
+            <column name="I_AVAIL_TIME" type="INT"/>
+            <column name="TI_AVAIL_TIME" type="INT"/>
+            <column name="I_ACD_TIME" type="INT"/>
+            <column name="I_ACW_TIME" type="INT"/>
+            <column name="I_ACW_OUT_TIME" type="INT"/>
+            <column name="I_ACW_IN_TIME" type="INT"/>
+            <column name="TI_AUX_TIME" type="INT"/>
+            <column name="I_AUX_OUT_TIME" type="INT"/>
+            <column name="I_AUX_IN_TIME" type="INT"/>
+            <column name="I_OTHER_TIME" type="INT"/>
+            <column name="ACW_IN_CALLS" type="INT"/>
+            <column name="ACW_IN_TIME" type="INT"/>
+            <column name="AUX_IN_CALLS" type="INT"/>
+            <column name="AUX_IN_TIME" type="INT"/>
+            <column name="ACW_OUT_CALLS" type="INT"/>
+            <column name="ACW_OUT_TIME" type="INT"/>
+            <column name="ACW_OUT_OFF_CALLS" type="INT"/>
+            <column name="ACW_OUT_OFF_TIME" type="INT"/>
+            <column name="ACW_OUT_ADJ_CALLS" type="INT"/>
+            <column name="AUX_OUT_CALLS" type="INT"/>
+            <column name="AUX_OUT_TIME" type="INT"/>
+            <column name="AUX_OUT_OFF_CALLS" type="INT"/>
+            <column name="AUX_OUT_OFF_TIME" type="INT"/>
+            <column name="AUX_OUT_ADJ_CALLS" type="INT"/>
+            <column name="EVENT_1" type="INT"/>
+            <column name="EVENT_2" type="INT"/>
+            <column name="EVENT_3" type="INT"/>
+            <column name="EVENT_4" type="INT"/>
+            <column name="EVENT_5" type="INT"/>
+            <column name="EVENT_6" type="INT"/>
+            <column name="EVENT_7" type="INT"/>
+            <column name="EVENT_8" type="INT"/>
+            <column name="EVENT_9" type="INT"/>
+            <column name="ASSISTS" type="INT"/>
+            <column name="ACD_CALLS" type="INT"/>
+            <column name="ACD_TIME" type="INT"/>
+            <column name="ACW_TIME" type="INT"/>
+            <column name="O_ACD_CALLS" type="INT"/>
+            <column name="O_ACD_TIME" type="INT"/>
+            <column name="O_ACW_TIME" type="INT"/>
+            <column name="DA_ACD_CALLS" type="INT"/>
+            <column name="DA_ANS_TIME" type="INT"/>
+            <column name="DA_ABN_CALLS" type="INT"/>
+            <column name="DA_ABN_TIME" type="INT"/>
+            <column name="HOLD_CALLS" type="INT"/>
+            <column name="HOLD_TIME" type="INT"/>
+            <column name="HOLD_ABN_CALLS" type="INT"/>
+            <column name="TRANSFERRED" type="INT"/>
+            <column name="CONFERENCE" type="INT"/>
+            <column name="ABNC_ALLS" type="INT"/>
+            <column name="ABN_TIME" type="INT"/>
+            <column name="I_RING_TIME" type="INT"/>
+            <column name="I_DA_ACD_TIME" type="INT"/>
+            <column name="I_DA_ACW_TIME" type="INT"/>
+            <column name="DA_ACD_TIME" type="INT"/>
+            <column name="DA_ACW_TIME" type="INT"/>
+            <column name="DA_OTHER_CALLS" type="INT"/>
+            <column name="DA_OTHER_TIME" type="INT"/>
+            <column name="RING_CALLS" type="INT"/>
+            <column name="RING_TIME" type="INT"/>
+            <column name="ANSRING_TIME" type="INT"/>
+            <column name="TI_OTHER_TIME" type="INT"/>
+            <column name="DA_ACW_IN_CALLS" type="INT"/>
+            <column name="DA_ACW_IN_TIME" type="INT"/>
+            <column name="DA_ACW_O_CALLS" type="INT"/>
+            <column name="DA_ACW_O_TIME" type="INT"/>
+            <column name="DA_ACW_O_ADJ_CALLS" type="INT"/>
+            <column name="DA_ACW_O_OFF_CALLS" type="INT"/>
+            <column name="DA_ACW_O_OFF_TIME" type="INT"/>
+            <column name="NO_ANSRE_DIR" type="INT"/>
+            <column name="INCOMPLETE" type="INT"/>
+            <column name="ACD_AUX_OUT_CALLS" type="INT"/>
+            <column name="I_ACD_AUX_OUT_TIME" type="INT"/>
+            <column name="I_ACD_AUX_IN_TIME" type="INT"/>
+            <column name="I_ACD_OTHER_TIME" type="INT"/>
+            <column name="PHANTOM_ABNS" type="INT"/>
+            <column name="I_AUX_TIME" type="INT"/>
+            <column name="HOLD_ACD_TIME" type="INT"/>
+            <column name="DA_RELEASE" type="INT"/>
+            <column name="ACD_RELEASE" type="INT"/>
+            <column name="TI_AUX_TIME_0" type="INT"/>
+            <column name="TI_AUX_TIME_1" type="INT"/>
+            <column name="TI_AUX_TIME_2" type="INT"/>
+            <column name="TI_AUX_TIME_3" type="INT"/>
+            <column name="TI_AUX_TIME_4" type="INT"/>
+            <column name="TI_AUX_TIME_5" type="INT"/>
+            <column name="TI_AUX_TIME_6" type="INT"/>
+            <column name="TI_AUX_TIME_7" type="INT"/>
+            <column name="TI_AUX_TIME_8" type="INT"/>
+            <column name="TI_AUX_TIME_9" type="INT"/>
+            <column name="ACD_CALLS_R1" type="INT"/>
+            <column name="ACD_CALLS_R2" type="INT"/>
+            <column name="I_OTHERS_TBY_TIME" type="INT"/>
+            <column name="I_AUX_STBY_TIME" type="INT"/>
+            <column name="PROCESS_DATE" type="date"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="tim (generated)" id="1498124714374-3" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="CMS_W_DSPLIT">
+            <column name="ROW_DATE" type="date"/>
+            <column name="ACD" type="INT"/>
+            <column name="SPLIT" type="INT"/>
+            <column name="I_STAFF_TIME" type="INT"/>
+            <column name="I_AVAIL_TIME" type="INT"/>
+            <column name="I_ACD_TIME" type="INT"/>
+            <column name="I_ACW_TIME" type="INT"/>
+            <column name="I_ACW_OUT_TIME" type="INT"/>
+            <column name="I_ACW_IN_TIME" type="INT"/>
+            <column name="I_AUX_TIME" type="INT"/>
+            <column name="I_AUX_OUT_TIME" type="INT"/>
+            <column name="I_AUX_IN_TIME" type="INT"/>
+            <column name="I_OTHER_TIME" type="INT"/>
+            <column name="MAX_STAFFED" type="INT"/>
+            <column name="ACW_IN_CALLS" type="INT"/>
+            <column name="ACW_IN_TIME" type="INT"/>
+            <column name="AUX_IN_CALLS" type="INT"/>
+            <column name="AUX_IN_TIME" type="INT"/>
+            <column name="ACW_OUT_CALLS" type="INT"/>
+            <column name="ACW_OUT_TIME" type="INT"/>
+            <column name="ACW_OUT_OFF_CALLS" type="INT"/>
+            <column name="ACW_OUT_OFF_TIME" type="INT"/>
+            <column name="ACW_OUT_ADJ_CALLS" type="INT"/>
+            <column name="AUX_OUT_CALLS" type="INT"/>
+            <column name="AUX_OUT_TIME" type="INT"/>
+            <column name="AUX_OUT_OFF_CALLS" type="INT"/>
+            <column name="AUX_OUT_OFF_TIME" type="INT"/>
+            <column name="AUX_OUT_ADJ_CALLS" type="INT"/>
+            <column name="EVENT_1" type="INT"/>
+            <column name="EVENT_2" type="INT"/>
+            <column name="EVENT_3" type="INT"/>
+            <column name="EVENT_4" type="INT"/>
+            <column name="EVENT_5" type="INT"/>
+            <column name="EVENT_6" type="INT"/>
+            <column name="EVENT_7" type="INT"/>
+            <column name="EVENT_8" type="INT"/>
+            <column name="EVENT_9" type="INT"/>
+            <column name="ASSISTS" type="INT"/>
+            <column name="INFLOW_CALLS" type="INT"/>
+            <column name="ACD_CALLS" type="INT"/>
+            <column name="ANS_TIME" type="INT"/>
+            <column name="ACD_TIME" type="INT"/>
+            <column name="ACW_TIME" type="INT"/>
+            <column name="O_ACD_CALLS" type="INT"/>
+            <column name="O_ACD_TIME" type="INT"/>
+            <column name="O_ACW_TIME" type="INT"/>
+            <column name="ACD_CALLS1" type="INT"/>
+            <column name="ACD_CALLS2" type="INT"/>
+            <column name="ACD_CALLS3" type="INT"/>
+            <column name="ACD_CALLS4" type="INT"/>
+            <column name="ACD_CALLS5" type="INT"/>
+            <column name="ACD_CALLS6" type="INT"/>
+            <column name="ACD_CALLS7" type="INT"/>
+            <column name="ACD_CALLS8" type="INT"/>
+            <column name="ACD_CALLS9" type="INT"/>
+            <column name="ACD_CALLS10" type="INT"/>
+            <column name="BACK_UP_CALLS" type="INT"/>
+            <column name="HOLD_CALLS" type="INT"/>
+            <column name="HOLD_TIME" type="INT"/>
+            <column name="HOLD_ABN_CALLS" type="INT"/>
+            <column name="TRANSFERRED" type="INT"/>
+            <column name="CONFERENCE" type="INT"/>
+            <column name="ABN_CALLS" type="INT"/>
+            <column name="ABN_TIME" type="INT"/>
+            <column name="ABN_CALLS1" type="INT"/>
+            <column name="ABN_CALLS2" type="INT"/>
+            <column name="ABN_CALLS3" type="INT"/>
+            <column name="ABN_CALLS4" type="INT"/>
+            <column name="ABN_CALLS5" type="INT"/>
+            <column name="ABN_CALLS6" type="INT"/>
+            <column name="ABN_CALLS7" type="INT"/>
+            <column name="ABN_CALLS8" type="INT"/>
+            <column name="ABN_CALLS9" type="INT"/>
+            <column name="ABN_CALLS10" type="INT"/>
+            <column name="DEQUE_CALLS" type="INT"/>
+            <column name="DEQUE_TIME" type="INT"/>
+            <column name="BUSY_CALLS" type="INT"/>
+            <column name="BUSY_TIME" type="INT"/>
+            <column name="DISC_CALLS" type="INT"/>
+            <column name="DISC_TIME" type="INT"/>
+            <column name="OUTFLOW_CALLS" type="INT"/>
+            <column name="OUTFLOW_TIME" type="INT"/>
+            <column name="INTERFLOW_CALLS" type="INT"/>
+            <column name="LOW_CALLS" type="INT"/>
+            <column name="MED_CALLS" type="INT"/>
+            <column name="HIGH_CALLS" type="INT"/>
+            <column name="TOP_CALLS" type="INT"/>
+            <column name="ACCEPTABLE" type="INT"/>
+            <column name="SERVICE_LEVEL" type="INT"/>
+            <column name="PERIOD1" type="INT"/>
+            <column name="PERIOD2" type="INT"/>
+            <column name="PERIOD3" type="INT"/>
+            <column name="PERIOD4" type="INT"/>
+            <column name="PERIOD5" type="INT"/>
+            <column name="PERIOD6" type="INT"/>
+            <column name="PERIOD7" type="INT"/>
+            <column name="PERIOD8" type="INT"/>
+            <column name="PERIOD9" type="INT"/>
+            <column name="MAX_IN_QUEUE" type="INT"/>
+            <column name="MAX_OCW_TIME" type="INT"/>
+            <column name="CALLS_OFFERED" type="INT"/>
+            <column name="PERIOD_CHG" type="INT"/>
+            <column name="SVC_LEVEL_CHG" type="INT"/>
+            <column name="I_RINGTIME" type="INT"/>
+            <column name="RING_TIME" type="INT"/>
+            <column name="RING_CALLS" type="INT"/>
+            <column name="ABN_RING_CALLS" type="INT"/>
+            <column name="O_ABN_CALLS" type="INT"/>
+            <column name="O_OTHER_CALLS" type="INT"/>
+            <column name="DA_ACW_INCALLS" type="INT"/>
+            <column name="DA_ACW_INTIME" type="INT"/>
+            <column name="DA_ACW_OCALLS" type="INT"/>
+            <column name="DA_ACW_OTIME" type="INT"/>
+            <column name="NO_ANSRE_DIR" type="INT"/>
+            <column name="INCOMPLETE" type="INT"/>
+            <column name="ACD_AUXOUT_CALLS" type="INT"/>
+            <column name="I_ACDAUX_OUT_TIME" type="INT"/>
+            <column name="I_ACD_AUX_IN_TIME" type="INT"/>
+            <column name="I_ACD_OTHER_TIME" type="INT"/>
+            <column name="PHANTOM_ABNS" type="INT"/>
+            <column name="OTHER_CALLS" type="INT"/>
+            <column name="OTHER_TIME" type="INT"/>
+            <column name="SLVL_ABNS" type="INT"/>
+            <column name="SLVL_OUTFLOWS" type="INT"/>
+            <column name="I_ARRIVED" type="INT"/>
+            <column name="I_AUX_TIME0" type="INT"/>
+            <column name="I_AUX_TIME1" type="INT"/>
+            <column name="I_AUX_TIME2" type="INT"/>
+            <column name="I_AUX_TIME3" type="INT"/>
+            <column name="I_AUX_TIME4" type="INT"/>
+            <column name="I_AUX_TIME5" type="INT"/>
+            <column name="I_AUX_TIME6" type="INT"/>
+            <column name="I_AUX_TIME7" type="INT"/>
+            <column name="I_AUX_TIME8" type="INT"/>
+            <column name="I_AUX_TIME9" type="INT"/>
+            <column name="I_DA_ACD_TIME" type="INT"/>
+            <column name="I_DA_ACW_TIME" type="INT"/>
+            <column name="I_TAVAIL_TIME" type="INT"/>
+            <column name="I_TAUX_TIME" type="INT"/>
+            <column name="MAX_TOP" type="INT"/>
+            <column name="I_NORM_TIME" type="INT"/>
+            <column name="I_OL1_TIME" type="INT"/>
+            <column name="I_OL2_TIME" type="INT"/>
+            <column name="I_T_OTHER_TIME" type="INT"/>
+            <column name="MAX_TOT_PERCENTS" type="INT"/>
+            <column name="ACD_CALLS_R1" type="INT"/>
+            <column name="ACD_CALLS_R2" type="INT"/>
+            <column name="I_ACD_TIME_R1" type="INT"/>
+            <column name="I_ACD_TIME_R2" type="INT"/>
+            <column name="I_ACW_TIME_R1" type="INT"/>
+            <column name="I_ACW_TIME_R2" type="INT"/>
+            <column name="I_RING_TIME_R1" type="INT"/>
+            <column name="I_RING_TIME_R2" type="INT"/>
+            <column name="I_OTHER_TIME_R1" type="INT"/>
+            <column name="I_OTHER_TIME_R2" type="INT"/>
+            <column name="I_AUX_TIME_R1" type="INT"/>
+            <column name="I_AUX_TIME_R2" type="INT"/>
+            <column name="I_OTHERST_BY_TIME_R1" type="INT"/>
+            <column name="I_OTHERST_BY_TIME_R2" type="INT"/>
+            <column name="I_AUXST_BY_TIME_R1" type="INT"/>
+            <column name="I_AUXST_BY_TIME_R2" type="INT"/>
+            <column name="I_BEHIND_TIME" type="INT"/>
+            <column name="I_AUTO_RESERVE_TIME" type="INT"/>
+            <column name="TARGET_PERCENT" type="INT"/>
+            <column name="TARGET_PCT_CHG" type="INT"/>
+            <column name="TARGET_SECONDS" type="INT"/>
+            <column name="TARGET_SEC_CHG" type="INT"/>
+            <column name="TARGET_ACD_CALLS" type="INT"/>
+            <column name="TARGET_ABNS" type="INT"/>
+            <column name="TARGET_OUT_FLOWS" type="INT"/>
+            <column name="PROCESS_DATE" type="date"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="tim (generated)" id="1498124714374-4" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="CMS_W_DVDN">
+            <column name="ROW_DATE" type="date"/>
+            <column name="ACD" type="INT"/>
+            <column name="VDN" type="VARCHAR(7)"/>
+            <column name="VECTOR" type="INT"/>
+            <column name="INFLOW_CALLS" type="INT"/>
+            <column name="ANS_TIME" type="INT"/>
+            <column name="ACD_CALLS" type="INT"/>
+            <column name="ACD_TIME" type="INT"/>
+            <column name="BACKUP_CALLS" type="INT"/>
+            <column name="TRANSFERRED" type="INT"/>
+            <column name="ABN_CALLS" type="INT"/>
+            <column name="ABN_TIME" type="INT"/>
+            <column name="ABN_QUE_CALLS" type="INT"/>
+            <column name="BUSY_CALLS" type="INT"/>
+            <column name="BUSY_TIME" type="INT"/>
+            <column name="DISC_CALLS" type="INT"/>
+            <column name="DISC_TIME" type="INT"/>
+            <column name="OTHER_CALLS" type="INT"/>
+            <column name="OTHER_TIME" type="INT"/>
+            <column name="OUTFLOW_CALLS" type="INT"/>
+            <column name="OUTFLOW_TIME" type="INT"/>
+            <column name="INTERFLOW_CALLS" type="INT"/>
+            <column name="LOOKFLOW_CALLS" type="INT"/>
+            <column name="LOOK_ATTEMPTS" type="INT"/>
+            <column name="ADJ_ROUTED" type="INT"/>
+            <column name="ADJ_ATTEMPTS" type="INT"/>
+            <column name="IN_TIME" type="INT"/>
+            <column name="IN_CALLS" type="INT"/>
+            <column name="CONNECT_CALLS" type="INT"/>
+            <column name="CONNECT_TIME" type="INT"/>
+            <column name="ACCEP_TABLE" type="INT"/>
+            <column name="ACW_TIME" type="INT"/>
+            <column name="ANSCONN_CALLS1" type="INT"/>
+            <column name="ANSCONN_CALLS2" type="INT"/>
+            <column name="ANSCONN_CALLS3" type="INT"/>
+            <column name="ANSCONN_CALLS4" type="INT"/>
+            <column name="ANSCONN_CALLS5" type="INT"/>
+            <column name="ANSCONN_CALLS6" type="INT"/>
+            <column name="ANSCONN_CALLS7" type="INT"/>
+            <column name="ANSCONN_CALLS8" type="INT"/>
+            <column name="ANSCONN_CALLS9" type="INT"/>
+            <column name="ANSCONN_CALLS10" type="INT"/>
+            <column name="ABN_CALLS1" type="INT"/>
+            <column name="ABN_CALLS2" type="INT"/>
+            <column name="ABN_CALLS3" type="INT"/>
+            <column name="ABN_CALLS4" type="INT"/>
+            <column name="ABN_CALLS5" type="INT"/>
+            <column name="ABN_CALLS6" type="INT"/>
+            <column name="ABN_CALLS7" type="INT"/>
+            <column name="ABN_CALLS8" type="INT"/>
+            <column name="ABN_CALLS9" type="INT"/>
+            <column name="ABN_CALLS10" type="INT"/>
+            <column name="PERIOD1" type="INT"/>
+            <column name="PERIOD2" type="INT"/>
+            <column name="PERIOD3" type="INT"/>
+            <column name="PERIOD4" type="INT"/>
+            <column name="PERIOD5" type="INT"/>
+            <column name="PERIOD6" type="INT"/>
+            <column name="PERIOD7" type="INT"/>
+            <column name="PERIOD8" type="INT"/>
+            <column name="PERIOD9" type="INT"/>
+            <column name="SVC_LEVEL_CHG" type="INT"/>
+            <column name="PERIOD_CHG" type="INT"/>
+            <column name="SERVICE_LEVEL" type="INT"/>
+            <column name="ABN_RING_CALLS" type="INT"/>
+            <column name="RING_TIME" type="INT"/>
+            <column name="RING_CALLS" type="INT"/>
+            <column name="HOLD_ABN_CALLS" type="INT"/>
+            <column name="HOLD_CALLS" type="INT"/>
+            <column name="HOLD_TIME" type="INT"/>
+            <column name="MAX_OCW_TIME" type="INT"/>
+            <column name="MAX_WAITING" type="INT"/>
+            <column name="CONN_TALK_TIME" type="INT"/>
+            <column name="NO_ANSRE_DIR" type="INT"/>
+            <column name="SKILL1" type="INT"/>
+            <column name="SKILL2" type="INT"/>
+            <column name="SKILL3" type="INT"/>
+            <column name="SKILL_CALLS1" type="INT"/>
+            <column name="SKILL_CALLS2" type="INT"/>
+            <column name="SKILL_CALLS3" type="INT"/>
+            <column name="SKILL_TIME1" type="INT"/>
+            <column name="SKILL_TIME2" type="INT"/>
+            <column name="SKILL_TIME3" type="INT"/>
+            <column name="SKILL_ACW_TIME1" type="INT"/>
+            <column name="SKILL_ACW_TIME2" type="INT"/>
+            <column name="SKILL_ACW_TIME3" type="INT"/>
+            <column name="INCOMPLETE" type="INT"/>
+            <column name="BH_START_TIME" type="INT"/>
+            <column name="BH_INTERVAL" type="INT"/>
+            <column name="BH_VDN_CALLS" type="INT"/>
+            <column name="BH_ACD_CALLS" type="INT"/>
+            <column name="BH_ACD_TIME" type="INT"/>
+            <column name="BH_ABN_CALLS" type="INT"/>
+            <column name="BH_BUSY_CALLS" type="INT"/>
+            <column name="BH_DISCCALLS" type="INT"/>
+            <column name="BH_OTHER_CALLS" type="INT"/>
+            <column name="HOLD_ACD_CALLS" type="INT"/>
+            <column name="HOLD_ACD_TIME" type="INT"/>
+            <column name="PHANTOM_ABNS" type="INT"/>
+            <column name="RETURN_CALLS" type="INT"/>
+            <column name="VDISC_CALLS" type="INT"/>
+            <column name="SLVL_ABNS" type="INT"/>
+            <column name="SLVL_OUTFLOWS" type="INT"/>
+            <column name="I_ARRIVED" type="INT"/>
+            <column name="BSR_PLAN" type="INT"/>
+            <column name="DEFLECT_CALLS" type="INT"/>
+            <column name="NET_DISCCALLS" type="INT"/>
+            <column name="NET_INCALLS" type="INT"/>
+            <column name="NET_INTIME" type="INT"/>
+            <column name="NET_POLLS" type="INT"/>
+            <column name="ACD_CALLS_R1" type="INT"/>
+            <column name="ACD_CALLS_R2" type="INT"/>
+            <column name="PROCESS_DATE" type="date"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="tim (generated)" id="1498124714374-5" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="CMS_W_HSPLIT">
+            <column name="ROW_DATE" type="date"/>
+            <column name="STARTTIME" type="INT"/>
+            <column name="ROW_DATETIME" type="date"/>
+            <column name="INTRVL" type="INT"/>
+            <column name="ACD" type="INT"/>
+            <column name="SPLIT" type="INT"/>
+            <column name="I_STAFFTIME" type="INT"/>
+            <column name="I_AVAILTIME" type="INT"/>
+            <column name="I_ACDTIME" type="INT"/>
+            <column name="I_ACWTIME" type="INT"/>
+            <column name="I_ACWOUTTIME" type="INT"/>
+            <column name="I_ACWINTIME" type="INT"/>
+            <column name="I_AUXTIME" type="INT"/>
+            <column name="I_AUXOUTTIME" type="INT"/>
+            <column name="I_AUXINTIME" type="INT"/>
+            <column name="I_OTHERTIME" type="INT"/>
+            <column name="MAXSTAFFED" type="INT"/>
+            <column name="ACWINCALLS" type="INT"/>
+            <column name="ACWINTIME" type="INT"/>
+            <column name="AUXINCALLS" type="INT"/>
+            <column name="AUXINTIME" type="INT"/>
+            <column name="ACWOUTCALLS" type="INT"/>
+            <column name="ACWOUTTIME" type="INT"/>
+            <column name="ACWOUTOFFCALLS" type="INT"/>
+            <column name="ACWOUTOFFTIME" type="INT"/>
+            <column name="ACWOUTADJCALLS" type="INT"/>
+            <column name="AUXOUTCALLS" type="INT"/>
+            <column name="AUXOUTTIME" type="INT"/>
+            <column name="AUXOUTOFFCALLS" type="INT"/>
+            <column name="AUXOUTOFFTIME" type="INT"/>
+            <column name="AUXOUTADJCALLS" type="INT"/>
+            <column name="EVENT1" type="INT"/>
+            <column name="EVENT2" type="INT"/>
+            <column name="EVENT3" type="INT"/>
+            <column name="EVENT4" type="INT"/>
+            <column name="EVENT5" type="INT"/>
+            <column name="EVENT6" type="INT"/>
+            <column name="EVENT7" type="INT"/>
+            <column name="EVENT8" type="INT"/>
+            <column name="EVENT9" type="INT"/>
+            <column name="ASSISTS" type="INT"/>
+            <column name="INFLOWCALLS" type="INT"/>
+            <column name="ACDCALLS" type="INT"/>
+            <column name="ANSTIME" type="INT"/>
+            <column name="ACDTIME" type="INT"/>
+            <column name="ACWTIME" type="INT"/>
+            <column name="O_ACDCALLS" type="INT"/>
+            <column name="O_ACDTIME" type="INT"/>
+            <column name="O_ACWTIME" type="INT"/>
+            <column name="ACDCALLS1" type="INT"/>
+            <column name="ACDCALLS2" type="INT"/>
+            <column name="ACDCALLS3" type="INT"/>
+            <column name="ACDCALLS4" type="INT"/>
+            <column name="ACDCALLS5" type="INT"/>
+            <column name="ACDCALLS6" type="INT"/>
+            <column name="ACDCALLS7" type="INT"/>
+            <column name="ACDCALLS8" type="INT"/>
+            <column name="ACDCALLS9" type="INT"/>
+            <column name="ACDCALLS10" type="INT"/>
+            <column name="BACKUPCALLS" type="INT"/>
+            <column name="HOLDCALLS" type="INT"/>
+            <column name="HOLDTIME" type="INT"/>
+            <column name="HOLDABNCALLS" type="INT"/>
+            <column name="TRANSFERRED" type="INT"/>
+            <column name="CONFERENCE" type="INT"/>
+            <column name="ABNCALLS" type="INT"/>
+            <column name="ABNTIME" type="INT"/>
+            <column name="ABNCALLS1" type="INT"/>
+            <column name="ABNCALLS2" type="INT"/>
+            <column name="ABNCALLS3" type="INT"/>
+            <column name="ABNCALLS4" type="INT"/>
+            <column name="ABNCALLS5" type="INT"/>
+            <column name="ABNCALLS6" type="INT"/>
+            <column name="ABNCALLS7" type="INT"/>
+            <column name="ABNCALLS8" type="INT"/>
+            <column name="ABNCALLS9" type="INT"/>
+            <column name="ABNCALLS10" type="INT"/>
+            <column name="DEQUECALLS" type="INT"/>
+            <column name="DEQUETIME" type="INT"/>
+            <column name="BUSYCALLS" type="INT"/>
+            <column name="BUSYTIME" type="INT"/>
+            <column name="DISCCALLS" type="INT"/>
+            <column name="DISCTIME" type="INT"/>
+            <column name="OUTFLOWCALLS" type="INT"/>
+            <column name="OUTFLOWTIME" type="INT"/>
+            <column name="INTERFLOWCALLS" type="INT"/>
+            <column name="LOWCALLS" type="INT"/>
+            <column name="MEDCALLS" type="INT"/>
+            <column name="HIGHCALLS" type="INT"/>
+            <column name="TOPCALLS" type="INT"/>
+            <column name="ACCEPTABLE" type="INT"/>
+            <column name="SERVICELEVEL" type="INT"/>
+            <column name="PERIOD1" type="INT"/>
+            <column name="PERIOD2" type="INT"/>
+            <column name="PERIOD3" type="INT"/>
+            <column name="PERIOD4" type="INT"/>
+            <column name="PERIOD5" type="INT"/>
+            <column name="PERIOD6" type="INT"/>
+            <column name="PERIOD7" type="INT"/>
+            <column name="PERIOD8" type="INT"/>
+            <column name="PERIOD9" type="INT"/>
+            <column name="MAXINQUEUE" type="INT"/>
+            <column name="MAXOCWTIME" type="INT"/>
+            <column name="CALLSOFFERED" type="INT"/>
+            <column name="PERIODCHG" type="INT"/>
+            <column name="SVCLEVELCHG" type="INT"/>
+            <column name="I_RINGTIME" type="INT"/>
+            <column name="RINGTIME" type="INT"/>
+            <column name="RINGCALLS" type="INT"/>
+            <column name="ABNRINGCALLS" type="INT"/>
+            <column name="O_ABNCALLS" type="INT"/>
+            <column name="O_OTHERCALLS" type="INT"/>
+            <column name="DA_ACWINCALLS" type="INT"/>
+            <column name="DA_ACWINTIME" type="INT"/>
+            <column name="DA_ACWOCALLS" type="INT"/>
+            <column name="DA_ACWOTIME" type="INT"/>
+            <column name="NOANSREDIR" type="INT"/>
+            <column name="INCOMPLETE" type="INT"/>
+            <column name="ACDAUXOUTCALLS" type="INT"/>
+            <column name="I_ACDAUX_OUTTIME" type="INT"/>
+            <column name="I_ACDAUXINTIME" type="INT"/>
+            <column name="I_ACDOTHERTIME" type="INT"/>
+            <column name="PHANTOMABNS" type="INT"/>
+            <column name="OTHERCALLS" type="INT"/>
+            <column name="OTHERTIME" type="INT"/>
+            <column name="SLVLABNS" type="INT"/>
+            <column name="SLVLOUTFLOWS" type="INT"/>
+            <column name="I_ARRIVED" type="INT"/>
+            <column name="I_AUXTIME0" type="INT"/>
+            <column name="I_AUXTIME1" type="INT"/>
+            <column name="I_AUXTIME2" type="INT"/>
+            <column name="I_AUXTIME3" type="INT"/>
+            <column name="I_AUXTIME4" type="INT"/>
+            <column name="I_AUXTIME5" type="INT"/>
+            <column name="I_AUXTIME6" type="INT"/>
+            <column name="I_AUXTIME7" type="INT"/>
+            <column name="I_AUXTIME8" type="INT"/>
+            <column name="I_AUXTIME9" type="INT"/>
+            <column name="I_DA_ACDTIME" type="INT"/>
+            <column name="I_DA_ACWTIME" type="INT"/>
+            <column name="I_TAVAILTIME" type="INT"/>
+            <column name="I_TAUXTIME" type="INT"/>
+            <column name="MAXTOP" type="INT"/>
+            <column name="I_NORMTIME" type="INT"/>
+            <column name="I_OL1TIME" type="INT"/>
+            <column name="I_OL2TIME" type="INT"/>
+            <column name="I_TOTHERTIME" type="INT"/>
+            <column name="MAX_TOT_PERCENTS" type="INT"/>
+            <column name="ACDCALLS_R1" type="INT"/>
+            <column name="ACDCALLS_R2" type="INT"/>
+            <column name="I_ACDTIME_R1" type="INT"/>
+            <column name="I_ACDTIME_R2" type="INT"/>
+            <column name="I_ACWTIME_R1" type="INT"/>
+            <column name="I_ACWTIME_R2" type="INT"/>
+            <column name="I_RINGTIME_R1" type="INT"/>
+            <column name="I_RINGTIME_R2" type="INT"/>
+            <column name="I_OTHERTIME_R1" type="INT"/>
+            <column name="I_OTHERTIME_R2" type="INT"/>
+            <column name="I_AUXTIME_R1" type="INT"/>
+            <column name="I_AUXTIME_R2" type="INT"/>
+            <column name="I_OTHERSTBYTIME_R1" type="INT"/>
+            <column name="I_OTHERSTBYTIME_R2" type="INT"/>
+            <column name="I_AUXSTBYTIME_R1" type="INT"/>
+            <column name="I_AUXSTBYTIME_R2" type="INT"/>
+            <column name="I_BEHINDTIME" type="INT"/>
+            <column name="I_AUTORESERVETIME" type="INT"/>
+            <column name="TARGETPERCENT" type="INT"/>
+            <column name="TARGETPCTCHG" type="INT"/>
+            <column name="TARGETSECONDS" type="INT"/>
+            <column name="TARGETSECCHG" type="INT"/>
+            <column name="TARGETACDCALLS" type="INT"/>
+            <column name="TARGETABNS" type="INT"/>
+            <column name="TARGETOUTFLOWS" type="INT"/>
+            <column name="PROCESS_DATE" type="date"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="tim (generated)" id="1498124714374-6" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="COUNTRY_DIM">
+            <column name="SK_COUNTRY_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="COUNTRY_ISO_CODE" type="VARCHAR(4)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="COUNTRY_NAME" type="VARCHAR(200)"/>
+            <column name="FLIGHT_HAUL_TYPE" type="VARCHAR(2)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="tim (generated)" id="1498124714374-7" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="DIFFERENTIATED_ACCOM">
+            <column name="PRIMARY_ACCOMMODATION" type="VARCHAR(150)"/>
+            <column name="CLASSIFICATION" type="VARCHAR(50)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="tim (generated)" id="1498124714374-8" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="DYNAMICS_EXTRA_TYPE">
+            <column name="TLINK_EXTRA_TYPE" type="VARCHAR(50)"/>
+            <column name="DYNAMICS_GROUP" type="VARCHAR(10)"/>
+            <column name="TL_EXTRA_GROUP" type="VARCHAR(10)"/>
+            <column name="DYNAMIC_REPORT_TITLE" type="VARCHAR(50)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="tim (generated)" id="1498124714374-9" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="FLIGHT_CLASS_DIM">
+            <column name="AIRLINE" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="FLIGHT_CLASS" type="VARCHAR(50)"/>
+            <column name="FLIGHT_CLASS_DESCRIPTION" type="VARCHAR(50)"/>
+            <column name="VALID_FROM" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="VALID_TO" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="AMENDED_DATE" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="AMENDED_BY" type="VARCHAR(30)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="tim (generated)" id="1498124714374-10" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="GATEWAY_DIM">
+            <column name="SK_GATEWAY_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="GATEWAY_IATA_CODE" type="VARCHAR(4)"/>
+            <column name="GATEWAY_ICAO_CODE" type="VARCHAR(4)"/>
+            <column name="GATEWAY_NAME" type="VARCHAR(200)"/>
+            <column name="SK_COUNTRY_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="REGION" type="VARCHAR(200)"/>
+            <column name="RESORT" type="VARCHAR(200)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="tim (generated)" id="1498124714374-11" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="PRIMARY_COUNTRY_DIM">
+            <column name="SK_COUNTRY_ID" type="INT"/>
+            <column name="COUNTRY_ISO_CODE" type="VARCHAR(4)"/>
+            <column name="COUNTRY_NAME" type="VARCHAR(255)"/>
+            <column name="FLIGHT_HAUL_TYPE" type="VARCHAR(2)"/>
+            <column name="PRIMARY_COUNTRY" type="VARCHAR(255)"/>
+            <column name="ALT_PRIMARY_COUNTRY" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="tim (generated)" id="1498124714374-12" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="REGION_DIV_DIM">
+            <column name="SK_REGION_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SK_DIV_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="REGION_NAME" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DIVISION_NAME" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="REGIONAL_MANAGER" type="VARCHAR(50)"/>
+            <column name="REGIONAL_EMAIL" type="VARCHAR(50)"/>
+            <column name="DIVISIONAL_NAMAGER" type="VARCHAR(50)"/>
+            <column name="DIVISIONAL_EMAIL" type="VARCHAR(50)"/>
+            <column name="VALID_FROM" type="date"/>
+            <column name="VALID_TO" type="date"/>
+            <column name="AMENDED_DATE" type="date"/>
+            <column name="AMENDED_BY" type="VARCHAR(35)"/>
+            <column name="SHG_DIVISION_NAME" type="VARCHAR(50)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="tim (generated)" id="1498124714374-13" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="RESP_DT_AGENT">
+            <column name="LOCATIONCODE" type="VARCHAR(5)"/>
+            <column name="LOCATION" type="VARCHAR(50)"/>
+            <column name="SEASONCODE" type="VARCHAR(10)"/>
+            <column name="ONSALEDATE" type="date"/>
+            <column name="STOPSALEDATE" type="date"/>
+            <column name="TEAMCODE" type="VARCHAR(10)"/>
+            <column name="TEAM" type="VARCHAR(50)"/>
+            <column name="RESSYSTEMLOGIN" type="VARCHAR(50)"/>
+            <column name="ALTRESSYSTEMLOGIN" type="VARCHAR(50)"/>
+            <column name="PAYROLLNUMBER" type="VARCHAR(10)"/>
+            <column name="AGENTNAME" type="VARCHAR(50)"/>
+            <column name="OPERATINGSYSTEMLOGIN" type="VARCHAR(50)"/>
+            <column name="TELEPHONEEXT" type="VARCHAR(12)"/>
+            <column name="AGENTEMAILADDRESS" type="VARCHAR(50)"/>
+            <column name="SUPERVISOR" type="VARCHAR(30)"/>
+            <column name="SUPERVISOREMAIL" type="VARCHAR(50)"/>
+            <column name="SUPERVISORTELEPHONE" type="VARCHAR(15)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="tim (generated)" id="1498124714374-14" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="RESP_DT_CLW">
+            <column name="LOCATIONCODE" type="VARCHAR(5)"/>
+            <column name="LOCATION" type="VARCHAR(50)"/>
+            <column name="SEASONCODE" type="VARCHAR(10)"/>
+            <column name="ONSALEDATE" type="date"/>
+            <column name="STOPSALEDATE" type="date"/>
+            <column name="TEAMCODE" type="VARCHAR(10)"/>
+            <column name="TEAM" type="VARCHAR(50)"/>
+            <column name="RESSYSTEMLOGIN" type="VARCHAR(50)"/>
+            <column name="ALTRESSYSTEMLOGIN" type="VARCHAR(50)"/>
+            <column name="PAYROLLNUMBER" type="VARCHAR(10)"/>
+            <column name="AGENTNAME" type="VARCHAR(50)"/>
+            <column name="OPERATINGSYSTEMLOGIN" type="VARCHAR(50)"/>
+            <column name="TELEPHONEEXT" type="VARCHAR(12)"/>
+            <column name="AGENTEMAILADDRESS" type="VARCHAR(50)"/>
+            <column name="SUPERVISOR" type="VARCHAR(30)"/>
+            <column name="SUPERVISOREMAIL" type="VARCHAR(50)"/>
+            <column name="SUPERVISORTELEPHONE" type="VARCHAR(15)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="tim (generated)" id="1498124714374-15" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="RESP_DT_SKILL">
+            <column name="SKILL_NUMBER" type="INT"/>
+            <column name="SKILL_CATEGORY" type="VARCHAR(100)"/>
+            <column name="SKILL_GROUP" type="VARCHAR(50)"/>
+            <column name="SKILL_DESCRIPTION" type="VARCHAR(50)"/>
+            <column name="SKILL_TYPE" type="VARCHAR(50)"/>
+            <column name="AGENT_DIRECT" type="VARCHAR(50)"/>
+            <column name="BRAND" type="VARCHAR(50)"/>
+            <column name="TCP_REPORT" type="VARCHAR(50)"/>
+            <column name="SKILL_CAPTION" type="VARCHAR(100)"/>
+            <column name="PCA_SECTION" type="VARCHAR(50)"/>
+            <column name="PCA_REPORTING_DESC" type="VARCHAR(50)"/>
+            <column name="VALID_FROM" type="date"/>
+            <column name="VALID_TO" type="date"/>
+            <column name="AMENDMENT_DATE" type="date"/>
+            <column name="AMENDED_BY" type="VARCHAR(50)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="tim (generated)" id="1498124714374-16" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="RESP_DT_SKILLX">
+            <column name="SKILL_NUMBER" type="INT"/>
+            <column name="SKILL_CATEGORY" type="VARCHAR(100)"/>
+            <column name="SKILL_GROUP" type="VARCHAR(50)"/>
+            <column name="SKILL_DESCRIPTION" type="VARCHAR(50)"/>
+            <column name="SKILL_TYPE" type="VARCHAR(50)"/>
+            <column name="AGENT_DIRECT" type="VARCHAR(50)"/>
+            <column name="BRAND" type="VARCHAR(50)"/>
+            <column name="TCP_REPORT" type="VARCHAR(50)"/>
+            <column name="SKILL_CAPTION" type="VARCHAR(100)"/>
+            <column name="PCA_SECTION" type="VARCHAR(50)"/>
+            <column name="PCA_REPORTING_DESC" type="VARCHAR(50)"/>
+            <column name="VALID_FROM" type="date"/>
+            <column name="VALID_TO" type="date"/>
+            <column name="AMENDMENT_DATE" type="date"/>
+            <column name="AMENDED_BY" type="VARCHAR(50)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="tim (generated)" id="1498124714374-17" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="RESP_DT_VDN">
+            <column name="VDN" type="VARCHAR(7)"/>
+            <column name="VECTOR" type="INT"/>
+            <column name="VDN_DESCRIPTION" type="VARCHAR(50)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="tim (generated)" id="1498124714374-18" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="SPECIALIST_FORECAST">
+            <column name="FORECAST_DATE" type="date"/>
+            <column name="PRODUCT" type="VARCHAR(255)"/>
+            <column name="CC_PAX_PERC" type="DECIMAL(19, 4)"/>
+            <column name="CC_PAX_FORECAST" type="INT"/>
+            <column name="CC_MGN_FORECAST" type="INT"/>
+            <column name="WEB_PAX_PERC" type="DECIMAL(19, 4)"/>
+            <column name="WEB_PAX_FORECAST" type="INT"/>
+            <column name="WEB_MGN_FORECAST" type="INT"/>
+            <column name="AMENDMENT_DATE" type="date"/>
+            <column name="AMENDED_BY" type="VARCHAR(50)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="tim (generated)" id="1498124714374-19" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="TLINK_DAYDIMENSION">
+            <column name="DAY_DATE" type="date"/>
+            <column name="DAY_DATE_STRING" type="VARCHAR(10)"/>
+            <column name="START_OF_DAY" type="date"/>
+            <column name="END_OF_DAY" type="date"/>
+            <column name="DAY_OF_WEEK_ISO" type="INT"/>
+            <column name="DAY_OF_WEEK_SUN" type="INT"/>
+            <column name="DAY_OF_WEEK_MON" type="INT"/>
+            <column name="DAY_OF_WEEK_SHORT_NAME" type="VARCHAR(3)"/>
+            <column name="DAY_OF_WEEK_LONG_NAME" type="VARCHAR(9)"/>
+            <column name="DAY_OF_YEAR_ISO" type="INT"/>
+            <column name="DAY_OF_YEAR_FC" type="INT"/>
+            <column name="START_OF_FIRST_WEEK_ISO" type="date"/>
+            <column name="START_OF_FIRST_WEEK_FC" type="date"/>
+            <column name="WEEK_OF_YEAR_ISO" type="INT"/>
+            <column name="WEEK_OF_YEAR_FC" type="INT"/>
+            <column name="FIRST_DAY_OF_WEEK_SUN" type="date"/>
+            <column name="FIRST_DAY_OF_WEEK_MON" type="date"/>
+            <column name="LAST_DAY_OF_WEEK_SUN" type="date"/>
+            <column name="LAST_DAY_OF_WEEK_MON" type="date"/>
+            <column name="FIRST_DAY_OF_WEEK_ISO" type="date"/>
+            <column name="LAST_DAY_OF_WEEK_ISO" type="date"/>
+            <column name="FIRST_DAY_OF_MONTH_WEEK_SUN" type="date"/>
+            <column name="FIRST_DAY_OF_MONTH_WEEK_MON" type="date"/>
+            <column name="MONTH_SHORT_NAME" type="VARCHAR(3)"/>
+            <column name="MONTH_LONG_NAME" type="VARCHAR(9)"/>
+            <column name="MONTH_NUMBER_ISO" type="INT"/>
+            <column name="MONTH_NUMBER_FC" type="INT"/>
+            <column name="QUARTER" type="INT"/>
+            <column name="QUARTER_FC" type="INT"/>
+            <column name="YEAR_ISO" type="INT"/>
+            <column name="YEAR_FC" type="INT"/>
+            <column name="SEASON" type="VARCHAR(1)"/>
+            <column name="SEASON_YEAR" type="VARCHAR(5)"/>
+            <column name="SEASON_YEAR_SHORT" type="VARCHAR(3)"/>
+            <column name="START_OF_YEAR_ISO" type="date"/>
+            <column name="START_OF_YEAR_FC" type="date"/>
+            <column name="HALF_SHORT_NAME" type="VARCHAR(20)"/>
+            <column name="HALF_NAME" type="VARCHAR(20)"/>
+            <column name="HALF_LONG_NAME" type="VARCHAR(20)"/>
+            <column name="QTR_SHORT_NAME" type="VARCHAR(20)"/>
+            <column name="QTR_NAME" type="VARCHAR(20)"/>
+            <column name="QTR_LONG_NAME" type="VARCHAR(20)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="tim (generated)" id="1498124714374-20" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="TL_W_ACCOMROUTE">
+            <column name="BOOKING_REF" type="VARCHAR(50)"/>
+            <column name="AMENDMENT_DATE" type="date"/>
+            <column name="AMENDMENT_ORDER" type="INT"/>
+            <column name="ACCOMMODATION_ROUTE" type="VARCHAR(2000)"/>
+            <column name="RESORT_ROUTE" type="VARCHAR(2000)"/>
+            <column name="REGION_ROUTE" type="VARCHAR(2000)"/>
+            <column name="COUNTRY_ROUTE" type="VARCHAR(2000)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="tim (generated)" id="1498124714374-21" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="TL_W_ACCOM_UNITS">
+            <column name="HCODE" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="HUCODE" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="LOAD_AVAILABLE" type="INT"/>
+            <column name="LOAD_START_DATE" type="date"/>
+            <column name="LOAD_END_DATE" type="date"/>
+            <column name="STD" type="INT"/>
+            <column name="LOADED" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PRO_RATA" type="VARCHAR(3)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PRICING_TYPE" type="VARCHAR(255)"/>
+            <column name="LOCAL_CURRENCY" type="VARCHAR(255)"/>
+            <column name="ROOM" type="VARCHAR(255)"/>
+            <column name="HOTEL" type="VARCHAR(180)"/>
+            <column name="AMENDMENT_DATE" type="date"/>
+            <column name="AMENDMENT_ORDER" type="INT"/>
+            <column name="PROCESS_DATE" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PROCESS_RECORD_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="tim (generated)" id="1498124714374-22" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="TL_W_AGENCY">
+            <column name="CLIENT_REF" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ABTA" type="VARCHAR(50)"/>
+            <column name="FIRST_NAME" type="VARCHAR(50)"/>
+            <column name="LAST_NAME" type="VARCHAR(255)"/>
+            <column name="TITLE" type="VARCHAR(50)"/>
+            <column name="ADDRESS_1" type="VARCHAR(50)"/>
+            <column name="ADDRESS_2" type="VARCHAR(50)"/>
+            <column name="ADDRESS_3" type="VARCHAR(50)"/>
+            <column name="TOWN_CITY" type="VARCHAR(50)"/>
+            <column name="COUNTY" type="VARCHAR(50)"/>
+            <column name="COUNTRY" type="VARCHAR(50)"/>
+            <column name="POSTCODE" type="VARCHAR(50)"/>
+            <column name="COMMISSION_GROUP" type="VARCHAR(255)"/>
+            <column name="PAYMENT_GROUP" type="VARCHAR(255)"/>
+            <column name="MASTER_GROUP" type="VARCHAR(255)"/>
+            <column name="PASSWORD" type="VARCHAR(50)"/>
+            <column name="AMENDMENT_DATE" type="date"/>
+            <column name="AMENDMENT_ORDER" type="INT"/>
+            <column name="PROCESS_DATE" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PROCESS_RECORD_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="tim (generated)" id="1498124714374-23" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="TL_W_AIRLINES">
+            <column name="AIRLINE_NAME" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="REF_CODE" type="VARCHAR(255)"/>
+            <column name="OP_NAME" type="VARCHAR(255)"/>
+            <column name="INBOUND_RULE" type="INT"/>
+            <column name="COMMENTS" type="VARCHAR(1000)"/>
+            <column name="TICKETING_CODE" type="VARCHAR(125)"/>
+            <column name="AIRLINE_TYPE" type="VARCHAR(50)"/>
+            <column name="IS_FERRY_OPERATOR" type="INT"/>
+            <column name="FERRY_OP_ACCOUNT_NUM" type="VARCHAR(20)"/>
+            <column name="AGENT_COMMISION" type="INT"/>
+            <column name="CHECK_TGDS_PRICING" type="INT"/>
+            <column name="AIRLINE_ID" type="INT"/>
+            <column name="USE_AIRLINE_VENDOR_LOCATOR" type="INT"/>
+            <column name="SUP_MASTER_PRICER_PUB_FARES" type="INT"/>
+            <column name="INCLUDE_IN_LINX" type="INT"/>
+            <column name="IS_E_TICKET" type="INT"/>
+            <column name="AMENDMENT_DATE" type="date"/>
+            <column name="AMENDMENT_ORDER" type="INT"/>
+            <column name="PROCESS_DATE" type="date"/>
+            <column name="PROCESS_ID" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="tim (generated)" id="1498124714374-24" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="TL_W_AIRPORTS">
+            <column name="APCODE" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="TEMPLT" type="VARCHAR(50)"/>
+            <column name="AIRPORT_NAME" type="VARCHAR(255)"/>
+            <column name="DCODE" type="VARCHAR(50)"/>
+            <column name="ICAO" type="VARCHAR(4)"/>
+            <column name="ADD1" type="VARCHAR(50)"/>
+            <column name="ADD2" type="VARCHAR(50)"/>
+            <column name="ADD3" type="VARCHAR(50)"/>
+            <column name="ADD4" type="VARCHAR(50)"/>
+            <column name="ADD5" type="VARCHAR(50)"/>
+            <column name="ADD6" type="VARCHAR(50)"/>
+            <column name="POST_CODE" type="VARCHAR(50)"/>
+            <column name="TEL_CODE" type="VARCHAR(50)"/>
+            <column name="TEL1" type="VARCHAR(50)"/>
+            <column name="TEL1_DESC" type="VARCHAR(50)"/>
+            <column name="TEL2" type="VARCHAR(50)"/>
+            <column name="TEL2_DESC" type="VARCHAR(50)"/>
+            <column name="TEL3" type="VARCHAR(50)"/>
+            <column name="TEL3_DESC" type="VARCHAR(50)"/>
+            <column name="FAX1" type="VARCHAR(50)"/>
+            <column name="FAX1_DESC" type="VARCHAR(50)"/>
+            <column name="FAX2" type="VARCHAR(50)"/>
+            <column name="FAX2_DESC" type="VARCHAR(50)"/>
+            <column name="FAX3" type="VARCHAR(50)"/>
+            <column name="FAX3_DESC" type="VARCHAR(50)"/>
+            <column name="TLX1" type="VARCHAR(50)"/>
+            <column name="TLX1_DESC" type="VARCHAR(50)"/>
+            <column name="TLX2" type="VARCHAR(50)"/>
+            <column name="TLX2_DESC" type="VARCHAR(50)"/>
+            <column name="TLX3" type="VARCHAR(50)"/>
+            <column name="TLX3_DESC" type="VARCHAR(50)"/>
+            <column name="NOTE" type="VARCHAR(50)"/>
+            <column name="CDATE" type="date"/>
+            <column name="MDATE" type="date"/>
+            <column name="DOMESTIC" type="VARCHAR(255)"/>
+            <column name="TAX_VALUE" type="INT"/>
+            <column name="TAX_CODE" type="VARCHAR(50)"/>
+            <column name="GMT_VAR" type="VARCHAR(50)"/>
+            <column name="COMMENTS" type="VARCHAR(4000)"/>
+            <column name="REGION" type="VARCHAR(50)"/>
+            <column name="USE_TOMS" type="INT"/>
+            <column name="SLIP_ACCOM_TIME" type="date"/>
+            <column name="SHORT_NAME" type="VARCHAR(100)"/>
+            <column name="AIRPORT_ID" type="INT"/>
+            <column name="SLIP_ACCOM_DP_ALWAYS" type="INT"/>
+            <column name="MULTI_TERMINAL" type="INT"/>
+            <column name="CHECK_OUT_TIME" type="date"/>
+            <column name="SLIP_FLIGHT" type="INT"/>
+            <column name="SLIP_DAYS" type="INT"/>
+            <column name="SLIP_TIME" type="date"/>
+            <column name="AMENDMENT_DATE" type="date"/>
+            <column name="AMENDMENT_ORDER" type="INT"/>
+            <column name="PROCESS_DATE" type="date"/>
+            <column name="PROCESS_ID" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="tim (generated)" id="1498124714374-25" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="TL_W_BOOKEDACCOMMODATION">
+            <column name="BOOKING_REF" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="NAME" type="VARCHAR(100)"/>
+            <column name="ROOM_TYPE" type="VARCHAR(50)"/>
+            <column name="BOOKED_ACCOM_KEY" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ROOMS" type="INT"/>
+            <column name="START_DATE" type="date"/>
+            <column name="END_DATE" type="date"/>
+            <column name="NIGHTS" type="INT"/>
+            <column name="BOOKING_COMMENT" type="VARCHAR(255)"/>
+            <column name="BOARD_BASIS" type="VARCHAR(255)"/>
+            <column name="TYPE" type="VARCHAR(50)"/>
+            <column name="RATING" type="VARCHAR(50)"/>
+            <column name="RESORT" type="VARCHAR(50)"/>
+            <column name="PRODUCT" type="VARCHAR(50)"/>
+            <column name="ACCOM_COMMENT" type="VARCHAR(4000)"/>
+            <column name="GENERIC_TYPE" type="VARCHAR(20)"/>
+            <column name="GENERIC_DESCRIPTION" type="VARCHAR(255)"/>
+            <column name="NUM_ADULTS" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="NUM_CHILDREN" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="NUM_INFANTS" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SUPPLIER_CODE" type="VARCHAR(50)"/>
+            <column name="SUPPLIER_NAME" type="VARCHAR(50)"/>
+            <column name="CONFIRMATION_REF" type="VARCHAR(255)"/>
+            <column name="HUCODE" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="HCODE" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="STATUS" type="VARCHAR(10)"/>
+            <column name="AMENDMENT_DATE" type="date"/>
+            <column name="AMENDMENT_ORDER" type="INT"/>
+            <column name="PROCESS_DATE" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PROCESS_RECORD_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="tim (generated)" id="1498124714374-26" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="TL_W_BOOKEDCARHIRE">
+            <column name="BOOKING_REF" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="START_DATE" type="date"/>
+            <column name="END_DATE" type="date"/>
+            <column name="QUANTITY" type="INT"/>
+            <column name="CAR_HIRE" type="VARCHAR(255)"/>
+            <column name="NOTE" type="VARCHAR(4000)"/>
+            <column name="PRICE" type="DECIMAL(19, 4)"/>
+            <column name="PICKUP" type="VARCHAR(255)"/>
+            <column name="DROPOFF" type="VARCHAR(255)"/>
+            <column name="CAR_GROUP" type="VARCHAR(255)"/>
+            <column name="CAR_HIRE_COMMENT" type="VARCHAR(4000)"/>
+            <column name="SUPPLIER_NAME" type="VARCHAR(50)"/>
+            <column name="SUPPLIER_CODE" type="VARCHAR(50)"/>
+            <column name="AMENDMENT_DATE" type="date"/>
+            <column name="AMENDMENT_ORDER" type="INT"/>
+            <column name="PROCESS_DATE" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PROCESS_RECORD_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="tim (generated)" id="1498124714374-27" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="TL_W_BOOKEDEXTRAS">
+            <column name="BOOKING_REF" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="START_DATE" type="date"/>
+            <column name="END_DATE" type="date"/>
+            <column name="QUANTITY" type="INT"/>
+            <column name="EXTRA" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="NOTE" type="VARCHAR(4000)"/>
+            <column name="PRICE" type="DECIMAL(19, 4)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="TYPE" type="VARCHAR(50)"/>
+            <column name="DISPLAY_ON_ITINERARY" type="INT"/>
+            <column name="DISPLAY_ON_INVOICE" type="INT"/>
+            <column name="DISPLAY_ON_ROOMING_LIST" type="INT"/>
+            <column name="DISPLAY_ON_FLIGHT_MANIFEST" type="INT"/>
+            <column name="DISPLAY_ON_RESORT_REPORT" type="INT"/>
+            <column name="IS_SUPPLEMENT" type="VARCHAR(3)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SUPPLEMENT_TYPE" type="VARCHAR(6)"/>
+            <column name="SUPPLEMENT_BOOKING_LINK" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SUPPLEMENT_MASTER_LINK" type="VARCHAR(255)"/>
+            <column name="SUPPLIER_CODE" type="VARCHAR(50)"/>
+            <column name="SUPPLIER_NAME" type="VARCHAR(50)"/>
+            <column name="CONFIRMATION_REF" type="VARCHAR(255)"/>
+            <column name="STATUS" type="VARCHAR(10)"/>
+            <column name="DATE_ADDED" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="AMENDMENT_DATE" type="date"/>
+            <column name="AMENDMENT_ORDER" type="INT"/>
+            <column name="PROCESS_DATE" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PROCESS_RECORD_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="tim (generated)" id="1498124714374-28" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="TL_W_BOOKEDFLIGHTS">
+            <column name="BOOKING_REF" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="FLIGHT_CODE" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SEATS" type="INT"/>
+            <column name="DEPARTURE_DATE" type="date"/>
+            <column name="DEPARTURE_TIME" type="date"/>
+            <column name="DEPARTURE_AIRPORT" type="VARCHAR(50)"/>
+            <column name="DEPARTURE_AIRPORT_NAME" type="VARCHAR(255)"/>
+            <column name="ARRIVAL_DATE" type="date"/>
+            <column name="ARRIVAL_TIME" type="date"/>
+            <column name="ARRIVAL_AIRPORT" type="VARCHAR(50)"/>
+            <column name="ARRIVAL_AIRPORT_NAME" type="VARCHAR(255)"/>
+            <column name="AIRLINE" type="VARCHAR(50)"/>
+            <column name="FLIGHT_NUMBER" type="VARCHAR(50)"/>
+            <column name="FLIGHT_TYPE" type="VARCHAR(50)"/>
+            <column name="BAGGAGE_ALLOWANCE" type="INT"/>
+            <column name="AIRCRAFT" type="VARCHAR(50)"/>
+            <column name="NOTES" type="VARCHAR(255)"/>
+            <column name="TERMINAL" type="VARCHAR(255)"/>
+            <column name="BOOKED_CONTRACT_KEY" type="INT"/>
+            <column name="CONTRACT_ID" type="INT"/>
+            <column name="AMENDMENT_DATE" type="date"/>
+            <column name="AMENDMENT_ORDER" type="INT"/>
+            <column name="PROCESS_DATE" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PROCESS_RECORD_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="tim (generated)" id="1498124714374-29" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="TL_W_BOOKEDTRANSFERS">
+            <column name="BOOKING_REF" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ADULTS" type="INT"/>
+            <column name="CHILDREN" type="INT"/>
+            <column name="DEP_LOCATION" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ARR_LOCATION" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="VEHICLE" type="VARCHAR(255)"/>
+            <column name="SUPPLIER" type="VARCHAR(50)"/>
+            <column name="START_DATE" type="date"/>
+            <column name="TRANSFER_TIME" type="date"/>
+            <column name="NOTE" type="VARCHAR(1000)"/>
+            <column name="AMENDMENT_DATE" type="date"/>
+            <column name="AMENDMENT_ORDER" type="INT"/>
+            <column name="PROCESS_DATE" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PROCESS_RECORD_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="tim (generated)" id="1498124714374-30" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="TL_W_BOOKINGCOMMENTS">
+            <column name="COMMENTID" type="BIGINT"/>
+            <column name="RUN_DATE" type="date"/>
+            <column name="AMENDMENT_DATE" type="date"/>
+            <column name="AMENDMENT_ORDER" type="INT"/>
+            <column name="BOOKING_REF" type="VARCHAR(50)"/>
+            <column name="BOOKING_DATE" type="date"/>
+            <column name="COMMENT_TYPE" type="VARCHAR(50)"/>
+            <column name="COMMENT_DATE" type="date"/>
+            <column name="COMMENT_TEXT" type="VARCHAR(4000)"/>
+            <column name="ADDED_BY" type="VARCHAR(50)"/>
+            <column name="DISPLAY_ON_INVOICE" type="INT"/>
+            <column name="PROCESS_DATE" type="date"/>
+            <column name="PROCESS_RECORD_ID" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="tim (generated)" id="1498124714374-31" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="TL_W_BOOKINGCOSTS">
+            <column name="BOOKING_REF" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="BOOKING_TIMESTAMP" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="BOOKING_TYPE" type="VARCHAR(50)"/>
+            <column name="DESCRIPTION" type="VARCHAR(250)"/>
+            <column name="SUPPLIER_COST" type="DECIMAL(19, 4)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SUPPLIER_CURRENCY" type="VARCHAR(255)"/>
+            <column name="BOOKING_COST" type="DECIMAL(19, 4)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CODE" type="VARCHAR(255)"/>
+            <column name="MAN_UPDATE" type="VARCHAR(3)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="RECORD_ID" type="INT"/>
+            <column name="DATE_DUE" type="date"/>
+            <column name="SUPPLIER" type="VARCHAR(50)"/>
+            <column name="INVOICED_AMOUNT" type="DECIMAL(19, 4)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="AMENDMENT_DATE" type="date"/>
+            <column name="AMENDMENT_ORDER" type="INT"/>
+            <column name="PROCESS_DATE" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PROCESS_RECORD_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="tim (generated)" id="1498124714374-32" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="TL_W_BOOKINGPRICES">
+            <column name="BOOKING_REF" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="BOOKING_TYPE" type="VARCHAR(13)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESCRIPTION" type="VARCHAR(736)"/>
+            <column name="RECORD_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PRICING_TYPE" type="VARCHAR(255)"/>
+            <column name="CODE" type="VARCHAR(255)"/>
+            <column name="SUPPLIER" type="VARCHAR(50)"/>
+            <column name="NUMBER_OF_ADULTS" type="INT"/>
+            <column name="NUMBER_OF_CHILDREN" type="INT"/>
+            <column name="NUMBER_OF_INFANTS" type="INT"/>
+            <column name="NUMBER_OF_UNITS" type="INT"/>
+            <column name="ADULT_PRICE" type="DECIMAL(19, 4)"/>
+            <column name="CHILD_PRICE" type="DECIMAL(19, 4)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="INFANT_PRICE" type="DECIMAL(19, 4)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="UNIT_PRICE" type="DECIMAL(19, 4)"/>
+            <column name="TOTAL_PRICE" type="DECIMAL(19, 4)"/>
+            <column name="VAT_RATE_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="AMENDMENT_DATE" type="date"/>
+            <column name="AMENDMENT_ORDER" type="INT"/>
+            <column name="PROCESS_DATE" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PROCESS_RECORD_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="tim (generated)" id="1498124714374-33" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="TL_W_BOOKINGS">
+            <column name="BOOKING_REF" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="LEAD_NAME" type="VARCHAR(50)"/>
+            <column name="CLIENT_REF" type="VARCHAR(50)"/>
+            <column name="BOOKING_STATUS" type="VARCHAR(9)"/>
+            <column name="OPTION_DATE" type="date"/>
+            <column name="DEPARTURE_DATE" type="date"/>
+            <column name="BALANCE_DUE_DATE" type="date"/>
+            <column name="CURRENCY" type="VARCHAR(255)"/>
+            <column name="TOTAL_REVENUE" type="DECIMAL(19, 4)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="COMMISSION" type="DECIMAL(19, 4)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="VAT_ON_COMMISSION" type="DECIMAL(19, 4)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="TOTAL_RECEIVED" type="DECIMAL(19, 4)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ADJUSTMENT" type="DECIMAL(19, 4)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="VAT_ON_SALES" type="DECIMAL(19, 4)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="TOTAL_COSTS" type="DECIMAL(19, 4)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="BALANCE_DUE" type="DECIMAL(19, 4)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ADULTS" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CHILDREN" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="INFANTS" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PRODUCT" type="VARCHAR(255)"/>
+            <column name="PRODUCT_CODE" type="VARCHAR(50)"/>
+            <column name="BOOKED_BY" type="VARCHAR(255)"/>
+            <column name="CONFIRM_DATE" type="date"/>
+            <column name="DURATION" type="INT"/>
+            <column name="CANCELLATION_DATE" type="date"/>
+            <column name="BOOKING_SOURCE" type="VARCHAR(255)"/>
+            <column name="AMENDMENT_DATE" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="AMENDMENT_ORDER" type="INT"/>
+            <column name="PROCESS_DATE" type="date"/>
+            <column name="PROCESS_RECORD_ID" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="tim (generated)" id="1498124714374-34" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="TL_W_BOOKINGS_DIM_DATA">
+            <column name="BOOKING_REF" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="BOOKING_VERSION_DATE" type="date"/>
+            <column name="BOOKING_TYPE" type="VARCHAR(22)"/>
+            <column name="PRIMARY_ACCOMMODATION_HCODE" type="VARCHAR(50)"/>
+            <column name="PRIMARY_ACCOMMODATION_RATING" type="VARCHAR(50)"/>
+            <column name="PRIMARY_ACCOMMODATION_RESORT" type="VARCHAR(50)"/>
+            <column name="PRIMARY_ACCOMMODATION_REGION" type="VARCHAR(50)"/>
+            <column name="PRIMARY_ACCOMMODATION_COUNTRY" type="VARCHAR(255)"/>
+            <column name="TURNAROUND_GATEWAY" type="VARCHAR(3)"/>
+            <column name="TURNAROUND_COUNTRY" type="VARCHAR(200)"/>
+            <column name="HAUL_TYPE" type="VARCHAR(2)"/>
+            <column name="DURATION" type="INT"/>
+            <column name="VERSION_NUMBER" type="INT"/>
+            <column name="BOOKING_DATE_FLAG" type="VARCHAR(1)"/>
+            <column name="MC_FLAG" type="VARCHAR(1)"/>
+            <column name="PRIMARY_AIRLINE" type="VARCHAR(50)"/>
+            <column name="BOOKING_STATUS" type="VARCHAR(9)"/>
+            <column name="PRIMARY_ACCOMMODATION_HOTEL" type="VARCHAR(150)"/>
+            <column name="PRIMARY_FLIGHT_CLASS_CODE" type="VARCHAR(50)"/>
+            <column name="PRIMARY_FLIGHT_CLASS_DESC" type="VARCHAR(50)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="tim (generated)" id="1498124714374-35" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="TL_W_BOOKINGS_TOMS">
+            <column name="BOOKING_REF" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="TOTAL_COSTS" type="DECIMAL(19, 4)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="TOTAL_REVENUE" type="DECIMAL(19, 4)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="COMMISSION" type="DECIMAL(19, 4)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MARGIN" type="DECIMAL(20, 4)"/>
+            <column name="NET_MARGIN" type="DECIMAL(21, 4)"/>
+            <column name="RESORT" type="VARCHAR(50)"/>
+            <column name="SUBREGION" type="VARCHAR(255)"/>
+            <column name="REGION" type="VARCHAR(50)"/>
+            <column name="COUNTRY" type="VARCHAR(255)"/>
+            <column name="CONTINENT" type="VARCHAR(50)"/>
+            <column name="USE_TOMS" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="TOMS_RATE" type="INT"/>
+            <column name="DEPARTURE_AIRPORT" type="VARCHAR(255)"/>
+            <column name="ARRIVAL_AIRPORT" type="VARCHAR(255)"/>
+            <column name="TOMS_VALUE" type="DECIMAL(19, 4)"/>
+            <column name="TOTAL_COST_AFTER_TOMS" type="DECIMAL(19, 4)"/>
+            <column name="GROSS_MARGIN_AFTER_TOM_PCT" type="DECIMAL(19, 4)"/>
+            <column name="NET_MARGIN_AFTER_TOMS_PCT" type="DECIMAL(19, 4)"/>
+            <column name="TOMS_AMOUNT" type="DECIMAL(19, 4)"/>
+            <column name="AMENDMENT_DATE" type="date"/>
+            <column name="AMENDMENT_ORDER" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PROCESS_DATE" type="date"/>
+            <column name="PROCESS_ID" type="INT"/>
+            <column name="OPTION_DATE" type="date"/>
+            <column name="CONFIRM_DATE" type="date"/>
+            <column name="CANCELLATION_DATE" type="date"/>
+            <column name="PRODUCT_CODE" type="VARCHAR(50)"/>
+            <column name="PRODUCT" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="tim (generated)" id="1498124714374-36" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="TL_W_FLIGHTCONTRACTS">
+            <column name="FLIGHT_CODE" type="VARCHAR(50)"/>
+            <column name="SUPPLIER_CODE" type="VARCHAR(50)"/>
+            <column name="SEATS_ALLOCATED" type="INT"/>
+            <column name="CONTRACT_TYPE" type="VARCHAR(50)"/>
+            <column name="RELEASE_DATE" type="date"/>
+            <column name="SEATS_BOOKED" type="INT"/>
+            <column name="SEATS_AVAILABLE" type="INT"/>
+            <column name="CONTRACT_ID" type="INT"/>
+            <column name="ADULT_COST" type="DECIMAL(19, 4)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CHILD_COST" type="DECIMAL(19, 4)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="INFANT_COST" type="DECIMAL(19, 4)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ADULT_PRICE" type="DECIMAL(19, 4)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CHILD_PRICE" type="DECIMAL(19, 4)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="INFANT_PRICE" type="DECIMAL(19, 4)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="LOCAL_CURRENCY" type="VARCHAR(255)"/>
+            <column name="DEFAULT_COST_RECORD" type="INT"/>
+            <column name="IS_GAL" type="INT"/>
+            <column name="AIRLINE_PNR" type="VARCHAR(50)"/>
+            <column name="CRSPNR" type="VARCHAR(50)"/>
+            <column name="RELEASE_DATE2" type="date"/>
+            <column name="FLIGHT_CLASS" type="VARCHAR(50)"/>
+            <column name="DURATION" type="INT"/>
+            <column name="TICKETED_DEADLINE_DATE" type="date"/>
+            <column name="IS_TICKETED" type="INT"/>
+            <column name="TICKETED_DATE" type="date"/>
+            <column name="AMENDMENT_DATE" type="date"/>
+            <column name="AMENDMENT_ORDER" type="INT"/>
+            <column name="PROCESS_DATE" type="date"/>
+            <column name="PROCESS_RECORD_ID" type="INT"/>
+            <column name="GDS_SOURCE" type="VARCHAR(3)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="tim (generated)" id="1498124714374-37" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="TL_W_HOLDBACKS_NEW">
+            <column name="PRODUCT" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PRODUCT_CODE" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="BOOKING_DATE_FROM" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="BOOKING_DATE_TO" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DEPARTURE_MONTH" type="VARCHAR(10)"/>
+            <column name="DEPARTURE_YEAR" type="INT"/>
+            <column name="DEPARTURE_START_DATE" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DEPARTURE_END_DATE" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="HOLD_BACK_AMOUNT" type="DECIMAL(19, 4)"/>
+            <column name="CURRENCY" type="VARCHAR(15)"/>
+            <column name="VALID_FROM" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="VALID_TO" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ADDED_BY" type="VARCHAR(20)"/>
+            <column name="ADDED_DATE" type="date"/>
+            <column name="AMENDED_BY" type="VARCHAR(20)"/>
+            <column name="AMENDED_DATE" type="date"/>
+            <column name="CANX_RATE" type="DECIMAL(19, 4)"/>
+            <column name="PKGE_RATE" type="DECIMAL(19, 4)"/>
+            <column name="FO_RATE" type="DECIMAL(19, 4)"/>
+            <column name="AO_RATE" type="DECIMAL(19, 4)"/>
+            <column name="EXTRA_RATE" type="DECIMAL(19, 4)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="tim (generated)" id="1498124714374-38" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="TL_W_PASSENGERS">
+            <column name="PASSENGER_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="BOOKING_REF" type="VARCHAR(50)"/>
+            <column name="TITLE" type="VARCHAR(50)"/>
+            <column name="INITIAL_NAME" type="VARCHAR(50)"/>
+            <column name="NAME" type="VARCHAR(50)"/>
+            <column name="AGE" type="INT"/>
+            <column name="LEAD" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PRICE" type="DECIMAL(19, 4)"/>
+            <column name="NOTE" type="VARCHAR(4000)"/>
+            <column name="CLIENT_REF" type="VARCHAR(50)"/>
+            <column name="PASSENGER_TYPE" type="VARCHAR(6)"/>
+            <column name="GENDER_TYPE" type="VARCHAR(6)"/>
+            <column name="EXECUTIVE_NO" type="VARCHAR(50)"/>
+            <column name="AMENDMENT_DATE" type="date"/>
+            <column name="AMENDMENT_ORDER" type="INT"/>
+            <column name="PROCESS_DATE" type="date"/>
+            <column name="PROCESS_RECORD_ID" type="INT"/>
+            <column name="DOB" type="date"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="tim (generated)" id="1498124714374-39" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="TL_W_RESORTREGIONCOUNTRYVIEW">
+            <column name="RESORT" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SUBREGION" type="VARCHAR(255)"/>
+            <column name="REGION" type="VARCHAR(50)"/>
+            <column name="COUNTRY" type="VARCHAR(255)"/>
+            <column name="CONTINENT" type="VARCHAR(50)"/>
+            <column name="AMENDMENT_DATE" type="date"/>
+            <column name="AMENDMENT_ORDER" type="INT"/>
+            <column name="PROCESS_DATE" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PROCESS_RECORD_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="tim (generated)" id="1498124714374-40" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="T_TL_W_AGENCY">
+            <column name="HYPER_FRANCHISE_SHOP_FLAG" type="VARCHAR(1)"/>
+            <column name="HYPER_SHOP_FLAG" type="VARCHAR(1)"/>
+            <column name="CLIENT_REF" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ABTA" type="VARCHAR(50)"/>
+            <column name="FIRST_NAME" type="VARCHAR(50)"/>
+            <column name="LAST_NAME" type="VARCHAR(255)"/>
+            <column name="TITLE" type="VARCHAR(50)"/>
+            <column name="ADDRESS_1" type="VARCHAR(50)"/>
+            <column name="ADDRESS_2" type="VARCHAR(50)"/>
+            <column name="ADDRESS_3" type="VARCHAR(50)"/>
+            <column name="TOWN_CITY" type="VARCHAR(50)"/>
+            <column name="COUNTY" type="VARCHAR(50)"/>
+            <column name="COUNTRY" type="VARCHAR(50)"/>
+            <column name="POSTCODE" type="VARCHAR(50)"/>
+            <column name="COMMISSION_GROUP" type="VARCHAR(255)"/>
+            <column name="PAYMENT_GROUP" type="VARCHAR(255)"/>
+            <column name="MASTER_GROUP" type="VARCHAR(255)"/>
+            <column name="PASSWORD" type="VARCHAR(50)"/>
+            <column name="AMENDMENT_DATE" type="date"/>
+            <column name="AMENDMENT_ORDER" type="INT"/>
+            <column name="PROCESS_DATE" type="date"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

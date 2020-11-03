@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+xmlns:html="http://www.w3.org/TR/REC-html40">
+<Worksheet ss:Name="Table1">
+	<Table>
+		<Column ss:Index="2" ss:AutoFitWidth="0" ss:Width="110"/>
+		<Column ss:Index="3" ss:AutoFitWidth="0" ss:Width="110"/>
+		<Row>
+			<Cell><Data ss:Type="String">SOURCE_SYSTEM_ID</Data></Cell>
+			<Cell><Data ss:Type="String">SOURCE_SYSTEM_NAME</Data></Cell>
+			<Cell><Data ss:Type="String">SOURCE_TABLE</Data></Cell>
+		</Row>
+
+		<Row>
+			<Cell><Data ss:Type="Number">1</Data></Cell>
+			<Cell><Data ss:Type="String">TRAVELINK</Data></Cell>
+			<Cell><Data ss:Type="String">AGENCY</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">2</Data></Cell>
+			<Cell><Data ss:Type="String">TRAVELINK</Data></Cell>
+			<Cell><Data ss:Type="String">BOOKINGS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">3</Data></Cell>
+			<Cell><Data ss:Type="String">TRAVELINK</Data></Cell>
+			<Cell><Data ss:Type="String">SUPPLIERS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">4</Data></Cell>
+			<Cell><Data ss:Type="String">TRAVELINK</Data></Cell>
+			<Cell><Data ss:Type="String">FLIGHTS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">5</Data></Cell>
+			<Cell><Data ss:Type="String">TRAVELINK</Data></Cell>
+			<Cell><Data ss:Type="String">AGENCYGROUP</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">6</Data></Cell>
+			<Cell><Data ss:Type="String">TRAVELINK</Data></Cell>
+			<Cell><Data ss:Type="String">PASSENGERS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">7</Data></Cell>
+			<Cell><Data ss:Type="String">TRAVELINK</Data></Cell>
+			<Cell><Data ss:Type="String">SUBREGIONS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">8</Data></Cell>
+			<Cell><Data ss:Type="String">TRAVELINK</Data></Cell>
+			<Cell><Data ss:Type="String">COUNTRIES</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">9</Data></Cell>
+			<Cell><Data ss:Type="String">TRAVELINK</Data></Cell>
+			<Cell><Data ss:Type="String">HOLIDAYMASTERRECORD</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">10</Data></Cell>
+			<Cell><Data ss:Type="String">TRAVELINK</Data></Cell>
+			<Cell><Data ss:Type="String">HOLIDAYUNITRECORD</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">11</Data></Cell>
+			<Cell><Data ss:Type="String">TRAVELINK</Data></Cell>
+			<Cell><Data ss:Type="String">FLIGHTDET</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">12</Data></Cell>
+			<Cell><Data ss:Type="String">TRAVELINK</Data></Cell>
+			<Cell><Data ss:Type="String">ACCOMDET</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">13</Data></Cell>
+			<Cell><Data ss:Type="String">TRAVELINK</Data></Cell>
+			<Cell><Data ss:Type="String">RESORT</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">14</Data></Cell>
+			<Cell><Data ss:Type="String">TRAVELINK</Data></Cell>
+			<Cell><Data ss:Type="String">VIEW_BOOKINGPRICES</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">15</Data></Cell>
+			<Cell><Data ss:Type="String">TRAVELINK</Data></Cell>
+			<Cell><Data ss:Type="String">VIEW_BOOKINGCOSTS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">16</Data></Cell>
+			<Cell><Data ss:Type="String">SPREADSHEET</Data></Cell>
+			<Cell><Data ss:Type="String">HOLDBACKS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">17</Data></Cell>
+			<Cell><Data ss:Type="String">TRAVELINK</Data></Cell>
+			<Cell><Data ss:Type="String">AIRPORT_RESORT_LINK</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">18</Data></Cell>
+			<Cell><Data ss:Type="String">TRAVELINK</Data></Cell>
+			<Cell><Data ss:Type="String">PROJECTS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">19</Data></Cell>
+			<Cell><Data ss:Type="String">TRAVELINK</Data></Cell>
+			<Cell><Data ss:Type="String">CAR_DET</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">20</Data></Cell>
+			<Cell><Data ss:Type="String">TRAVELINK</Data></Cell>
+			<Cell><Data ss:Type="String">CAR_HIRE</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">21</Data></Cell>
+			<Cell><Data ss:Type="String">TRAVELINK</Data></Cell>
+			<Cell><Data ss:Type="String">TRANSFERS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">22</Data></Cell>
+			<Cell><Data ss:Type="String">TRAVELINK</Data></Cell>
+			<Cell><Data ss:Type="String">TRANSFERS_DET</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">23</Data></Cell>
+			<Cell><Data ss:Type="String">TRAVELINK</Data></Cell>
+			<Cell><Data ss:Type="String">TOUR_DET</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">24</Data></Cell>
+			<Cell><Data ss:Type="String">TRAVELINK</Data></Cell>
+			<Cell><Data ss:Type="String">TOURSIND</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">25</Data></Cell>
+			<Cell><Data ss:Type="String">TRAVELINK</Data></Cell>
+			<Cell><Data ss:Type="String">GROUPRICING</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">26</Data></Cell>
+			<Cell><Data ss:Type="String">TRAVELINK</Data></Cell>
+			<Cell><Data ss:Type="String">BOOKINGCOSTS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">27</Data></Cell>
+			<Cell><Data ss:Type="String">TRAVELINK</Data></Cell>
+			<Cell><Data ss:Type="String">EXTRASSALES</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">28</Data></Cell>
+			<Cell><Data ss:Type="String">TRAVELINK</Data></Cell>
+			<Cell><Data ss:Type="String">BOOKINGCOMMISSION</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">29</Data></Cell>
+			<Cell><Data ss:Type="String">TRAVELINK</Data></Cell>
+			<Cell><Data ss:Type="String">VEHICLES</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">30</Data></Cell>
+			<Cell><Data ss:Type="String">TRAVELINK</Data></Cell>
+			<Cell><Data ss:Type="String">EXTRAS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">31</Data></Cell>
+			<Cell><Data ss:Type="String">TRAVELINK</Data></Cell>
+			<Cell><Data ss:Type="String">TOURBOOKINGCOMPONENTSTATUSES</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">32</Data></Cell>
+			<Cell><Data ss:Type="String">TRAVELINK</Data></Cell>
+			<Cell><Data ss:Type="String">FLIGHTCONTRACTS_DET</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">33</Data></Cell>
+			<Cell><Data ss:Type="String">TRAVELINK</Data></Cell>
+			<Cell><Data ss:Type="String">LINKPAXTOFLIGHTS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">34</Data></Cell>
+			<Cell><Data ss:Type="String">TRAVELINK</Data></Cell>
+			<Cell><Data ss:Type="String">FLIGHTCONTRACTS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">35</Data></Cell>
+			<Cell><Data ss:Type="String">TRAVELINK</Data></Cell>
+			<Cell><Data ss:Type="String">LINKPAXTOROOMS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">36</Data></Cell>
+			<Cell><Data ss:Type="String">TRAVELINK</Data></Cell>
+			<Cell><Data ss:Type="String">LINKPAXTOEXTRAS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">37</Data></Cell>
+			<Cell><Data ss:Type="String">TRAVELINK</Data></Cell>
+			<Cell><Data ss:Type="String">LINKPAXTOTOUR</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">38</Data></Cell>
+			<Cell><Data ss:Type="String">TRAVELINK</Data></Cell>
+			<Cell><Data ss:Type="String">QUOTATION</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">39</Data></Cell>
+			<Cell><Data ss:Type="String">TRAVELINK</Data></Cell>
+			<Cell><Data ss:Type="String">QUOTATIONDETAIL</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">40</Data></Cell>
+			<Cell><Data ss:Type="String">VAULT</Data></Cell>
+			<Cell><Data ss:Type="String">BUSINESS_RULE</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">41</Data></Cell>
+			<Cell><Data ss:Type="String">MANUAL</Data></Cell>
+			<Cell><Data ss:Type="String">CONSTRAINED_LIST</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">42</Data></Cell>
+			<Cell><Data ss:Type="String">TRAVELINK</Data></Cell>
+			<Cell><Data ss:Type="String">PRODUCT_MASTER</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">43</Data></Cell>
+			<Cell><Data ss:Type="String">TRAVELINK</Data></Cell>
+			<Cell><Data ss:Type="String">VIEW_EUR_MI_TOMS</Data></Cell>
+		</Row>	</Table>
+</Worksheet>
+</Workbook>
